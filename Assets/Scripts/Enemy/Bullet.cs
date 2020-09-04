@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -14,7 +13,6 @@ public class Bullet : MonoBehaviour
     public void Awake()
     {
         destination = Target.Aimpoint.position;
-
         Move();
     }
 
