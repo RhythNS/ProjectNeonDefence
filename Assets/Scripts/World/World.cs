@@ -12,6 +12,12 @@ public class World : MonoBehaviour
     public Vector2Int WorldToGrid(Vector3 worldPos) => new Vector2Int((int)(worldPos.x / tileSize.x), (int)(worldPos.y / tileSize.y));
     public Vector3 GridToWorld(Vector2Int worldPos) => new Vector3(worldPos.x * tileSize.x, worldPos.y * tileSize.y, transform.position.z);
 
+    public void Set(Fast2DArray<Tile> generated, Vector2 tileSize)
+    {
+        Tiles = generated;
+        this.tileSize = tileSize;
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (Tiles == null)
@@ -26,10 +32,9 @@ public class World : MonoBehaviour
                 Gizmos.color = Color.red;
                 Vector3 pos = transform.position;
                 pos.x = tileSize.x * x;
-                pos.y = tileSize.y * y;
+                pos.z = tileSize.y * y;
                 Gizmos.DrawWireCube(pos, size);
             }
         }
     }
-
 }
