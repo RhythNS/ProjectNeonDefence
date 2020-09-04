@@ -1,4 +1,5 @@
 ﻿using MonoNet.Util.Datatypes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
 {
     [SerializeField] private int checkRange;
     [SerializeField] private Enemy ownerEnemy;
-    [SerializeField] private int damage;
+    [SerializeField] private Bullet bulletPrefab; 
 
     [SerializeField] private float attackThreshold;
     public Tower AttackingTower => attackingTower;
@@ -24,9 +25,16 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
         {
             if (attackingTower == null || attackingTower)
                 yield return null;
-            attackingTower.Health.TakeDamage(damage);
+            ShootMissileAt(attackingTower);
             yield return new WaitForSeconds(attackThreshold);
         }
+    }
+
+    private void ShootMissileAt(Tower attackingTower)
+    {
+        //TODO Instantiate Bullet homing to attackingTower and add animation
+        Bullet spawnedBullet = Instantiate<Bullet>(bulletPrefab);
+        spawnedBullet.Target = attackingTower;
     }
 
     public void OnNewTileEntered(Tile tile)
@@ -44,9 +52,9 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
                 for (int y = 0; y < check * 2; y++)
                 {
                     currentVisitedTile = tiles.Get(currentX - check + x, currentY - check + y);
-                    if(currentVisitedTile.Tower == null)
+                    if (currentVisitedTile.Tower == null)
                     {
-                        Attack(currentVisitedTile.Tower);               
+                        Attack(currentVisitedTile.Tower);
                     }
                 }
             }
@@ -55,7 +63,6 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
 
     private void Attack(Tower tower)
     {
-        ownerEnemy.Status = Enemy.AttackStatus.Attacking;
         attackingTower = tower;
     }
 }

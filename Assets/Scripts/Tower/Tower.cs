@@ -6,6 +6,9 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
 
+    public Transform Aimpoint { get => aimpoint; private set => aimpoint = value; }
+    [SerializeField] private Transform aimpoint;
+
     public Health Health { get; private set; }
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,6 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
