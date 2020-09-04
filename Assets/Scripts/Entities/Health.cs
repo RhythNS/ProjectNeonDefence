@@ -1,23 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(IDieable))]
 public class Health : MonoBehaviour
 {
+    public int CurrentHealth { get; private set; }
+    public int MaxHealth { get; private set; }
+    public int DamageTaken => MaxHealth - CurrentHealth;
 
-    [SerializeField] private IDieable diable;
-    private int healthpoints;
-
-    public int Healthpoints => healthpoints;
     public void TakeDamage(int amount)
     {
-        healthpoints -= amount;
-        if(amount < 0)
+        CurrentHealth -= amount;
+        if(CurrentHealth <= 0)
         {
-            diable.Die();
+            GetComponent<IDieable>().Die();
         }
     }
-
-
 }

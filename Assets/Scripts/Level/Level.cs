@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Level", menuName = "NeonDefence/Level")]
 public class Level : ScriptableObject
 {
-    [SerializeField] private Vector2Int basePoint;
-    [SerializeField] private Vector2Int[] spawnPoints;
+    [SerializeField] private WorldGenSettings worldGenSettings;
+
+    [SerializeField] private Wave[] waves;
 }

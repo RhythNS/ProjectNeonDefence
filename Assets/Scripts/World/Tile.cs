@@ -12,7 +12,5 @@ public class Tile : MonoBehaviour
         CanBuildOn = canBuildOn;
         X = x;
         Y = y;
-
-
     }
 }

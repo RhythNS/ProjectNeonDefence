@@ -1,6 +1,4 @@
 ﻿using MonoNet.Util.Datatypes;
-using System.Linq;
-using System.Xml.Schema;
 using UnityEngine;
 
 public class WorldGen : MonoBehaviour
@@ -13,30 +11,26 @@ public class WorldGen : MonoBehaviour
 
     [SerializeField] private Vector2 tileSize;
 
-    [SerializeField] private float unblockablePercentange;
-    [SerializeField] private int sizeX;
-    [SerializeField] private int sizeY;
-
-    [SerializeField] private Vector2Int homePosition;
-    [SerializeField] private Vector2Int[] spawnPoints;
     [SerializeField] private Vector3 offset;
 
-    public void Generate()
+    [SerializeField] private WorldGenSettings debugSettings;
+
+    public void Generate(WorldGenSettings settings)
     {
-        Fast2DArray<Tile> tiles = new Fast2DArray<Tile>(sizeX + 1, sizeY + 1);
+        Fast2DArray<Tile> tiles = new Fast2DArray<Tile>(settings.sizeX + 1, settings.sizeY + 1);
         world = new GameObject("World").AddComponent<World>();
 
-        for (int x = 0; x < sizeX; x++)
+        for (int x = 0; x < settings.sizeX; x++)
         {
-            for (int y = 0; y < sizeY; y++)
+            for (int y = 0; y < settings.sizeY; y++)
             {
                 GameObject gameObject;
                 bool isBuildable = false;
 
                 bool isSpawnPoint = false;
-                for (int i = 0; i < spawnPoints.Length; i++)
+                for (int i = 0; i < settings.spawnPoints.Length; i++)
                 {
-                    if (spawnPoints[i].x == x && spawnPoints[i].y == y)
+                    if (settings.spawnPoints[i].x == x && settings.spawnPoints[i].y == y)
                     {
                         isSpawnPoint = true;
                         break;
@@ -45,11 +39,11 @@ public class WorldGen : MonoBehaviour
 
                 if (isSpawnPoint == true)
                     gameObject = Instantiate(spawnTiles, world.transform);
-                else if (x == 0 || x == sizeX - 1 || y == 0 || y == sizeY - 1)
+                else if (x == 0 || x == settings.sizeX - 1 || y == 0 || y == settings.sizeY - 1)
                     gameObject = Instantiate(ArrayUtil<GameObject>.RandomElement(borderTiles), world.transform);
-                else if (homePosition.x == x && homePosition.y == y)
+                else if (settings.homePosition.x == x && settings.homePosition.y == y)
                     gameObject = Instantiate(homeTile, world.transform);
-                else if (isBuildable = Random.value < unblockablePercentange)
+                else if (isBuildable = Random.value < settings.unblockablePercentange)
                     gameObject = Instantiate(ArrayUtil<GameObject>.RandomElement(unbuildableTiles), world.transform);
                 else
                     gameObject = Instantiate(ArrayUtil<GameObject>.RandomElement(buildableTiles), world.transform);
@@ -63,7 +57,7 @@ public class WorldGen : MonoBehaviour
 
                 gameObject.transform.position = pos;
 
-                // TODO: PLEASE REMOVE THIS AFTER REPLACING THE MODELS:
+                // TODO: PLEASE REMOVE THIS AFTER REPLACING THE MODELS
                 gameObject.transform.localScale = new Vector3(tileSize.x, 1, tileSize.y);
             }
         }
@@ -81,7 +75,7 @@ public class WorldGen : MonoBehaviour
         {
             if (world != null)
                 Destroy(world.gameObject);
-            Generate();
+            Generate(debugSettings);
         }
     }
 }
