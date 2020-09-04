@@ -15,7 +15,7 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
 
     void Start()
     {
-        UpdateAttack();
+        StartCoroutine(UpdateAttack());
     }
 
     private IEnumerator UpdateAttack()
@@ -50,6 +50,8 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
         Tile currentVisitedTile;
         int currentX = currentGridPosition.x;
         int currentY = currentGridPosition.y;
+       
+
         for (int check = 0; check < range; check++)
         {
             for (int x = 0; x < check * 2; x++)
