@@ -1,25 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Behaviour))]
 [RequireComponent(typeof(Health))]
 
 
-public class Enemy : MonoBehaviour
+public class Enemy : Entity
 {
 
-    public Health Health;
     private List<Tile> path;
 
     public AttackStatus Status;
 
     [SerializeField] private Behaviour behaviour;
-    
-    
-
-    
-    
 
     public void Awake()
     {
@@ -28,12 +21,12 @@ public class Enemy : MonoBehaviour
 
     public void Start()
     {
-        
+
     }
 
     public void Update()
     {
-        
+
     }
 
 
