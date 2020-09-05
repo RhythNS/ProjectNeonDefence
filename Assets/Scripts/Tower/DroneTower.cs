@@ -7,7 +7,7 @@ public class DroneTower : Tower
     public float timeBetweenShots;
     public float currentCooldown;
     
-    public Drone dronePrefab;
+    public GameObject dronePrefab;
     public float droneSpeed;
     public int droneHealth;
     public int droneDamage;
@@ -48,7 +48,7 @@ public class DroneTower : Tower
         if (targetEnemy)
         {
             currentCooldown = 0;
-            Drone drone = Instantiate(dronePrefab, transform.position, Quaternion.identity);
+            Drone drone = Instantiate(dronePrefab, transform.position, Quaternion.identity).AddComponent<Drone>();
             drone.Set(this, targetEnemy, droneSpeed, droneHealth, droneDamage, droneDamagePerSeconds);
             drone.targetEnemy = targetEnemy;
         }

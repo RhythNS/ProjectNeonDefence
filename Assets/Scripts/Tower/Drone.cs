@@ -22,7 +22,7 @@ public class Drone : MonoBehaviour, ITargetable
     }
 
     private List<Tile> path;
-    private Tile targetWalkingTile;
+    private Tile currentTile, targetWalkingTile;
     private int positionOnPath = 0;
     private Vector3 lastTilePassed;
 
@@ -38,7 +38,13 @@ public class Drone : MonoBehaviour, ITargetable
 
     private void OnDestroy()
     {
+        parentTower.ActiveDrones.Remove(this);
         GameManager.Instance.AliveDrones.Remove(this);
+
+        if (currentTile.blockingTargets.Contains(this) == true)
+            currentTile.blockingTargets.Remove(this);
+        if (targetWalkingTile.blockingTargets.Contains(this) == true)
+            targetWalkingTile.blockingTargets.Remove(this);
     }
 
     public Vector3 GetCurrentPosition() => transform.position;
@@ -80,21 +86,29 @@ public class Drone : MonoBehaviour, ITargetable
             if (percentage >= 0.5 && !enteredNewTile)
             {
                 enteredNewTile = true;
+
+                if (currentTile.blockingTargets.Contains(this) == true)
+                    currentTile.blockingTargets.Remove(this);
+                if (targetWalkingTile.blockingTargets.Contains(this) == false)
+                    targetWalkingTile.blockingTargets.Add(this);
             }
             if (percentage >= 1)
             {
-                OnWorldChange();
                 if (++positionOnPath >= path.Count)
                 {
                     yield return new WaitForSeconds(1);
                 }
+
                 if (newPathAvailable)
                 {
                     path = alternativePath;
                     newPathAvailable = false;
                     positionOnPath = 0;
                 }
-                SetNewDestination(false);
+                else
+                    OnWorldChange();
+
+                //SetNewDestination(false);
                 timer = 0;
                 enteredNewTile = false;
             }
@@ -117,9 +131,15 @@ public class Drone : MonoBehaviour, ITargetable
 
         Vector2Int currPosition = World.Instance.WorldToGrid(transform.position);
         Vector2Int targetPosition = World.Instance.WorldToGrid(targetEnemy.transform.position);
+        currentTile = World.Instance.Tiles.Get(currPosition.x, currPosition.y);
+        targetWalkingTile = World.Instance.Tiles.Get(targetPosition.x, targetPosition.y);
+
+        if (currentTile.blockingTargets.Contains(this) == false)
+            currentTile.blockingTargets.Add(this);
+
         alternativePath = new SimpleAStar(TowerManager.Instance.GetLocationsOfTowers()).GeneratePath(
-            World.Instance.Tiles.Get(currPosition.x, currPosition.y),
-            World.Instance.Tiles.Get(targetPosition.x, targetPosition.y));
+            currentTile,
+            targetWalkingTile);
 
         if (path[positionOnPath].Tower == null && alternativePath[1] == path[positionOnPath])
         {
