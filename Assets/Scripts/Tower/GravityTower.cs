@@ -31,6 +31,7 @@ public class GravityTower : Tower
         if (targetEnemy != null)
         {
             var newBoolet = Instantiate(basedBullet);
+            newBoolet.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
             newBoolet.Target = targetEnemy;
         }
         

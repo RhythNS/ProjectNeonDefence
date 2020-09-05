@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +11,6 @@ using UnityEngine;
 /// </summary>
 public class AOEBullet : AbstractBullet
 {
-   
-
-   
-
     // The damage all the other enemies in range of the aoe get inflicted.
     public int aoeDamage = 2;
 
@@ -26,30 +23,39 @@ public class AOEBullet : AbstractBullet
         dir = dir.normalized;
         while (true)
         {
+            if (Target == null)
+            {
+                Destroy(gameObject);
+                break;
+            }
+
             this.transform.position += dir * Time.deltaTime * speed;
             yield return null;
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+
+    public void OnTriggerEnter(Collider other)
     {
-        // If collided with the target tower...
-        if (collision.gameObject.GetComponent<Tower>() == Target)
+        Debug.Log("Collided! " + other.gameObject);
+        // If collided with the target...
+        if (other.gameObject.GetComponent<ITargetable>() == Target)
         {
-            Debug.Log("Collidede with target!");
+            Debug.Log("Collided with target!");
             // ... give the target tower damage,...   
             Target.GetGameObject().GetComponent<Health>().TakeDamage(damage);
-            
+
             // ... get all other towers and damange them as well.
             Collider[] aoeColliders = Physics.OverlapSphere(Target.GetCurrentPosition(), aoeRadius);
             for (var i = 0; i < aoeColliders.Length; i++)
             {
                 var collider = aoeColliders[i];
-                if (collider.TryGetComponent<Tower>(out Tower tower))
+                if (collider.TryGetComponent<ITargetable>(out ITargetable tower))
                 {
-                    tower.GetComponent<Health>().TakeDamage(aoeDamage);
+                    tower.GetGameObject().GetComponent<Health>().TakeDamage(aoeDamage);
                 }
             }
+
             Destroy(gameObject);
         }
     }
