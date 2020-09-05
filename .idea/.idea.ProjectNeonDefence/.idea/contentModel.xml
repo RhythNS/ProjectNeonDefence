@@ -23,6 +23,9 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Dicts" t="Include">
+            <e p="TowerDict.cs" t="Include" />
+          </e>
           <e p="Enemy" t="Include">
             <e p="AbstractBullet.cs" t="Include" />
             <e p="AOEBullet.cs" t="Include" />
@@ -65,6 +68,7 @@
             <e p="GameConstants.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="GravityTowerManager.cs" t="Include" />
+            <e p="MoneyManager.cs" t="Include" />
             <e p="TowerManager.cs" t="Include" />
             <e p="WaveEndChecker.cs" t="Include" />
             <e p="WaveEndTimer.cs" t="Include" />
@@ -74,10 +78,15 @@
           <e p="Tower" t="Include">
             <e p="GravityTower.cs" t="Include" />
             <e p="GravityTowerDebugBehaviour.cs" t="Include" />
+            <e p="MoneyTower.cs" t="Include" />
             <e p="Tower.cs" t="Include" />
             <e p="TowerDebugBehaviour.cs" t="Include" />
             <e p="TowerDiable.cs" t="Include" />
             <e p="TowerSelectable.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="ChangeTurrent.cs" t="Include" />
+            <e p="UIManager.cs" t="Include" />
           </e>
           <e p="Utils" t="Include">
             <e p="DataTypes" t="Include">

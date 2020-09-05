@@ -139,3 +139,4 @@ MonoBehaviour:
   basedBullet: {fileID: -8537914994819119627, guid: 4af8b6159d25fc6448b9cbdba2ae1dcd,
     type: 3}
   currentCooldown: 0
+  cooldownBetweenShots: 0.5

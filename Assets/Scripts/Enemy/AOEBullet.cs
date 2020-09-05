@@ -37,11 +37,9 @@ public class AOEBullet : AbstractBullet
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collided! " + other.gameObject);
         // If collided with the target...
         if (other.gameObject.GetComponent<ITargetable>() == Target)
         {
-            Debug.Log("Collided with target!");
             // ... give the target tower damage,...   
             Target.GetGameObject().GetComponent<Health>().TakeDamage(damage);
 

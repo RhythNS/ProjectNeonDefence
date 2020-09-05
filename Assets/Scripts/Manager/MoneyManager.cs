@@ -23,4 +23,6 @@ public class MoneyManager : MonoBehaviour
         // TODO: the thing
         return true;
     }
+    
+    
 }

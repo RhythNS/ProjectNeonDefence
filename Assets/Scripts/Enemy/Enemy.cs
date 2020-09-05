@@ -112,9 +112,6 @@ public class Enemy : MonoBehaviour, ITargetable
         return gameObject;
     }
 
-    private void OnDestroy()
-    {
-        GravityTowerManager.Instance.RemoveGravity(this);
-    }
+   
 }
 

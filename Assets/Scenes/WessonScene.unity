@@ -342,8 +342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0c4fe5041dc1646a86335fdb6da17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowDownCoefficient: 0.56
-  maxGravitatedTimeSeconds: 3
+  slowDownCoefficient: 0.1
+  maxGravitatedTimeSeconds: 1
   gravityTowerPref: {fileID: 1101042724836697904, guid: 677f96632213c114fad1e7b3b60434bc,
     type: 3}
   slowedDownMaterial: {fileID: 2100000, guid: dddb581036cb31442abdc0e0bb30442b, type: 2}

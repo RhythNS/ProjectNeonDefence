@@ -9,6 +9,8 @@ public class GravityTower : Tower
      public GravityTowerBullet basedBullet;
 
      public float currentCooldown;
+
+     public float cooldownBetweenShots;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class GravityTower : Tower
     void Update()
     {
         currentCooldown += Time.deltaTime;
-        if (currentCooldown >= GameConstants.Instance.TowerBulletCooldownSeconds)
+        if (currentCooldown >= cooldownBetweenShots)
         {
             currentCooldown = 0;
             ShootGravityBoolet();
