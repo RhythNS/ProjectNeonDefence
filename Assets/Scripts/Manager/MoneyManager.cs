@@ -15,7 +15,8 @@ public class MoneyManager : MonoBehaviour
 
     public void EnemyKilled(Enemy enemy)
     {
-        currentMoney += enemy.MoneyDrop;
+        //currentMoney += enemy.MoneyDrop;
+        ModifyMoney(enemy.MoneyDrop);
     }
 
     public bool CanPlaceTower(Tower tower)
@@ -23,6 +24,10 @@ public class MoneyManager : MonoBehaviour
         // TODO: the thing
         return true;
     }
-    
+
+    public void ModifyMoney(int amount)
+    {
+        this.CurrentMoney += amount;
+    }
     
 }

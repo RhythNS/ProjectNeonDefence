@@ -24,6 +24,6 @@ public class MoneyTower : MonoBehaviour
     void GrandMoney()
     {
         currentCooldown = 0f;
-        MoneyManager.Instance.CurrentMoney += moneyYield;
+        MoneyManager.Instance.ModifyMoney(moneyYield);
     }
 }

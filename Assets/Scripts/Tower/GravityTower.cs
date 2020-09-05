@@ -11,6 +11,8 @@ public class GravityTower : Tower
      public float currentCooldown;
 
      public float cooldownBetweenShots;
+
+     public float slowdownPercentage;
     // Start is called before the first frame update
     void Start()
     {
