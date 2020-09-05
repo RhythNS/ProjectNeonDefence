@@ -42,6 +42,8 @@ public class Enemy : MonoBehaviour, ITargetable
     }
 
     private Vector3 currentDestinationPoint;
+    private bool newPathAvailable;
+    private List<Tile> alternativePath;
 
     private void Awake()
     {
@@ -82,19 +84,24 @@ public class Enemy : MonoBehaviour, ITargetable
 
             this.transform.position = Vector3.Lerp(lastTilePassed, currentDestinationPoint, percentage);
 
-            if(percentage >= 0.5 && !enteredNewTile)
+            if (percentage >= 0.5 && !enteredNewTile)
             {
                 behaviour.OnNewTileEntered();
                 enteredNewTile = true;
             }
             if (percentage >= 1)
             {
+                
                 if (++positionOnPath >= path.Count)
                 {
                     OnHomeReached();
                     yield break;
                 }
-
+                if (newPathAvailable)
+                {
+                    path = alternativePath;
+                    newPathAvailable = false;
+                }
                 SetNewDestination(false);
                 timer = 0;
                 enteredNewTile = false;
@@ -107,7 +114,7 @@ public class Enemy : MonoBehaviour, ITargetable
     private void OnHomeReached()
     {
         GameManager.Instance.RemainingHealth -= homeDamage;
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
 
@@ -117,11 +124,23 @@ public class Enemy : MonoBehaviour, ITargetable
         //ggf optimieren und schauen, wo zerstörtes Teil liegt
         Vector2Int currPosition = World.Instance.WorldToGrid(this.transform.position);
         Vector2Int homePosition = GameManager.Instance.CurrentLevel.worldGenSettings.homePosition;
-        path = new SimpleAStar(TowerManager.Instance.getLocationsOfTowers()).GeneratePath(World.Instance.Tiles.Get(currPosition.x, currPosition.y),
+        alternativePath = new SimpleAStar(TowerManager.Instance.getLocationsOfTowers()).GeneratePath(World.Instance.Tiles.Get(currPosition.x, currPosition.y),
             World.Instance.Tiles.Get(homePosition.x, homePosition.y));
 
-        positionOnPath = 0;
-        SetNewDestination(true);
+        if (path[positionOnPath].Tower == null && alternativePath[1] == path[positionOnPath])
+        {
+            //New Path available and next tile is not affected  
+            newPathAvailable = true;
+            alternativePath.RemoveAt(0);
+        }
+        else
+        {
+            //Turn around and move one Tile backwards
+            this.path = alternativePath;
+            positionOnPath = 0;
+            SetNewDestination(true);
+        }
+
     }
 
     private void SetNewDestination(bool firstTime = false)
