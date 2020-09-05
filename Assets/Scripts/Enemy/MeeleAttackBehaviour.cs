@@ -18,6 +18,12 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
         StartCoroutine(UpdateAttack());
     }
 
+    public void Set(MeleeAttackBehaviourData data)
+    {
+        attackThreshold = data.attackThreshold;
+        range = data.range;
+    }
+
     private IEnumerator UpdateAttack()
     {
         while (true)

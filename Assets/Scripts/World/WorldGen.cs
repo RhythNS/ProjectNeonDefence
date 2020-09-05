@@ -55,6 +55,8 @@ public class WorldGen : MonoBehaviour
                 pos.x += x * tileSize.x;
                 pos.z += y * tileSize.y;
 
+                tiles.Set(tile, x, y);
+
                 gameObject.transform.position = pos;
 
                 // TODO: PLEASE REMOVE THIS AFTER REPLACING THE MODELS
