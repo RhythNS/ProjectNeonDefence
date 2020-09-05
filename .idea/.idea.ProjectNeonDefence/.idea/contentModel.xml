@@ -56,6 +56,7 @@
             <e p="MeeleAttackBehaviour.cs" t="Include" />
             <e p="MeeleBullet.cs" t="Include" />
             <e p="RangedAttackTankBehaviour.cs" t="Include" />
+            <e p="RegularBullet.cs" t="Include" />
           </e>
           <e p="Entities" t="Include">
             <e p="BaseDieable.cs" t="Include" />
@@ -101,6 +102,7 @@
             <e p="GravityTowerDebugBehaviour.cs" t="Include" />
             <e p="MoneyTower.cs" t="Include" />
             <e p="MoneyTowerDebugBehaviour.cs" t="Include" />
+            <e p="SingleShotTower.cs" t="Include" />
             <e p="Tower.cs" t="Include" />
             <e p="TowerDebugBehaviour.cs" t="Include" />
             <e p="TowerDiable.cs" t="Include" />
