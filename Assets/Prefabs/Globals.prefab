@@ -241,7 +241,7 @@ MonoBehaviour:
     type: 3}
   homeTile: {fileID: 5287381008547901935, guid: 7a7513e03123308488a3f2388d50c2a0,
     type: 3}
-  tileSize: {x: 2, y: 2}
+  tileSize: {x: 4, y: 4}
   offset: {x: 0, y: 0, z: 0}
   debugSettings: {fileID: 11400000, guid: be67f47fe13416d42b28231505a95921, type: 2}
 --- !u!114 &4738690682815809491

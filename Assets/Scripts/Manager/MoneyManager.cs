@@ -1,16 +1,26 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
-
     public static MoneyManager Instance { get; private set; }
+
+    [SerializeField] private TMP_Text moneyDisplay;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public int CurrentMoney { get => currentMoney; private set => currentMoney = value; }
+    public int CurrentMoney
+    {
+        get => currentMoney;
+        private set
+        {
+            currentMoney = value;
+            moneyDisplay.text = value.ToString();
+        }
+    }
     [SerializeField] private int currentMoney;
 
     public void EnemyKilled(Enemy enemy)
@@ -29,5 +39,5 @@ public class MoneyManager : MonoBehaviour
     {
         this.CurrentMoney += amount;
     }
-    
+
 }
