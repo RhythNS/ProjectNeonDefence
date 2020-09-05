@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         {
             if (CurrentLevel == null)
                 return null;
-            return CurrentLevel.waves.Length <= AtWave ? CurrentLevel.waves[AtWave] : null;
+            return AtWave < CurrentLevel.waves.Length ? CurrentLevel.waves[AtWave] : null;
         }
     }
 
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        LoadLevel(debugLevel);
     }
 
     public void OnWaveEnded()
@@ -59,6 +60,8 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(Level level)
     {
         CurrentLevel = level;
+        GetComponent<WorldGen>().Generate(level.worldGenSettings);
+        EnemyPathManager.Instance.OnNextLevel();
         OnWaveEnded();
     }
 

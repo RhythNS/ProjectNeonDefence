@@ -11,6 +11,11 @@ public class WaveEndTimer : MonoBehaviour
     private float remainingTime;
     [SerializeField] private TMP_Text text;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public void StartCountdown(float time)
     {
         remainingTime = time;

@@ -134,6 +134,9 @@ GameObject:
   - component: {fileID: 162201951}
   - component: {fileID: 162201953}
   - component: {fileID: 162201952}
+  - component: {fileID: 162201956}
+  - component: {fileID: 162201955}
+  - component: {fileID: 162201954}
   m_Layer: 0
   m_Name: Globals
   m_TagString: Untagged
@@ -168,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenRounds: 0
+  hardTowerFValue: 10
 --- !u!114 &162201953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +184,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be692e633171ea34ea68015317a673eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugLevel: {fileID: 0}
+  debugLevel: {fileID: 11400000, guid: 7ea192005aa2542478c153a812d6d048, type: 2}
+--- !u!114 &162201954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162201950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef86e5addd755f7479a1471da592058f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &162201955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162201950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74dc90f89a1bf0419364fa9f4a62807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPoints: []
+--- !u!114 &162201956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162201950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a746ab50a9deb434fb8600c28702998f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &548860609
 GameObject:
   m_ObjectHideFlags: 0

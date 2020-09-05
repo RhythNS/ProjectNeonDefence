@@ -24,6 +24,7 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
     {
         attackThreshold = data.attackThreshold;
         range = data.range;
+        bulletPrefab = data.bulletPrefab;
     }
 
     private IEnumerator UpdateAttack()
@@ -32,8 +33,11 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
         {
             if (AttackingTower == null || !AttackingTower)
                 yield return null;
-            ShootMissileAt(AttackingTower);
-            yield return new WaitForSeconds(attackThreshold);
+            else
+            {
+                ShootMissileAt(AttackingTower);
+                yield return new WaitForSeconds(attackThreshold);
+            }
         }
     }
 

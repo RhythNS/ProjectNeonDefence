@@ -2,21 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Behaviour))]
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
-    public Health Health;
-
-    [SerializeField] private Behaviour[] behaviour;
+    public Health Health { get; private set; }
 
     [SerializeField] private float speedForPassingTile;
-
-    [SerializeField] private float distanceThreshold;
-
-    [SerializeField] private float timeUpdatePath;
-
-
 
     private List<Tile> path;
     private Tile targetWalkingTile;
@@ -25,10 +16,16 @@ public class Enemy : MonoBehaviour
 
     private Vector3 currentDestinationPoint;
 
+    private void Awake()
+    {
+        Health = GetComponent<Health>();
+    }
 
     public void Set(EnemyData data, List<Tile> path)
     {
         this.path = path;
+        speedForPassingTile = data.speed;
+        Health.Set(data.health);
         targetWalkingTile = path[0];
         SetNewDestination(true);
 

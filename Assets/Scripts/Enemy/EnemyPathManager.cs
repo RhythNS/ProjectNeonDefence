@@ -34,7 +34,7 @@ public class EnemyPathManager : MonoBehaviour
     public void OnNextLevel()
     {
         SpawnPoints = GameManager.Instance.CurrentLevel.worldGenSettings.spawnPoints;
-        CurrentPaths = new List<Tile>[CurrentPaths.Length];
+        CurrentPaths = new List<Tile>[SpawnPoints.Length];
         Vector2Int homeP = GameManager.Instance.CurrentLevel.worldGenSettings.homePosition;
         homePoint = World.Instance.Tiles.Get(homeP.x, homeP.y);
 
