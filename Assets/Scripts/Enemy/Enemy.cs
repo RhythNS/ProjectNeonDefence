@@ -101,6 +101,7 @@ public class Enemy : MonoBehaviour, ITargetable
                 {
                     path = alternativePath;
                     newPathAvailable = false;
+                    positionOnPath = 0;
                 }
                 SetNewDestination(false);
                 timer = 0;
@@ -114,6 +115,8 @@ public class Enemy : MonoBehaviour, ITargetable
     private void OnHomeReached()
     {
         GameManager.Instance.RemainingHealth -= homeDamage;
+
+        GameManager.Instance.AliveEnemies.Remove(this);
         Destroy(this.gameObject);
     }
 

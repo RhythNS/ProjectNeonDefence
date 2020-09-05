@@ -28,7 +28,9 @@ public class GameManager : MonoBehaviour
 
     private int AtWave = -1;
 
-    public List<Enemy> AliveEnemies { get; private set; } = new List<Enemy>();
+    public List<Enemy> AliveEnemies {
+        get;
+        private set; } = new List<Enemy>();
     // List of all towers currently alive.
     public List<Tower> AliveTowers { get; private set; } = new List<Tower>();
 
