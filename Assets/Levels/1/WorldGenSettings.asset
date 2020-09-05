@@ -15,6 +15,6 @@ MonoBehaviour:
   sizeX: 20
   sizeY: 20
   unblockablePercentange: 0.05
-  homePosition: {x: 4, y: 4}
+  homePosition: {x: 8, y: 8}
   spawnPoints:
   - {x: 5, y: 0}

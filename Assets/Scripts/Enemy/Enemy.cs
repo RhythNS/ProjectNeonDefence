@@ -115,6 +115,5 @@ public class Enemy : MonoBehaviour, ITargetable
         return gameObject;
     }
 
-   
 }
 

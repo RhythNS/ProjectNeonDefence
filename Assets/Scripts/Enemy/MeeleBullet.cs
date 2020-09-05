@@ -22,9 +22,9 @@ public class MeeleBullet : AbstractBullet
         }
     }
 
-    public virtual void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.GetComponent<Tower>() == Target)
+        if (other.gameObject.GetComponent<ITargetable>() == Target)
         {
             Target.GetGameObject().GetComponent<Health>().TakeDamage(damage);
             Destroy(this.gameObject);
