@@ -29,7 +29,7 @@ public class GravityTowerBullet : AbstractBullet
         }
     }
     
-    public override void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         GameObject targetObject = Target.GetGameObject();
         if (collision.gameObject == targetObject)
