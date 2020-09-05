@@ -79,7 +79,6 @@ public class Drone : MonoBehaviour, ITargetable
 
             if (percentage >= 0.5 && !enteredNewTile)
             {
-                if (path[0].)
                 enteredNewTile = true;
             }
             if (percentage >= 1)
