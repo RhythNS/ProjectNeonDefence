@@ -213,7 +213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &792844406
 PrefabInstance:
@@ -401,7 +401,7 @@ PrefabInstance:
     - target: {fileID: 9023497247484801966, guid: 356c2960f5e38804ca0e6d39bccfce7f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9023497247484801966, guid: 356c2960f5e38804ca0e6d39bccfce7f,
         type: 3}
@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 356c2960f5e38804ca0e6d39bccfce7f, type: 3}
---- !u!84 &1015195827
+--- !u!84 &1217548139
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,7 +455,76 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
---- !u!84 &1271249753
+--- !u!1001 &1283662141
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.413631
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25.988174
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.563122
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30f0997ef9bb1044dacfd007e6940899,
+        type: 3}
+      propertyPath: m_Name
+      value: Reactor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 30f0997ef9bb1044dacfd007e6940899, type: 3}
+--- !u!84 &1380841520
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -539,8 +608,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 1698587778}
   outlineCamera: {fileID: 1861814444}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 1015195827}
-  extraRenderTexture: {fileID: 1271249753}
+  renderTexture: {fileID: 1217548139}
+  extraRenderTexture: {fileID: 1380841520}
 --- !u!114 &1698587775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +807,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 1015195827}
+  m_TargetTexture: {fileID: 1217548139}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0

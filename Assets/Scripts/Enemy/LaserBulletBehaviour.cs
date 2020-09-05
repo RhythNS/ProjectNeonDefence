@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VolumetricLines;
@@ -10,7 +11,6 @@ public class LaserBulletBehaviour : AbstractBullet
 
 
     private VolumetricLineBehavior lineBehaviour;
-
 
 
     private void Awake()
@@ -28,12 +28,11 @@ public class LaserBulletBehaviour : AbstractBullet
         {
             timer += Time.deltaTime;
 
-            Vector3 dir = destination - transform.position;
+            Vector3 dir = Target.GetCurrentPosition() - transform.position;
             dir = dir.normalized;
 
             if (timer < shootingDuration)
             {
-                //TODO set transform of cannonoutput
                 lineBehaviour.StartPos =  dir * ( timer * speed);
             }
             else
@@ -41,8 +40,37 @@ public class LaserBulletBehaviour : AbstractBullet
                 transform.position += dir * Time.deltaTime * speed;
                 
             }
+            if (Vector2.Angle(transform.position, Target.GetCurrentPosition()) >= 180)
+            {
+                //Collision
+                StartCoroutine(FadeAwayLaser());
+               
+                Target.GetGameObject().GetComponent<Health>().TakeDamage(damage);
+                yield break;
+            }
             yield return null;
         }
+
+
+    }
+
+
+    public IEnumerator FadeAwayLaser()
+    {
+        float timer = 0;
+        lineBehaviour.StartPos = Target.GetCurrentPosition();
+
+        while (timer <= shootingDuration)
+        {
+            timer += Time.deltaTime;
+
+            Vector3 dir = Target.GetCurrentPosition() - lineBehaviour.EndPos;
+            dir = dir.normalized;
+
+            lineBehaviour.EndPos += dir* speed * Time.deltaTime;
+            yield return null;
+        }
+        Destroy(this.gameObject);
     }
 
 }
