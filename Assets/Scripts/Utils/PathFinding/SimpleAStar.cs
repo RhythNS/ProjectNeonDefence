@@ -18,7 +18,6 @@ public class SimpleAStar
     public SimpleAStar(List<Vector2Int> listOfTowerLocations)
     {
         this.listOfTowerLocations = listOfTowerLocations;
-        Debug.Log(this.listOfTowerLocations.Count);
     }
 
     /// <summary>

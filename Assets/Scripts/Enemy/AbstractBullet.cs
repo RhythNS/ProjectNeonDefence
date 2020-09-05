@@ -22,7 +22,7 @@ public abstract class AbstractBullet : MonoBehaviour
     private void Start()
     {
         // Auto destroy after 5 seconds
-        Destroy(gameObject,5);
+        Destroy(gameObject,5f);
     }
 
     protected Vector3 destination;

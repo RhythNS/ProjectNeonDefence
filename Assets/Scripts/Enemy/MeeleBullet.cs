@@ -12,8 +12,7 @@ public class MeeleBullet : AbstractBullet
 
     public override IEnumerator Move()
     {
-        Vector3 dir = Target.GetCurrentPosition() - transform.position;
-        dir = dir.normalized;
+        
         while (true)
         {
             if (Target == null)
@@ -21,7 +20,8 @@ public class MeeleBullet : AbstractBullet
                 Destroy(gameObject);
                 break;
             }
-
+            Vector3 dir = Target.GetCurrentPosition() - transform.position;
+            dir = dir.normalized;
             this.transform.position += dir * Time.deltaTime * speed;
             yield return null;
         }

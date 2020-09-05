@@ -25,6 +25,5 @@ public class MoneyTower : Tower
     {
         currentCooldown = 0f;
         MoneyManager.Instance.ModifyMoney(moneyYield);
-        Debug.Log("Du hast Geld bekommen! Dein Geld: " + MoneyManager.Instance.CurrentMoney.ToString());
     }
 }

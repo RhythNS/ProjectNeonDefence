@@ -22,7 +22,7 @@ public class SingleShotTower : Tower
         {
             currentCooldown = 0;
             MeeleBullet newBullet = Instantiate(baseBullet);
-            newBullet.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
+            newBullet.transform.position = transform.position;
             newBullet.Target = targetEnemy;
             
         }

@@ -50,7 +50,7 @@ public class TowerManager : MonoBehaviour
             checkedTowers.Add(currentTower);
 
             // Getting nearby colliders
-            var nearbyColliders = Physics.OverlapSphere(currentTower.GetCurrentPosition(), GameConstants.Instance.TowerEffectiveRange);
+            var nearbyColliders = Physics.OverlapSphere(currentTower.GetCurrentPosition(), currentTower.Range);
             currentTower.enemiesInRange.Clear();
             for (var j = 0; j < nearbyColliders.Length; j++)
             {

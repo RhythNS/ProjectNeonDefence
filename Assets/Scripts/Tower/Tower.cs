@@ -14,6 +14,8 @@ public class Tower : Entity, ITargetable
     public List<Enemy> enemiesInRange { get; private set; } = new List<Enemy>();
 
 
+    public int Range;
+
     /// <summary>
     /// Adds the tower to the list of all awake towers.
     /// </summary>
