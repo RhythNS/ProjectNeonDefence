@@ -42,6 +42,12 @@ public class EnemyPathManager : MonoBehaviour
     public void OnWorldChange()
     {
         CalculatePaths();
+        List<Enemy> aliveEnemies = GameManager.Instance.AliveEnemies;
+
+        for (int i = 0; i < aliveEnemies.Count; i++)
+        {
+            aliveEnemies[i].OnWorldChange();
+        }
     }
 
     private void CalculatePaths()

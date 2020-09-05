@@ -20,6 +20,7 @@ public class Tower : Entity, ITargetable
     public void Awake()
     {
         GameManager.Instance.AliveTowers.Add(this);
+        EnemyPathManager.Instance.OnWorldChange();
     }
 
     // Start is called before the first frame update

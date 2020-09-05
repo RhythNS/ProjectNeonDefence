@@ -59,42 +59,23 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
             }
 
         }
-        Fast2DArray<Tile> tiles = World.Instance.Tiles;
-        Tile currentVisitedTile;
-        int currentX = currentGridPosition.x;
-        int currentY = currentGridPosition.y;
 
-        for (int i = 0; i < range; i++)
+        Collider[] towerInSphere = Physics.OverlapSphere(transform.position, range, 1 << 9);
+        if (towerInSphere.Length == 0) return;
+        Collider nearestCollider = towerInSphere[0];
+        float minDistance = Vector3.SqrMagnitude(nearestCollider.transform.position - transform.position);
+        float currDistance;
+        for (int i = 1; i < towerInSphere.Length; i++)
         {
-            for (int j = -i; j <= i; j++)
+            currDistance = Vector3.SqrMagnitude(towerInSphere[i].transform.position - transform.position);
+            if (minDistance > currDistance)
             {
-                //Check row above
-                if(World.Instance.TryGetTile(currentX - i, currentY + j, out currentVisitedTile) && currentVisitedTile.Tower != null)
-                {
-                    Attack(currentVisitedTile.Tower);
-                    return;
-                }
-
-                //Check row below
-                if(World.Instance.TryGetTile(currentX + i, currentY + j, out currentVisitedTile) && currentVisitedTile.Tower != null)
-                {
-                    Attack(currentVisitedTile.Tower);
-                    return;
-                }
-                //Check row below
-                if(World.Instance.TryGetTile(currentX + j, currentY - i, out currentVisitedTile) && currentVisitedTile.Tower != null)
-                {
-                    Attack(currentVisitedTile.Tower);
-                    return;
-                }
-                //Check row below
-                if(World.Instance.TryGetTile(currentX + j, currentY + i, out currentVisitedTile) && currentVisitedTile.Tower != null)
-                {
-                    Attack(currentVisitedTile.Tower);
-                    return;
-                }
+                minDistance = currDistance;
+                nearestCollider = towerInSphere[i];
             }
         }
+
+        AttackingTower = nearestCollider.gameObject.GetComponent<Tower>();
 
     }
 
