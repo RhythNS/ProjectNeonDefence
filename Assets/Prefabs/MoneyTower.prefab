@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7115271583847363970}
   - component: {fileID: 8421779784428221983}
   - component: {fileID: -2594096160079040085}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MoneyTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,5 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Aimpoint: {fileID: 0}
   targetEnemy: {fileID: 0}
+  Range: 0
   moneyGrandCooldown: 2
   moneyYield: 1

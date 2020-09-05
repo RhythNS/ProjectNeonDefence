@@ -20,7 +20,10 @@ public class MeeleBullet : AbstractBullet
                 Destroy(gameObject);
                 break;
             }
-            Vector3 dir = Target.GetCurrentPosition() - transform.position;
+
+            var tPos = Target.GetCurrentPosition();
+            if (tPos == Vector3.zero) break;
+            Vector3 dir = tPos - transform.position;
             dir = dir.normalized;
             this.transform.position += dir * Time.deltaTime * speed;
             yield return null;
