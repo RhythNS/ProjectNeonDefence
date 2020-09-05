@@ -14,6 +14,18 @@ public class GravityTower : Tower
     public float slowdownPercentage;
     public float slowdownTime;
 
+     public float slowdownPercentage;
+     public float slowdownTime;
+
+    public int Rank => rank;
+    private int rank = 1;
+
+    [SerializeField] private UpgradePath[] upgradePaths;
+
+    public UpgradePath NextUpgradePath { get => nextUpgradePath; set => nextUpgradePath = value; }
+
+    private UpgradePath nextUpgradePath;
+
     public SlowdownStatusEffect slowdownStatusEffect { get; set; }
 
 
@@ -52,6 +64,34 @@ public class GravityTower : Tower
                 StartCoroutine(GravityRoutine(enemy));
             }
         }
+
+    }
+
+    public bool Upgrade()
+    {
+        if(MoneyManager.Instance.CurrentMoney < nextUpgradePath.Cost)
+        {
+            return false;
+        }
+        this.slowdownPercentage = nextUpgradePath.SlowPercentage;
+        this.slowdownTime = nextUpgradePath.SlowDuration;
+        if (rank < upgradePaths.Length)
+            nextUpgradePath = upgradePaths[rank-1];
+        return true;
+    }
+
+    public class UpgradePath
+    {
+        
+        int cost;
+        float slowPercentage;
+        float slowDuration;
+
+        public int Cost { get => cost;}
+        public float SlowPercentage => slowPercentage;
+
+        public float SlowDuration => slowDuration;
+
     }
 
     public IEnumerator GravityRoutine(Enemy e)
