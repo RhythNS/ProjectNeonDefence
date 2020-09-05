@@ -70,8 +70,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F5))
             LoadLevel(debugLevel);
         
-        //PHA: Doing tower update logic
-        TowerManager.instance.UpdateTowers();
     }
 
     

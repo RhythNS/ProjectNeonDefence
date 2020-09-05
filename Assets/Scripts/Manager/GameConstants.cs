@@ -13,8 +13,20 @@ public class GameConstants : MonoBehaviour
 
     public float TimeBetweenRounds { get => timeBetweenRounds; set => timeBetweenRounds = value; }
     [SerializeField] private float timeBetweenRounds;
-    [SerializeField] private float hardTowerFValue = 10;
-
-    public float HardTowerFValue => hardTowerFValue;
+    
+    //--- Constants for Towers ---\\
+    // Hard F Value for A*
+    [SerializeField] private float towerHardFValue = 10;
+    // The range in which a tower can attack
+    [SerializeField] private float towerEffectiveRange = 5;
+    // Cooldown between shots of bullets
+    [SerializeField] private float towerBulletCooldownSeconds = 4;
+    // How many towers are updated each frame, helps with performance.
+    [SerializeField] private float towerManagerMaxTowersCheckedPerFrame = 3;
+    
+    public float TowerHardFValue => towerHardFValue;
+    public float TowerEffectiveRange => towerEffectiveRange;
+    public float TowerBulletCooldownSeconds => towerBulletCooldownSeconds;
+    public float TowerManagerMaxTowersCheckedPerFrame => towerManagerMaxTowersCheckedPerFrame;
 
 }
