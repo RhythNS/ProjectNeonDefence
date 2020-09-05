@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="925adb85-368c-4738-80cf-3617525e5d86" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameConstants.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/GameConstants.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F6747DE9-0205-433F-84EB-50C1DA278135/f8/91733dda/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/17/e04d3a6f/Int64.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.visualstudio@2.0.2/Editor/VisualStudioEditor.cs" root0="SKIP_HIGHLIGHTING" />
@@ -47,6 +49,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/World/World.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/PathTestBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameConstants.cs" />
       </list>
     </option>
   </component>
@@ -92,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1599259220442</updated>
       <workItem from="1599259230340" duration="4922000" />
-      <workItem from="1599264236354" duration="3220000" />
+      <workItem from="1599264236354" duration="3703000" />
     </task>
     <servers />
   </component>
