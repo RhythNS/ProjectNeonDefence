@@ -3,7 +3,7 @@
 [CreateAssetMenu(fileName = "New Level", menuName = "NeonDefence/Level")]
 public class Level : ScriptableObject
 {
-    [SerializeField] private WorldGenSettings worldGenSettings;
+    public WorldGenSettings worldGenSettings;
 
-    [SerializeField] private Wave[] waves;
+    public Wave[] waves;
 }
