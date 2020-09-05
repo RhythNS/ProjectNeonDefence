@@ -20,8 +20,17 @@ public class AOEBullet : AbstractBullet
     // The radius of the aoe / in which enemies are dealth damage. Range in Meters.
     public float aoeRadius = 1.5f;
 
+    public override IEnumerator Move()
+    {
+        Vector3 dir = destination - transform.position;
+        dir = dir.normalized;
 
-
+        while (true)
+        {
+            this.transform.position = dir * Time.deltaTime * speed;
+            yield return null;
+        }
+    }
 
     public override void OnCollisionEnter(Collision collision)
     {

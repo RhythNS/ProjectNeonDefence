@@ -45,11 +45,12 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
     {
         MeeleBullet spawnedMeeleBullet = Instantiate<MeeleBullet>(meeleBulletPrefab);
         spawnedMeeleBullet.Target = attackingTower;
+        spawnedMeeleBullet.transform.LookAt(attackingTower.transform);
     }
 
     public void OnNewTileEntered(Tile tile)
     {
-        Vector2Int currentGridPosition = World.Instance.WorldToGrid(ownerEnemy.transform.position);
+        Vector2Int currentGridPosition = World.Instance.WorldToGrid(transform.position);
         if (AttackingTower != null && AttackingTower)
         {
             if (CheckIfTargetStillInReach(currentGridPosition, World.Instance.WorldToGrid(AttackingTower.gameObject.transform.position)) == true)
@@ -68,30 +69,26 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
             for (int j = -i; j <= i; j++)
             {
                 //Check row above
-                currentVisitedTile = tiles.Get(currentX - i, currentY + j);
-                if (currentVisitedTile.Tower != null)
+                if(World.Instance.TryGetTile(currentX - i, currentY + j, out currentVisitedTile) && currentVisitedTile.Tower != null)
                 {
                     Attack(currentVisitedTile.Tower);
                     return;
                 }
 
                 //Check row below
-                currentVisitedTile = tiles.Get(currentX + i, currentY + j);
-                if (currentVisitedTile.Tower != null)
+                if(World.Instance.TryGetTile(currentX + i, currentY + j, out currentVisitedTile) && currentVisitedTile.Tower != null)
                 {
                     Attack(currentVisitedTile.Tower);
                     return;
                 }
                 //Check row below
-                currentVisitedTile = tiles.Get(currentX + j, currentY - i);
-                if (currentVisitedTile.Tower != null)
+                if(World.Instance.TryGetTile(currentX + j, currentY - i, out currentVisitedTile) && currentVisitedTile.Tower != null)
                 {
                     Attack(currentVisitedTile.Tower);
                     return;
                 }
                 //Check row below
-                currentVisitedTile = tiles.Get(currentX + j, currentY + i);
-                if (currentVisitedTile.Tower != null)
+                if(World.Instance.TryGetTile(currentX + j, currentY + i, out currentVisitedTile) && currentVisitedTile.Tower != null)
                 {
                     Attack(currentVisitedTile.Tower);
                     return;
