@@ -46,9 +46,7 @@ public class Tower : Entity, ITargetable
 
     public Vector3 GetCurrentPosition()
     {
-        if(transform)
-        return transform.position;
-        return Vector3.zero;
+        return this ? transform.position : Vector3.zero;
     }
 
 
