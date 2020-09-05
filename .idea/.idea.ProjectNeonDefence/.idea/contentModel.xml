@@ -854,11 +854,11 @@
           <e p="Enemy" t="Include">
             <e p="AbstractBullet.cs" t="Include" />
             <e p="AOEBullet.cs" t="Include" />
-            <e p="Behaviour.cs" t="Include" />
             <e p="Enemy.cs" t="Include" />
             <e p="EnemyPathManager.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
             <e p="GravityTowerBullet.cs" t="Include" />
+            <e p="IBehaviour.cs" t="Include" />
             <e p="LaserBulletBehaviour.cs" t="Include" />
             <e p="MeeleAttackBehaviour.cs" t="Include" />
             <e p="MeeleBullet.cs" t="Include" />
@@ -879,11 +879,13 @@
               <e p="ISelectable.cs" t="Include" />
               <e p="SimpleSelectable.cs" t="Include" />
             </e>
+            <e p="TurretClickController.cs" t="Include" />
           </e>
           <e p="Level" t="Include">
             <e p="BehaviourData" t="Include">
               <e p="BehaviourData.cs" t="Include" />
               <e p="MeleeAttackBehaviourData.cs" t="Include" />
+              <e p="RangedAttackBehaviourData.cs" t="Include" />
             </e>
             <e p="EnemyData.cs" t="Include" />
             <e p="Level.cs" t="Include" />
@@ -905,6 +907,8 @@
             <e p="SlowdownStatusEffect.cs" t="Include" />
           </e>
           <e p="Tower" t="Include">
+            <e p="Drone.cs" t="Include" />
+            <e p="DroneTower.cs" t="Include" />
             <e p="GravityTower.cs" t="Include" />
             <e p="GravityTowerDebugBehaviour.cs" t="Include" />
             <e p="MoneyTower.cs" t="Include" />

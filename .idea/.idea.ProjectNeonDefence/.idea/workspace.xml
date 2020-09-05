@@ -23,22 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="925adb85-368c-4738-80cf-3617525e5d86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Input/TurretClickController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Input/TurretClickController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/1/Wave 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Levels/1/Wave 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/All in one.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/All in one.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/BulletMelee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/BulletMelee.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GravityTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GravityTower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SingleShotTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SingleShotTower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RhythScene 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/RhythScene 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WessonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WessonScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleBullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/EnemyDieable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/EnemyDieable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/Glow Blue.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/Glow Blue.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shader/Glow Blue.shadergraph.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shader/Glow Blue.shadergraph.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Wall/Gradient.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wall/Gradient.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Wall/HexTexture.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wall/HexTexture.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/CameraController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +50,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/GravityTowerBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/a9/0f2cbdb2/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/TurretClickController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/ITargetable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F6747DE9-0205-433F-84EB-50C1DA278135/f8/91733dda/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FC4FDE92-EB6F-48C0-97C9-E23AC1E2176C/9a/f0f6f6f7/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -110,11 +100,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/MoneyTower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/SingleShotTower.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyDiable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Entities/EnemyDieable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Input/CameraController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Input/TurretClickController.cs" />
       </list>
     </option>
   </component>
@@ -161,7 +153,7 @@
       <updated>1599259220442</updated>
       <workItem from="1599259230340" duration="4922000" />
       <workItem from="1599264236354" duration="4974000" />
-      <workItem from="1599297416906" duration="44051000" />
+      <workItem from="1599297416906" duration="45044000" />
     </task>
     <servers />
   </component>
@@ -270,9 +262,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599310712289" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599347102046">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599349686229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599347102046" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599349686229" />
   </component>
 </project>

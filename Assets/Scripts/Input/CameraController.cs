@@ -126,7 +126,7 @@ public class CameraController : MonoBehaviour
         SetPosition(newPos);
     }
 
-    private GameObject GetSelectable()
+    public GameObject GetSelectable()
     {
         if (GetHitAtMousePos(out RaycastHit hit) == false || hit.collider.gameObject.GetComponent<ISelectable>() == null)
             return null;
