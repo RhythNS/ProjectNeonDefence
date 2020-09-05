@@ -53,9 +53,13 @@ public class Enemy : MonoBehaviour, ITargetable
         float timer = 0;
         while (true)
         {
+            // TODO: Replace when slowing effect is applied
+            //timer += Time.deltaTime * slowDownPercentage;
             timer += Time.deltaTime;
 
             float percentage = timer / speedForPassingTile;
+
+            this.transform.position = Vector3.Lerp(lastTilePassed, currentDestinationPoint, percentage);
 
             if (percentage >= 1)
             {
@@ -68,7 +72,6 @@ public class Enemy : MonoBehaviour, ITargetable
                 SetNewDestination(false);
                 timer = 0;
             }
-            this.transform.position = Vector3.Lerp(lastTilePassed, currentDestinationPoint, percentage);
             yield return null;
         }
     }
