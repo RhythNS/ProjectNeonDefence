@@ -67,7 +67,7 @@ public class TowerManager : MonoBehaviour
         }
     }
 
-    public List<Vector2Int> getLocationsOfTowers()
+    public List<Vector2Int> GetLocationsOfTowers()
     {
         /*var list = new List<Vector2Int>();
         for (int i = 0; i < GameManager.Instance.AliveTowers.Count; i++)

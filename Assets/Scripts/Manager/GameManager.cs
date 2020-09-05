@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     // List of all towers currently alive.
     public List<Tower> AliveTowers { get; private set; } = new List<Tower>();
 
+    public List<Drone> AliveDrones { get; private set; } = new List<Drone>();
+
     public int RemainingHealth
     {
         get => remainingHealth;

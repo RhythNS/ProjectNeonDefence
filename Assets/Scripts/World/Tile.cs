@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class Tile : MonoBehaviour
     public Tower Tower { get; set; }
     public int X { get; private set; }
     public int Y { get; private set; }
+
+    public List<ITargetable> blockingTargets { get; private set; } = new List<ITargetable>();
 
     public void Set(bool canBuildOn, int x, int y)
     {

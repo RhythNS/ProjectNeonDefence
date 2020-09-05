@@ -1,22 +1,20 @@
-﻿using MonoNet.Util.Datatypes;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
+public class MeeleAttackBehaviour : MonoBehaviour, IBehaviour
 {
-    [SerializeField] private int range;
-    private Enemy ownerEnemy;
-    [FormerlySerializedAs("bulletPrefab")] [SerializeField] private MeeleBullet meeleBulletPrefab;
+    [SerializeField] protected int range;
+    [FormerlySerializedAs("bulletPrefab")] [SerializeField] protected MeeleBullet meeleBulletPrefab;
 
-    [SerializeField] private float attackThreshold;
-    public Tower AttackingTower { get; private set; }
+    [SerializeField] protected float attackThreshold;
+    public ITargetable AttackingTarget { get; protected set; }
+
+    public ITargetable GetCurrentTarget() => AttackingTarget;
+    public void SetCurrentTarget(ITargetable targetable) => AttackingTarget = targetable;
 
     void Start()
     {
-        ownerEnemy = GetComponent<Enemy>();
         StartCoroutine(UpdateAttack());
     }
 
@@ -31,29 +29,29 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
     {
         while (true)
         {
-            if (AttackingTower == null || !AttackingTower)
+            if (AttackingTarget == null || !AttackingTarget.GetGameObject())
                 yield return null;
             else
             {
-                ShootMissileAt(AttackingTower);
+                ShootMissileAt(AttackingTarget);
                 yield return new WaitForSeconds(attackThreshold);
             }
         }
     }
 
-    private void ShootMissileAt(Tower attackingTower)
+    private void ShootMissileAt(ITargetable attackingTower)
     {
-        MeeleBullet spawnedMeeleBullet = Instantiate<MeeleBullet>(meeleBulletPrefab, transform.position, Quaternion.identity);
+        MeeleBullet spawnedMeeleBullet = Instantiate(meeleBulletPrefab, transform.position, Quaternion.identity);
         spawnedMeeleBullet.Target = attackingTower;
-        spawnedMeeleBullet.transform.LookAt(attackingTower.transform);
+        spawnedMeeleBullet.transform.LookAt(attackingTower.GetCurrentPosition());
     }
 
     public void OnNewTileEntered()
     {
         Vector2Int currentGridPosition = World.Instance.WorldToGrid(transform.position);
-        if (AttackingTower != null && AttackingTower)
+        if (AttackingTarget != null && !AttackingTarget.GetGameObject())
         {
-            if (CheckIfTargetStillInReach(currentGridPosition, World.Instance.WorldToGrid(AttackingTower.gameObject.transform.position)) == true)
+            if (CheckIfTargetStillInReach(currentGridPosition, World.Instance.WorldToGrid(AttackingTarget.GetGameObject().transform.position)) == true)
             {
                 return;
             }
@@ -61,8 +59,19 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
         }
 
         Collider[] towerInSphere = Physics.OverlapSphere(transform.position, World.Instance.TileSize.x * range, 1 << 9);
-        if (towerInSphere.Length == 0) return;
+        if (towerInSphere.Length == 0)
+        {
+            AttackingTarget = null;
+            return;
+        }
+
+        SetIdealTargetable(towerInSphere);
+    }
+
+    protected virtual void SetIdealTargetable(Collider[] towerInSphere)
+    {
         Collider nearestCollider = towerInSphere[0];
+
         float minDistance = Vector3.SqrMagnitude(nearestCollider.transform.position - transform.position);
         float currDistance;
         for (int i = 1; i < towerInSphere.Length; i++)
@@ -75,15 +84,9 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
             }
         }
 
-        AttackingTower = nearestCollider.gameObject.GetComponent<Tower>();
-
+        AttackingTarget = nearestCollider.gameObject.GetComponent<Tower>();
     }
 
     private bool CheckIfTargetStillInReach(Vector2Int currentGridPosition, Vector2Int targetPosition)
         => Vector2Int.Distance(currentGridPosition, targetPosition) <= range;
-
-    private void Attack(Tower tower)
-    {
-        AttackingTower = tower;
-    }
 }

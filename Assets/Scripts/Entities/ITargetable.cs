@@ -6,7 +6,5 @@ public interface ITargetable
 {
     Vector3 GetCurrentPosition();
 
-    
-
     GameObject GetGameObject();
 }

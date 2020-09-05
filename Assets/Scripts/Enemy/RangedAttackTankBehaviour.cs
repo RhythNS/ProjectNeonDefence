@@ -1,40 +1,15 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using VolumetricLines;
 
-public class RangedAttackBehaviour : MonoBehaviour, Behaviour
+public class RangedAttackBehaviour : MeeleAttackBehaviour
 {
-
-    [SerializeField] private int range;
-
     [SerializeField] private VolumetricLineBehavior laserPrefab;
 
-    [SerializeField] private float attackThreshold;
-    public Tower AttackingTower { get; private set; }
-
-
-    public void Set()
+    protected override void SetIdealTargetable(Collider[] towerInSphere)
     {
-        //TODO @Noah/RhythNS
-        //attackThreshold = data.attackThreshold;
-        //range = data.range;
-    }
+        Collider furthest = towerInSphere[0];
 
-    public void OnNewTileEntered()
-    {
-        Vector2Int currentGridPosition = World.Instance.WorldToGrid(transform.position);
-        if (AttackingTower != null && AttackingTower)
-        {
-            if (CheckIfTargetStillInReach(currentGridPosition, World.Instance.WorldToGrid(AttackingTower.gameObject.transform.position)) == true)
-            {
-                return;
-            }
-        }
-        Collider[] towerInSphere = Physics.OverlapSphere(transform.position, range, 1 << 9);
-        Collider furthestCollider = towerInSphere[0];
-        float maxDistance = Vector3.SqrMagnitude(furthestCollider.transform.position - transform.position);
+        float maxDistance = Vector3.SqrMagnitude(furthest.transform.position - transform.position);
         float currDistance;
         for (int i = 1; i < towerInSphere.Length; i++)
         {
@@ -42,40 +17,10 @@ public class RangedAttackBehaviour : MonoBehaviour, Behaviour
             if (maxDistance < currDistance)
             {
                 maxDistance = currDistance;
-                furthestCollider = towerInSphere[i];
+                furthest = towerInSphere[i];
             }
         }
 
-        AttackingTower = furthestCollider.gameObject.GetComponent<Tower>();
-
-        //TODO rotationAnimation
+        AttackingTarget = furthest.gameObject.GetComponent<Tower>();
     }
-
-
-    private IEnumerator UpdateAttack()
-    {
-        while (true)
-        {
-            if (AttackingTower == null || !AttackingTower)
-                yield return null;
-            ShootMissileAt(AttackingTower);
-            yield return new WaitForSeconds(attackThreshold);
-        }
-    }
-
-    private void ShootMissileAt(Tower attackingTower)
-    {
-        VolumetricLineBehavior lineBehaviour = Instantiate(laserPrefab);
-        LaserBulletBehaviour laserBullet = lineBehaviour.gameObject.AddComponent<LaserBulletBehaviour>();
-        laserBullet.Target = attackingTower;
-        laserBullet.transform.LookAt(attackingTower.transform);
-        
-
-
-
-    }
-
-    private bool CheckIfTargetStillInReach(Vector2Int currentGridPosition, Vector2Int targetPosition)
-        => Vector2Int.Distance(currentGridPosition, targetPosition) <= range;
-
-}
+} 

@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour, ITargetable
 {
     public Health Health { get; private set; }
 
-    private Behaviour behaviour;
+    private IBehaviour behaviour;
     public int MoneyDrop { get; private set; }
 
     [SerializeField] private float speedForPassingTile;
@@ -71,14 +71,12 @@ public class Enemy : MonoBehaviour, ITargetable
     public IEnumerator Walk()
     {
         yield return null;
-        behaviour = GetComponent<Behaviour>();
+        behaviour = GetComponent<IBehaviour>();
         bool enteredNewTile = false;
         float timer = 0;
         while (true)
         {
-            // TODO: Replace when slowing effect is applied
             timer += Time.deltaTime * slowDownPercentage;
-            //timer += Time.deltaTime;
 
             float percentage = timer / speedForPassingTile;
 
@@ -127,7 +125,7 @@ public class Enemy : MonoBehaviour, ITargetable
         //ggf optimieren und schauen, wo zerstörtes Teil liegt
         Vector2Int currPosition = World.Instance.WorldToGrid(this.transform.position);
         Vector2Int homePosition = GameManager.Instance.CurrentLevel.worldGenSettings.homePosition;
-        alternativePath = new SimpleAStar(TowerManager.Instance.getLocationsOfTowers()).GeneratePath(World.Instance.Tiles.Get(currPosition.x, currPosition.y),
+        alternativePath = new SimpleAStar(TowerManager.Instance.GetLocationsOfTowers()).GeneratePath(World.Instance.Tiles.Get(currPosition.x, currPosition.y),
             World.Instance.Tiles.Get(homePosition.x, homePosition.y));
 
         if (path[positionOnPath].Tower == null && alternativePath[1] == path[positionOnPath])

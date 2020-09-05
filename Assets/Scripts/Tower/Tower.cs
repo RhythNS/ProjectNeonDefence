@@ -85,7 +85,7 @@ public class Tower : Entity, ITargetable
         return false;
     }
 
-    private Enemy GetNewTarget()
+    protected virtual Enemy GetNewTarget()
     {
         if (enemiesInRange.Count == 0) return null;
         return enemiesInRange[0];
