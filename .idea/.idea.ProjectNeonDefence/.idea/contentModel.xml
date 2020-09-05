@@ -15,7 +15,8 @@
             <e p="Enemy.cs" t="Include" />
             <e p="EnemyPathManager.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
-            <e p="LaserBullet.cs" t="Include" />
+            <e p="GravityTowerBullet.cs" t="Include" />
+            <e p="LaserBulletBehaviour.cs" t="Include" />
             <e p="MeeleAttackBehaviour.cs" t="Include" />
             <e p="MeeleBullet.cs" t="Include" />
             <e p="RangedAttackTankBehaviour.cs" t="Include" />
@@ -41,6 +42,7 @@
           <e p="Manager" t="Include">
             <e p="GameConstants.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
+            <e p="GravityTowerManager.cs" t="Include" />
             <e p="TowerManager.cs" t="Include" />
             <e p="WaveEndChecker.cs" t="Include" />
             <e p="WaveEndTimer.cs" t="Include" />
@@ -48,7 +50,6 @@
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="Tower" t="Include">
-            <e p="SingleBulletTower.cs" t="Include" />
             <e p="Tower.cs" t="Include" />
             <e p="TowerDebugBehaviour.cs" t="Include" />
             <e p="TowerDiable.cs" t="Include" />

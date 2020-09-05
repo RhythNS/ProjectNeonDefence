@@ -62,9 +62,9 @@ public class TowerManager : MonoBehaviour
                 
             }
             // Check if the tower can lock onto a new target.
-            if (currentTower.TryUpdateEnemy(out List<Enemy> newEnemy))
+            if (currentTower.TryUpdateEnemy(out Enemy newEnemy))
             {
-                Debug.Log($"Locked onto {newEnemy.Count} new enemies");
+                Debug.Log($"Locked onto {newEnemy} new enemies");
             }
         }
     }

@@ -4,17 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public abstract class Tower : Entity, ITargetable
+public class Tower : Entity, ITargetable
 {
     // Current Target 
-    //  public Enemy targetEnemy;
-    public List<Enemy> targets;
+    public Enemy targetEnemy;
 
     // Current list of all enemies in range
     // Is maintained by the GameManager
     public List<Enemy> enemiesInRange { get; private set; } = new List<Enemy>();
 
-    // The range in which the tower can effectivly operate, aka. target enemies in and shoot.
 
     /// <summary>
     /// Adds the tower to the list of all awake towers.
@@ -30,7 +28,10 @@ public abstract class Tower : Entity, ITargetable
         Health = GetComponent<Health>();
     }
 
-   
+    // Update is called once per frame
+    void Update()
+    {
+    }
 
     /// <summary>
     /// Remove from the global list, as to not update it anymore
@@ -59,19 +60,18 @@ public abstract class Tower : Entity, ITargetable
     /// </summary>
     /// <param name="newTarget">If method return is true, the parameter will contain the new targeted enemy, else null</param>
     /// <returns></returns>
-    public virtual bool TryUpdateEnemy(out List<Enemy> newTarget)
+    public virtual bool TryUpdateEnemy(out Enemy newTarget)
     {
         // If target is dead, get new enemy
-        if (targets.Count >= 0)
+        if (!targetEnemy)
         {
             // We need to check if there even is a new enemy in range, if not, we dont need to bother.
-            List<Enemy> newEnemies = GetNewTarget();
-            if (newEnemies.Count > 0)
+            Enemy temporaryEnemy = GetNewTarget();
+            if (temporaryEnemy != null)
             {
                 // Setting the new enemy.
-                targets.AddRange(newEnemies);
-
-                newTarget = targets;
+                targetEnemy = temporaryEnemy;
+                newTarget = targetEnemy;
                 return true;
             }
         }
@@ -80,9 +80,9 @@ public abstract class Tower : Entity, ITargetable
         return false;
     }
 
-    protected abstract List<Enemy> GetNewTarget();
-    /* {
-         if (enemiesInRange.Count == 0) return null;
-         return enemiesInRange[0];
-     }*/
+    private Enemy GetNewTarget()
+    {
+        if (enemiesInRange.Count == 0) return null;
+        return enemiesInRange[0];
+    }
 }

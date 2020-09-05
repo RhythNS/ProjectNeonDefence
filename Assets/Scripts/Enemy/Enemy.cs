@@ -9,6 +9,12 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float speedForPassingTile;
 
+    public float SpeedForPassingTile
+    {
+        get => speedForPassingTile;
+        set => speedForPassingTile = value;
+    }
+
     private List<Tile> path;
     private Tile targetWalkingTile;
     private int positionOnPath = 0;
