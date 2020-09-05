@@ -23,6 +23,4 @@ public class RangedAttackBehaviour : MeeleAttackBehaviour
 
         AttackingTarget = furthest.gameObject.GetComponent<Tower>();
     }
-} 
-
-        LaserBulletBehaviour laserBullet = lineBehaviour.gameObject.AddComponent<LaserBulletBehaviour>();
+}
