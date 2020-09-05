@@ -43,12 +43,12 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
 
     private void ShootMissileAt(Tower attackingTower)
     {
-        MeeleBullet spawnedMeeleBullet = Instantiate<MeeleBullet>(meeleBulletPrefab);
+        MeeleBullet spawnedMeeleBullet = Instantiate<MeeleBullet>(meeleBulletPrefab, transform.position, Quaternion.identity);
         spawnedMeeleBullet.Target = attackingTower;
         spawnedMeeleBullet.transform.LookAt(attackingTower.transform);
     }
 
-    public void OnNewTileEntered(Tile tile)
+    public void OnNewTileEntered()
     {
         Vector2Int currentGridPosition = World.Instance.WorldToGrid(transform.position);
         if (AttackingTower != null && AttackingTower)
@@ -60,7 +60,7 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
 
         }
 
-        Collider[] towerInSphere = Physics.OverlapSphere(transform.position, range, 1 << 9);
+        Collider[] towerInSphere = Physics.OverlapSphere(transform.position, World.Instance.TileSize.x * range, 1 << 9);
         if (towerInSphere.Length == 0) return;
         Collider nearestCollider = towerInSphere[0];
         float minDistance = Vector3.SqrMagnitude(nearestCollider.transform.position - transform.position);
@@ -80,7 +80,7 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
     }
 
     private bool CheckIfTargetStillInReach(Vector2Int currentGridPosition, Vector2Int targetPosition)
-        => Vector2Int.Distance(currentGridPosition, targetPosition) <= range;
+        => Vector2Int.Distance(currentGridPosition, targetPosition) < range;
 
     private void Attack(Tower tower)
     {

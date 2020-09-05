@@ -12,12 +12,9 @@ public class MeeleBullet : AbstractBullet
 
     public override IEnumerator Move()
     {
-        Vector3 dir = destination - transform.position;
-        dir = dir.normalized;
-
         while (true)
         {
-            this.transform.position = dir * Time.deltaTime * speed;
+            this.transform.position += transform.forward * Time.deltaTime * speed;
             yield return null;
         }
     }

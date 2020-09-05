@@ -8,6 +8,7 @@ public class World : MonoBehaviour
     public Fast2DArray<Tile> Tiles { get; private set; }
 
     [SerializeField] private Vector2 tileSize;
+    public Vector2 TileSize => tileSize;
 
     public Vector2Int WorldToGrid(Vector3 worldPos) => new Vector2Int((int)(worldPos.x / tileSize.x), (int)(worldPos.y / tileSize.y));
     public Vector3 GridToWorld(Vector2Int worldPos) => new Vector3(worldPos.x * tileSize.x, transform.position.y, worldPos.y * tileSize.y);
@@ -57,6 +58,6 @@ public class World : MonoBehaviour
     public void PlaceTurret(Tower selectedTower, Tile tile)
     {
         Vector3 worldPos = GridToWorldMid(new Vector2Int(tile.X, tile.Y));
-        Instantiate(selectedTower, worldPos, Quaternion.identity);
+        tile.Tower = Instantiate(selectedTower, worldPos, Quaternion.identity);
     }
 }

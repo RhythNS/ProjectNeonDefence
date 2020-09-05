@@ -7,6 +7,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, ITargetable
 {
     public Health Health { get; private set; }
+
+    private Behaviour behaviour;
     public int MoneyDrop { get; private set; }
 
     [SerializeField] private float speedForPassingTile;
@@ -66,6 +68,9 @@ public class Enemy : MonoBehaviour, ITargetable
      */
     public IEnumerator Walk()
     {
+        yield return null;
+        behaviour = GetComponent<Behaviour>();
+        bool enteredNewTile = false;
         float timer = 0;
         while (true)
         {
@@ -77,6 +82,11 @@ public class Enemy : MonoBehaviour, ITargetable
 
             this.transform.position = Vector3.Lerp(lastTilePassed, currentDestinationPoint, percentage);
 
+            if(percentage >= 0.5 && !enteredNewTile)
+            {
+                behaviour.OnNewTileEntered();
+                enteredNewTile = true;
+            }
             if (percentage >= 1)
             {
                 if (++positionOnPath >= path.Count)
@@ -87,6 +97,7 @@ public class Enemy : MonoBehaviour, ITargetable
 
                 SetNewDestination(false);
                 timer = 0;
+                enteredNewTile = false;
             }
 
             yield return null;

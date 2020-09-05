@@ -22,7 +22,7 @@ public class RangedAttackBehaviour : MonoBehaviour, Behaviour
         //range = data.range;
     }
 
-    public void OnNewTileEntered(Tile tile)
+    public void OnNewTileEntered()
     {
         Vector2Int currentGridPosition = World.Instance.WorldToGrid(transform.position);
         if (AttackingTower != null && AttackingTower)

@@ -67,6 +67,7 @@ public class CameraController : MonoBehaviour
             {
                 TrySelect();
                 if (SelectedTower != null &&
+                    newSelected != null &&
                     MoneyManager.Instance.CanPlaceTower(SelectedTower) == true &&
                     newSelected.TryGetComponent(out Tile tile) == true
                     && tile.Tower == null)
