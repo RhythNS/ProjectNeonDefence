@@ -18,13 +18,8 @@ public class EnemyPathManager : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        OnNextLevel();
         //TODO Bei Eventsregistrieren (Towerplaced, TowerDieable)
         //TODO Spawnpointupdate bei neuem Level: Registrieren Beim NextLevel Event
-    }
 
     public List<Tile> GetStartPath(int atSpawnPoint) => CurrentPaths[atSpawnPoint];
 
