@@ -7,11 +7,8 @@ public class SingleShotTower : Tower
     public float timeBetweenShots;
     public float currentCooldown;
     public MeeleBullet baseBullet;
-
-    void Start()
-    {
-    }
-
+    
+   
     void Update()
     {
         currentCooldown += Time.deltaTime;
@@ -25,7 +22,9 @@ public class SingleShotTower : Tower
         {
             currentCooldown = 0;
             MeeleBullet newBullet = Instantiate(baseBullet);
+            newBullet.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
             newBullet.Target = targetEnemy;
+            
         }
     }
 }
