@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1446949883472617614}
   - component: {fileID: -5666758954304399856}
   - component: {fileID: 2770661040607412482}
-  - component: {fileID: 6663777573962168937}
+  - component: {fileID: 7638718460313068979}
+  - component: {fileID: 3362066821320717441}
   m_Layer: 0
   m_Name: TowerCube
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1115713517607270775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 183.943, y: -44.440678, z: 33.466717}
-  m_LocalScale: {x: 0.3352, y: 1, z: 0.22328}
+  m_LocalScale: {x: 5, y: 8, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -122,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095266284b36fb84790dca99657bc876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6663777573962168937
+--- !u!114 &7638718460313068979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,3 +137,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Aimpoint: {fileID: 0}
   targetEnemy: {fileID: 0}
+  effectiveRange: 5
+--- !u!114 &3362066821320717441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115713517607270775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cafc1fb8424665429770f9f77db82bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Aimpoint: {fileID: 0}
+  targetEnemy: {fileID: 0}
+  effectiveRange: 5
