@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -105,6 +106,11 @@ public class Enemy : MonoBehaviour, ITargetable
     public GameObject GetGameObject()
     {
         return gameObject;
+    }
+
+    private void OnDestroy()
+    {
+        GravityTowerManager.Instance.RemoveGravity(this);
     }
 }
 

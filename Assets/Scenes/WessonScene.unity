@@ -605,6 +605,21 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 421828253}
+    - target: {fileID: 4738690682815809493, guid: 696039a9170b1ff43a3574861ea0384d,
+        type: 3}
+      propertyPath: towerEffectiveRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738690682815809493, guid: 696039a9170b1ff43a3574861ea0384d,
+        type: 3}
+      propertyPath: towerBulletCooldownSeconds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738690682815809493, guid: 696039a9170b1ff43a3574861ea0384d,
+        type: 3}
+      propertyPath: towerManagerMaxTowersCheckedPerFrame
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4738690682815809514, guid: 696039a9170b1ff43a3574861ea0384d,
         type: 3}
       propertyPath: m_LocalPosition.x

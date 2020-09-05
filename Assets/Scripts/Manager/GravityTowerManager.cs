@@ -69,6 +69,7 @@ public class GravityTowerManager : MonoBehaviour
     {
         if (gravitiedEnemies.ContainsKey(e))
         {
+            
             Debug.Log("Unfreezing Enemy "  + e.ToString());
             gravitiedEnemies.Remove(e);
             e.SpeedForPassingTile = originalSpeeds[e];

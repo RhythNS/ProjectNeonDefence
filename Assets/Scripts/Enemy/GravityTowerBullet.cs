@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class GravityTowerBullet : AOEBullet
 {
-
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collided! " + other.gameObject);
         GameObject targetObject = Target.GetGameObject();
-        if (collision.gameObject == targetObject)
+        if (other.gameObject == targetObject)
         {
+            Debug.Log("Collided with target!");
             // ... get all other towers and damange them as well.
             Collider[] aoeColliders = Physics.OverlapSphere(Target.GetCurrentPosition(), aoeRadius);
             for (var i = 0; i < aoeColliders.Length; i++)
@@ -21,6 +22,7 @@ public class GravityTowerBullet : AOEBullet
                     GravityTowerManager.Instance.AddGravity(enemy);
                 }
             }
+
             Destroy(this.gameObject);
         }
     }

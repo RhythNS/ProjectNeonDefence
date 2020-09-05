@@ -20,7 +20,7 @@ public class GameConstants : MonoBehaviour
     // The range in which a tower can attack
     [SerializeField] private float towerEffectiveRange = 5;
     // Cooldown between shots of bullets
-    [SerializeField] private float towerBulletCooldownSeconds = 4;
+    [SerializeField] private float towerBulletCooldownSeconds = 1;
     // How many towers are updated each frame, helps with performance.
     [SerializeField] private float towerManagerMaxTowersCheckedPerFrame = 10;
     
