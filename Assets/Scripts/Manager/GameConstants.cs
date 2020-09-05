@@ -13,4 +13,8 @@ public class GameConstants : MonoBehaviour
 
     public float TimeBetweenRounds { get => timeBetweenRounds; set => timeBetweenRounds = value; }
     [SerializeField] private float timeBetweenRounds;
+    [SerializeField] private float hardTowerFValue = 10;
+
+    public float HardTowerFValue => hardTowerFValue;
+
 }
