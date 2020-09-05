@@ -32,11 +32,7 @@ public class GameManager : MonoBehaviour
     // List of all towers currently alive.
     public List<Tower> AliveTowers { get; private set; } = new List<Tower>();
 
-    // Keeping track of the current index of which tower to check
-    private int currentTowerListIndex = 0;
-
-    // How many towers at max should be checked / updated per frame
-    private readonly int MAX_TOWERS_CHECKED_PER_STEP = 3;
+  
     
     [SerializeField] private Level debugLevel;
 
@@ -71,36 +67,8 @@ public class GameManager : MonoBehaviour
             LoadLevel(debugLevel);
         
         //PHA: Doing tower update logic
-        UpdateTowers();
+        TowerManager.UpdateTowers();
     }
 
-    private void UpdateTowers()
-    {
-        // Keeping track of towers we have already checked
-        var checkedTowers = new List<Tower>();
-        for (var i = 0; i < MAX_TOWERS_CHECKED_PER_STEP; i++)
-        {
-            // If there are no towers to check, why bother?
-            if (AliveTowers.Count <= 0) break;
-            // Increment to next tower index
-            currentTowerListIndex++;
-            // Wrap index to prevent overflow
-            if (currentTowerListIndex >= AliveTowers.Count) currentTowerListIndex = 0;
-            // Get next tower and check if it has been updated this frame
-            var tower = AliveTowers[currentTowerListIndex];
-            if (checkedTowers.Contains(tower)) continue;
-            checkedTowers.Add(tower);
-
-            var nearbyColliders = Physics.OverlapSphere(tower.GetCurrentPosition(), tower.EffectiveRange);
-            tower.enemiesInRange.Clear();
-            
-            for (var j = 0; j < nearbyColliders.Length; j++)
-            {
-                if (nearbyColliders[i].TryGetComponent<Enemy>(out Enemy e))
-                {
-                    tower.enemiesInRange.Add(e);
-                }
-            }
-        }
-    }
+    
 }

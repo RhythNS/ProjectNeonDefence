@@ -41,6 +41,8 @@
           <e p="Manager" t="Include">
             <e p="GameConstants.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
+            <e p="TowerManager.cs" t="Include" />
+            <e p="WaveEndChecker.cs" t="Include" />
             <e p="WaveEndTimer.cs" t="Include" />
             <e p="WaveSpawner.cs" t="Include" />
           </e>
