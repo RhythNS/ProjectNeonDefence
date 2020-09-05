@@ -8,7 +8,7 @@ using UnityEngine;
 /// This works by getting all enemies in a certain radius and then proceed to apply damage as well.
 /// This documentation is very good.
 /// </summary>
-public class AOEBullet : Bullet
+public class AOEBullet : AbstractBullet
 {
    
 
@@ -29,10 +29,10 @@ public class AOEBullet : Bullet
         if (collision.gameObject.GetComponent<Tower>() == Target)
         {
             // ... give the target tower damage,...   
-            Target.GetComponent<Health>().TakeDamage(damage);
+            Target.GetGameObject().GetComponent<Health>().TakeDamage(damage);
             
             // ... get all other towers and damange them as well.
-            Collider[] aoeColliders = Physics.OverlapSphere(Target.Aimpoint.position, aoeRadius);
+            Collider[] aoeColliders = Physics.OverlapSphere(Target.GetCurrentPosition(), aoeRadius);
             foreach (var collider in aoeColliders)
             {
                 if (!collider.TryGetComponent<Tower>(out Tower tower))

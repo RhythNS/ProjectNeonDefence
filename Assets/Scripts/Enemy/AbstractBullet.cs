@@ -1,18 +1,19 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public abstract class AbstractBullet : MonoBehaviour
 {
     [SerializeField] public float speed;
     [SerializeField] protected int damage;
 
-    public Tower Target;
+    public ITargetable Target { get; set; }
 
     protected Vector3 destination;
 
     public void Awake()
     {
-        destination = Target.Aimpoint.position;
+        destination = Target.GetCurrentPosition();
         StartCoroutine(Move());
     }
 
@@ -37,12 +38,11 @@ public class Bullet : MonoBehaviour
 
     public virtual void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Tower>() == Target)
+        GameObject targetObject = Target.GetGameObject();
+        if (collision.gameObject == targetObject)
         {
-            Target.GetComponent<Health>().TakeDamage(damage);
+            targetObject.GetComponent<Health>().TakeDamage(damage);
             Destroy(this.gameObject);
         }
     }
-
-
 }

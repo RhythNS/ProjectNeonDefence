@@ -3,12 +3,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
 {
     [SerializeField] private int range;
     private Enemy ownerEnemy;
-    [SerializeField] private Bullet bulletPrefab;
+    [FormerlySerializedAs("bulletPrefab")] [SerializeField] private MeeleBullet meeleBulletPrefab;
 
     [SerializeField] private float attackThreshold;
     public Tower AttackingTower { get; private set; }
@@ -42,8 +43,8 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
 
     private void ShootMissileAt(Tower attackingTower)
     {
-        Bullet spawnedBullet = Instantiate<Bullet>(bulletPrefab);
-        spawnedBullet.Target = attackingTower;
+        MeeleBullet spawnedMeeleBullet = Instantiate<MeeleBullet>(meeleBulletPrefab);
+        spawnedMeeleBullet.Target = attackingTower;
     }
 
     public void OnNewTileEntered(Tile tile)
