@@ -28,7 +28,6 @@ public class WaveSpawner : MonoBehaviour
         {
             for (int j = 0; j < wave.enemies[i].amount; j++)
             {
-                Debug.Log(i + " " + j);
                 GameManager.Instance.SpawnPoints[wave.enemies[i].spawnPoint].Spawn(wave.enemies[i].enemyData);
                 yield return new WaitForSeconds(wave.enemies[i].timePerSpawn);
             }

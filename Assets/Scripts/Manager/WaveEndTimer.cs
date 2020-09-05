@@ -20,7 +20,7 @@ public class WaveEndTimer : MonoBehaviour
     {
         remainingTime = time;
         text.text = remainingTime.ToString();
-        gameObject.SetActive(true);
+        enabled = true;
     }
 
     private void Update()
@@ -31,7 +31,7 @@ public class WaveEndTimer : MonoBehaviour
         if (remainingTime <= 0)
         {
             GameManager.Instance.OnBeginNextWave();
-            gameObject.SetActive(false);
+            enabled = false;
         }
     }
 }

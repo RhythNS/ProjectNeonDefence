@@ -46,7 +46,11 @@ public class Enemy : MonoBehaviour
 
             if (percentage >= 1)
             {
-                positionOnPath++;
+                if (++positionOnPath >= path.Count)
+                {
+
+                }
+
                 SetNewDestination(false);
                 timer = 0;
             }
@@ -55,7 +59,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    
+
     public void OnWorldChange()
     {
         //Create new path
