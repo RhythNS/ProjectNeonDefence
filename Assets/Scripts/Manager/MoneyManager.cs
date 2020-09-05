@@ -2,6 +2,7 @@
 
 public class MoneyManager : MonoBehaviour
 {
+
     public static MoneyManager Instance { get; private set; }
 
     private void Awake()
@@ -9,7 +10,8 @@ public class MoneyManager : MonoBehaviour
         Instance = this;
     }
 
-    public int CurrentMoney { get; private set; }
+    public int CurrentMoney { get => currentMoney; private set => currentMoney = value; }
+    [SerializeField] private int currentMoney;
 
     public void EnemyKilled(Enemy enemy)
     {
