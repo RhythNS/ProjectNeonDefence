@@ -10,8 +10,17 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Behaviour[] behaviour;
 
+    [SerializeField] private GameObject TOwerPRefab;
+
     public void Set(EnemyData data)
+    {
+
+    }
+
+
+    public void Update()
     {
         
     }
 }
+

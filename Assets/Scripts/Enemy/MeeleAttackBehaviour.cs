@@ -7,14 +7,15 @@ using UnityEngine;
 public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
 {
     [SerializeField] private int range;
-    [SerializeField] private Enemy ownerEnemy;
-    [SerializeField] private Bullet bulletPrefab; 
+    private Enemy ownerEnemy;
+    [SerializeField] private Bullet bulletPrefab;
 
     [SerializeField] private float attackThreshold;
     public Tower AttackingTower { get; private set; }
 
     void Start()
     {
+        ownerEnemy = GetComponent<Enemy>();
         StartCoroutine(UpdateAttack());
     }
 
@@ -44,38 +45,58 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
     public void OnNewTileEntered(Tile tile)
     {
         Vector2Int currentGridPosition = World.Instance.WorldToGrid(ownerEnemy.transform.position);
-        if(AttackingTower != null && AttackingTower)
+        if (AttackingTower != null && AttackingTower)
         {
             if (CheckIfTargetStillInReach(currentGridPosition, World.Instance.WorldToGrid(AttackingTower.gameObject.transform.position)) == true)
             {
                 return;
             }
-                
+
         }
         Fast2DArray<Tile> tiles = World.Instance.Tiles;
         Tile currentVisitedTile;
         int currentX = currentGridPosition.x;
         int currentY = currentGridPosition.y;
-       
 
-        for (int check = 0; check < range; check++)
+        for (int i = 0; i < range; i++)
         {
-            for (int x = 0; x < check * 2; x++)
+            for (int j = -i; j <= i; j++)
             {
-                //TODO Keine Redundanzen
-                for (int y = 0; y < check * 2; y++)
+                //Check row above
+                currentVisitedTile = tiles.Get(currentX - i, currentY + j);
+                if (currentVisitedTile.Tower != null)
                 {
-                    currentVisitedTile = tiles.Get(currentX - check + x, currentY - check + y);
-                    if (currentVisitedTile.Tower == null)
-                    {
-                        Attack(currentVisitedTile.Tower);
-                    }
+                    Attack(currentVisitedTile.Tower);
+                    return;
+                }
+
+                //Check row below
+                currentVisitedTile = tiles.Get(currentX + i, currentY + j);
+                if (currentVisitedTile.Tower != null)
+                {
+                    Attack(currentVisitedTile.Tower);
+                    return;
+                }
+                //Check row below
+                currentVisitedTile = tiles.Get(currentX + j, currentY - i);
+                if (currentVisitedTile.Tower != null)
+                {
+                    Attack(currentVisitedTile.Tower);
+                    return;
+                }
+                //Check row below
+                currentVisitedTile = tiles.Get(currentX + j, currentY + i);
+                if (currentVisitedTile.Tower != null)
+                {
+                    Attack(currentVisitedTile.Tower);
+                    return;
                 }
             }
         }
+
     }
 
-    private bool CheckIfTargetStillInReach(Vector2Int currentGridPosition, Vector2Int targetPosition) 
+    private bool CheckIfTargetStillInReach(Vector2Int currentGridPosition, Vector2Int targetPosition)
         => Vector2Int.Distance(currentGridPosition, targetPosition) <= range;
 
     private void Attack(Tower tower)
