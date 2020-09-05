@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class MoneyTowerDebugBehaviour : MonoBehaviour
+public class SingleShotTowerDebugBehaviour : MonoBehaviour
 {
-    public MoneyTower moneyTowerPrefab;
-  
+    public SingleShotTower towerPrefab;
+   
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F11))
+        if (Input.GetKeyDown(KeyCode.F10))
         {
             int randX = Random.Range(2, World.Instance.Tiles.XSize-2);
             int randY = Random.Range(2, World.Instance.Tiles.YSize-2);
             Tile t = World.Instance.Tiles.Get(randX, randY);
             if (!t || t.Tower) return;
-            MoneyTower newTower = Instantiate(moneyTowerPrefab);
+            SingleShotTower newTower = Instantiate(towerPrefab);
             newTower.transform.position = t.transform.position;
             t.Tower = newTower;
         }
