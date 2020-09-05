@@ -13,14 +13,12 @@ public class Bullet : MonoBehaviour
     public void Awake()
     {
         destination = Target.Aimpoint.position;
-        Move();
+        StartCoroutine(Move());
     }
 
     public void Update()
     {
         Vector3 pos = destination - transform.position;
-
-        StartCoroutine(Move());
 
         this.transform.position = pos.normalized * Time.deltaTime;
     }
