@@ -9,6 +9,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Enemy" t="Include">
+            <e p="AOEBullet.cs" t="Include" />
             <e p="Behaviour.cs" t="Include" />
             <e p="Bullet.cs" t="Include" />
             <e p="Enemy.cs" t="Include" />

@@ -4,11 +4,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] public float speed;
-    [SerializeField] private int damage;
+    [SerializeField] protected int damage;
 
     public Tower Target;
 
-    private Vector3 destination;
+    protected Vector3 destination;
 
     public void Awake()
     {
@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Tower>() == Target)
         {
