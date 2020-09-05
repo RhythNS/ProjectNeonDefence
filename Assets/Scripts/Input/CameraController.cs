@@ -5,6 +5,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private float zoomSpeed = 100f;
     [SerializeField] private float zoomTime = 0.1f;
+    [SerializeField] private AnimationCurve zoomCurve;
     [SerializeField] private float minZoom = 10f, maxZoom = 60f;
     [SerializeField] private float minDragSpeed = 1f, maxDragSpeed = 6f;
 
@@ -118,6 +119,8 @@ public class CameraController : MonoBehaviour
 
         // Smooth the zoomn
         newPos.y = Mathf.SmoothDamp(transform.position.y, zoomTarget, ref zoomVelocity, zoomTime);
+        float perc = (newPos.y - minZoom) / (maxZoom - minZoom);
+        transform.rotation = Quaternion.Euler(zoomCurve.Evaluate(perc), StartingRotation.y, StartingRotation.z);
 
         prevMousePos = currentMousePos;
         SetPosition(newPos);

@@ -470,14 +470,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043897494}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.25733924, y: -0, z: -0, w: 0.9663212}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 633264868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 29.825, y: 0, z: 0}
 --- !u!114 &1043897498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,13 +521,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21cb96a74e88c949918bfe19c115b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 80
+  zoomSpeed: 2
   zoomTime: 0.1
-  minZoom: 10
+  zoomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 30
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 80
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  minZoom: 5
   maxZoom: 60
   minDragSpeed: 1
   maxDragSpeed: 6
-  moveSpeed: 0
+  moveSpeed: 80
   startingHeight: 30
   screenBordersInPixel: 10
   vectorSizeNeededForScrolling: 50

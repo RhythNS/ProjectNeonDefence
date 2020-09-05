@@ -80,7 +80,7 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
     }
 
     private bool CheckIfTargetStillInReach(Vector2Int currentGridPosition, Vector2Int targetPosition)
-        => Vector2Int.Distance(currentGridPosition, targetPosition) < range;
+        => Vector2Int.Distance(currentGridPosition, targetPosition) <= range;
 
     private void Attack(Tower tower)
     {
