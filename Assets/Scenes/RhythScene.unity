@@ -137,6 +137,8 @@ GameObject:
   - component: {fileID: 162201956}
   - component: {fileID: 162201955}
   - component: {fileID: 162201954}
+  - component: {fileID: 162201957}
+  - component: {fileID: 162201958}
   m_Layer: 0
   m_Name: Globals
   m_TagString: Untagged
@@ -222,6 +224,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a746ab50a9deb434fb8600c28702998f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &162201957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162201950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15349af98048934982a300083b93eb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildableTiles:
+  - {fileID: 8219944830631723480, guid: 915db896bfb328d4f86416e72742ebaf, type: 3}
+  unbuildableTiles:
+  - {fileID: 5704202559894581532, guid: e3990bec4ba1c3942a5ccd3d26fcf8f3, type: 3}
+  borderTiles:
+  - {fileID: 4842079735794330078, guid: bf5b96a3ebee9de499d6b1822352d2b9, type: 3}
+  spawnTiles: {fileID: 7346616180756234253, guid: 7e9fda9d5bbf7904bbe4b114c6c4cfab,
+    type: 3}
+  homeTile: {fileID: 5287381008547901935, guid: 7a7513e03123308488a3f2388d50c2a0,
+    type: 3}
+  tileSize: {x: 2, y: 2}
+  offset: {x: 0, y: 0, z: 0}
+  debugSettings: {fileID: 11400000, guid: be67f47fe13416d42b28231505a95921, type: 2}
+--- !u!114 &162201958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162201950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d444f879e5da4a4abf6404e960fbc75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1603059842}
 --- !u!1 &548860609
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +446,7 @@ RectTransform:
   m_Children:
   - {fileID: 1603059841}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -589,62 +629,6 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
---- !u!1 &1284558059
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1284558061}
-  - component: {fileID: 1284558060}
-  m_Layer: 0
-  m_Name: WorldGen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1284558060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284558059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e15349af98048934982a300083b93eb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildableTiles:
-  - {fileID: 8219944830631723480, guid: 915db896bfb328d4f86416e72742ebaf, type: 3}
-  unbuildableTiles:
-  - {fileID: 5704202559894581532, guid: e3990bec4ba1c3942a5ccd3d26fcf8f3, type: 3}
-  borderTiles:
-  - {fileID: 4842079735794330078, guid: bf5b96a3ebee9de499d6b1822352d2b9, type: 3}
-  spawnTiles: {fileID: 7346616180756234253, guid: 7e9fda9d5bbf7904bbe4b114c6c4cfab,
-    type: 3}
-  homeTile: {fileID: 5287381008547901935, guid: 7a7513e03123308488a3f2388d50c2a0,
-    type: 3}
-  tileSize: {x: 2, y: 2}
-  offset: {x: 0, y: 0, z: 0}
-  debugSettings: {fileID: 11400000, guid: be67f47fe13416d42b28231505a95921, type: 2}
---- !u!4 &1284558061
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284558059}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.029459, y: 18.4371, z: -4.261897}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385640969
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +693,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1603059840
 GameObject:
