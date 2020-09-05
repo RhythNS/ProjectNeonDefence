@@ -23,12 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="925adb85-368c-4738-80cf-3617525e5d86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/AOEBullet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/ITargetable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WessonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WessonScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/AOEBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/AOEBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleBullet.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleAttackBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleAttackBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +45,15 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F8918D0C-C5FC-41A1-BABA-01B207A4C016/b3/47c68d3f/Physics.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E8645A79-B079-4E0E-9A2B-5BBFF081B88A/58/0e27a80d/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/GameConstants.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/ITargetable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F6747DE9-0205-433F-84EB-50C1DA278135/f8/91733dda/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/17/e04d3a6f/Int64.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.visualstudio@2.0.2/Editor/VisualStudioEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/a9/0f2cbdb2/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/AOEBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FC4FDE92-EB6F-48C0-97C9-E23AC1E2176C/9a/f0f6f6f7/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/16/31fef33d/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -58,8 +66,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/PathTestBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameConstants.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Entities/ITargetable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/AOEBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Entities/Health.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" />
       </list>
     </option>
   </component>
@@ -106,7 +120,7 @@
       <updated>1599259220442</updated>
       <workItem from="1599259230340" duration="4922000" />
       <workItem from="1599264236354" duration="4974000" />
-      <workItem from="1599297416906" duration="2303000" />
+      <workItem from="1599297416906" duration="5271000" />
     </task>
     <servers />
   </component>
@@ -195,22 +209,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599269249746" />
+    <state x="794" y="221" key="RiderGenerateDialog" timestamp="1599300637443">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="221" key="RiderGenerateDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599300637443" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1599264188822">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599264188822" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599298205436">
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599299910826">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599298205436" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599299910826" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1599298152789">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599298152789" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599298003011">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599301047592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599298003011" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599301047592" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

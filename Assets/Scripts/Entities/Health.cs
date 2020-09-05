@@ -7,12 +7,21 @@ public class Health : MonoBehaviour
     public int MaxHealth { get; private set; }
     public int DamageTaken => MaxHealth - CurrentHealth;
 
+    private bool isDead  = false;
+
     public void TakeDamage(int amount)
     {
         CurrentHealth -= amount;
         if(CurrentHealth <= 0)
         {
             GetComponent<IDieable>().Die();
+            isDead = true;
+        }
+        else
+        {
+            isDead = false;
         }
     }
+
+    public bool IsHead => isDead;
 }

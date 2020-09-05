@@ -9,18 +9,23 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Enemy" t="Include">
+            <e p="AbstractBullet.cs" t="Include" />
             <e p="AOEBullet.cs" t="Include" />
             <e p="Behaviour.cs" t="Include" />
-            <e p="Bullet.cs" t="Include" />
             <e p="Enemy.cs" t="Include" />
+            <e p="EnemyPathManager.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
+            <e p="LaserBullet.cs" t="Include" />
             <e p="MeeleAttackBehaviour.cs" t="Include" />
+            <e p="MeeleBullet.cs" t="Include" />
+            <e p="RangedAttackTankBehaviour.cs" t="Include" />
           </e>
           <e p="Entities" t="Include">
             <e p="BaseDieable.cs" t="Include" />
             <e p="EnemyDieable.cs" t="Include" />
             <e p="Health.cs" t="Include" />
             <e p="IDieable.cs" t="Include" />
+            <e p="ITargetable.cs" t="Include" />
             <e p="TowerDieable.cs" t="Include" />
           </e>
           <e p="Level" t="Include">
@@ -66,6 +71,7 @@
             </e>
           </e>
           <e p="World" t="Include">
+            <e p="EnemySpawnPoint.cs" t="Include" />
             <e p="Home.cs" t="Include" />
             <e p="Tile.cs" t="Include" />
             <e p="World.cs" t="Include" />
