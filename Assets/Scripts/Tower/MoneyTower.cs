@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoneyTower : MonoBehaviour
+public class MoneyTower : Tower
 {
     // Start is called before the first frame update
     public float moneyGrandCooldown;
@@ -25,5 +25,6 @@ public class MoneyTower : MonoBehaviour
     {
         currentCooldown = 0f;
         MoneyManager.Instance.ModifyMoney(moneyYield);
+        Debug.Log("Du hast Geld bekommen! Dein Geld: " + MoneyManager.Instance.CurrentMoney.ToString());
     }
 }
