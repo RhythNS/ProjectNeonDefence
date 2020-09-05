@@ -22,7 +22,7 @@ public class GameConstants : MonoBehaviour
     // Cooldown between shots of bullets
     [SerializeField] private float towerBulletCooldownSeconds = 4;
     // How many towers are updated each frame, helps with performance.
-    [SerializeField] private float towerManagerMaxTowersCheckedPerFrame = 3;
+    [SerializeField] private float towerManagerMaxTowersCheckedPerFrame = 10;
     
     public float TowerHardFValue => towerHardFValue;
     public float TowerEffectiveRange => towerEffectiveRange;

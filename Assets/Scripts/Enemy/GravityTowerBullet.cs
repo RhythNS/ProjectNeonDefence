@@ -3,38 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GravityTowerBullet : AbstractBullet
+public class GravityTowerBullet : AOEBullet
 {
 
-
-    void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
-    }
-
-    public override IEnumerator Move()
-    {
-        Vector3 dir = destination - transform.position;
-        dir = dir.normalized;
-
-        while (true)
-        {
-            this.transform.position = dir * Time.deltaTime * speed;
-            yield return null;
-        }
-    }
-    
     public void OnCollisionEnter(Collision collision)
     {
         GameObject targetObject = Target.GetGameObject();
         if (collision.gameObject == targetObject)
         {
-            targetObject.GetComponent<Health>().TakeDamage(damage);
+            // ... get all other towers and damange them as well.
+            Collider[] aoeColliders = Physics.OverlapSphere(Target.GetCurrentPosition(), aoeRadius);
+            for (var i = 0; i < aoeColliders.Length; i++)
+            {
+                var collider = aoeColliders[i];
+                if (collider.TryGetComponent<Enemy>(out Enemy enemy))
+                {
+                    GravityTowerManager.Instance.AddGravity(enemy);
+                }
+            }
             Destroy(this.gameObject);
         }
     }

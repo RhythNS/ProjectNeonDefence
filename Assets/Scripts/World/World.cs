@@ -1,5 +1,4 @@
-﻿using System;
-using MonoNet.Util.Datatypes;
+﻿using MonoNet.Util.Datatypes;
 using UnityEngine;
 
 public class World : MonoBehaviour
@@ -53,5 +52,11 @@ public class World : MonoBehaviour
                 Gizmos.DrawWireCube(pos, size);
             }
         }
+    }
+
+    public void PlaceTurret(Tower selectedTower, Tile tile)
+    {
+        Vector3 worldPos = GridToWorldMid(new Vector2Int(tile.X, tile.Y));
+        Instantiate(selectedTower, worldPos, Quaternion.identity);
     }
 }

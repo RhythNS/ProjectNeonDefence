@@ -19,6 +19,8 @@ public class CameraController : MonoBehaviour
 
     public static CameraController Instance { get; private set; }
 
+    public Tower SelectedTower { get; set; }
+
     public GameObject previousSelected, newSelected;
 
     public Rect LevelRect { get; set; }
@@ -64,6 +66,15 @@ public class CameraController : MonoBehaviour
             else if (Input.GetMouseButtonUp(0) == true) // Left mouse button was let go this frame then try to select someone
             {
                 TrySelect();
+                if (SelectedTower != null &&
+                    MoneyManager.Instance.CanPlaceTower(SelectedTower) == true &&
+                    newSelected.TryGetComponent(out Tile tile) == true
+                    && tile.Tower == null)
+                {
+                    World.Instance.PlaceTurret(SelectedTower, tile);
+                }
+
+                SelectedTower = null;
             }
 
             if (Input.GetMouseButtonUp(1) == true) // right mouse button up this frame
@@ -91,7 +102,7 @@ public class CameraController : MonoBehaviour
         currentMousePos = Input.mousePosition;
         Vector3 newPos = transform.position;
 
-        if (Input.GetMouseButton(0) == false) // Left mouse button is not pressed 
+        if (Input.GetMouseButton(2) == false) // Left mouse button is not pressed 
         {
             newPos += MoveScreen();
         }
@@ -113,7 +124,7 @@ public class CameraController : MonoBehaviour
 
     private GameObject GetSelectable()
     {
-        if (GetHitAtMousePos(out RaycastHit hit, 1 << 8) == false || hit.collider.gameObject.GetComponent<ISelectable>() == null)
+        if (GetHitAtMousePos(out RaycastHit hit) == false || hit.collider.gameObject.GetComponent<ISelectable>() == null)
             return null;
         return hit.collider.gameObject;
     }
@@ -183,12 +194,12 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private bool GetHitAtMousePos(out RaycastHit hit, int layer)
+    private bool GetHitAtMousePos(out RaycastHit hit)
     {
         Ray ray = attachedCamera.ScreenPointToRay(currentMousePos);
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 2);
 
-        return Physics.Raycast(ray, out hit, 100f, layer);
+        return Physics.Raycast(ray, out hit, 100f);
     }
 
     protected Vector3 MoveScreen()
