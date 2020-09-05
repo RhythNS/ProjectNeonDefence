@@ -23,9 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="925adb85-368c-4738-80cf-3617525e5d86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/TowerDiable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/RhythScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/RhythScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/TowerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/TowerManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +52,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.visualstudio@2.0.2/Editor/VisualStudioEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/a9/0f2cbdb2/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tower/TowerDiable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/16/31fef33d/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/TowerManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -60,14 +66,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameConstants.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Entities/ITargetable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/AOEBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Entities/Health.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/TowerDiable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager/TowerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/TowerDebugBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -114,7 +122,7 @@
       <updated>1599259220442</updated>
       <workItem from="1599259230340" duration="4922000" />
       <workItem from="1599264236354" duration="4974000" />
-      <workItem from="1599297416906" duration="7407000" />
+      <workItem from="1599297416906" duration="10016000" />
     </task>
     <servers />
   </component>
@@ -223,10 +231,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599298152789" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599301047592">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599307339225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599301047592" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599307339225" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -256,6 +264,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs</url>
+          <line>69</line>
+          <properties documentPath="D:\Unity\Projects\ProjectNeonDefence\Assets\Scripts\Manager\GameManager.cs" initialLine="65">
+            <startOffsets>
+              <option value="1532" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1565" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

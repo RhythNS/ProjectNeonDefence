@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
             LoadLevel(debugLevel);
         
         //PHA: Doing tower update logic
-        TowerManager.UpdateTowers();
+        TowerManager.instance.UpdateTowers();
     }
 
     

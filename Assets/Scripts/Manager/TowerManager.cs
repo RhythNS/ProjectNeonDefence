@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    
+
+    public Tower towerPref;
     // Keeping track of the current index of which tower to check
     private static int currentTowerListIndex = 0;
 
     // How many towers at max should be checked / updated per frame
     private static readonly int MAX_TOWERS_CHECKED_PER_STEP = 3;
+
+    public static TowerManager instance;
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance = this;
     }
 
     // Update is called once per frame
@@ -22,8 +25,11 @@ public class TowerManager : MonoBehaviour
         
     }
     
-    public static void UpdateTowers()
+    public void UpdateTowers()
     {
+       
+        
+        
         // Keeping track of towers we have already checked
         var checkedTowers = new List<Tower>();
         for (var i = 0; i < MAX_TOWERS_CHECKED_PER_STEP; i++)

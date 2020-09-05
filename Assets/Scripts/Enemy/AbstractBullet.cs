@@ -7,15 +7,20 @@ public abstract class AbstractBullet : MonoBehaviour
     [SerializeField] public float speed;
     [SerializeField] protected int damage;
 
-    public ITargetable Target { get; set; }
+    public ITargetable Target
+    {
+        get => target;
+        set
+        {
+            target = value;
+            destination = Target.GetCurrentPosition();
+            StartCoroutine(Move());
+        }
+    }
 
     protected Vector3 destination;
-
-    public void Awake()
-    {
-        destination = Target.GetCurrentPosition();
-        StartCoroutine(Move());
-    }
+    private ITargetable target;
+    
 
     public void Update()
     {
