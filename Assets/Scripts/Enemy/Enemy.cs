@@ -156,7 +156,7 @@ public class Enemy : MonoBehaviour, ITargetable
 
     public Vector3 GetCurrentPosition()
     {
-        return transform.position;
+        return transform ? transform.position : Vector3.zero;
     }
 
     public GameObject GetGameObject()

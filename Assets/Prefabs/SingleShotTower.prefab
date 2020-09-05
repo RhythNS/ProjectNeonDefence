@@ -88,7 +88,7 @@ MonoBehaviour:
   Aimpoint: {fileID: 0}
   targetEnemy: {fileID: 0}
   Range: 20
-  timeBetweenShots: 0.5
+  timeBetweenShots: 0.1
   currentCooldown: 0
   baseBullet: {fileID: 8212137288850585430, guid: 4bc0686f2096c4c4e8e3bacdcf09896d,
     type: 3}
