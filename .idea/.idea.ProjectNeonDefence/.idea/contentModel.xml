@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Reimu\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Reimu\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ProjectNeonDefence.663931835.00" t="ExcludeRecursive" />
+    <e p="D:\Unity\Projects\ProjectNeonDefence" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Enemy" t="Include">
+            <e p="Behaviour.cs" t="Include" />
+            <e p="Bullet.cs" t="Include" />
+            <e p="Enemy.cs" t="Include" />
+            <e p="Entity.cs" t="Include" />
+            <e p="MeeleAttackBehaviour.cs" t="Include" />
+          </e>
+          <e p="Entities" t="Include">
+            <e p="BaseDieable.cs" t="Include" />
+            <e p="EnemyDieable.cs" t="Include" />
+            <e p="Health.cs" t="Include" />
+            <e p="IDieable.cs" t="Include" />
+            <e p="TowerDieable.cs" t="Include" />
+          </e>
+          <e p="Level" t="Include">
+            <e p="BehaviourData" t="Include">
+              <e p="BehaviourData.cs" t="Include" />
+              <e p="MeleeAttackBehaviourData.cs" t="Include" />
+            </e>
+            <e p="EnemyData.cs" t="Include" />
+            <e p="Level.cs" t="Include" />
+            <e p="Wave.cs" t="Include" />
+            <e p="WorldGenSettings.cs" t="Include" />
+          </e>
+          <e p="SimpleCameraController.cs" t="Include" />
+          <e p="Tower" t="Include">
+            <e p="Tower.cs" t="Include" />
+          </e>
+          <e p="Utils" t="Include">
+            <e p="DataTypes" t="Include">
+              <e p="ArrayUtil.cs" t="Include" />
+              <e p="Fast2DArray.cs" t="Include" />
+              <e p="StringUtil.cs" t="Include" />
+            </e>
+            <e p="Math" t="Include">
+              <e p="MathUtil.cs" t="Include" />
+              <e p="VectorUtil.cs" t="Include" />
+            </e>
+            <e p="PathFinding" t="Include">
+              <e p="PathTestBehaviour.cs" t="Include" />
+              <e p="SimpleAStar.cs" t="Include" />
+            </e>
+            <e p="Unity" t="Include">
+              <e p="Comparators.cs" t="Include" />
+              <e p="EnumeratorUtil.cs" t="Include" />
+              <e p="GameobjectUtil.cs" t="Include" />
+              <e p="MecanimUtil.cs" t="Include" />
+              <e p="TransformUtil.cs" t="Include" />
+            </e>
+          </e>
+          <e p="World" t="Include">
+            <e p="GameManager.cs" t="Include" />
+            <e p="Home.cs" t="Include" />
+            <e p="Tile.cs" t="Include" />
+            <e p="World.cs" t="Include" />
+            <e p="WorldGen.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TutorialInfo" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="ReadmeEditor.cs" t="Include" />
+            </e>
+            <e p="Readme.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="ProjectNeonDefence.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

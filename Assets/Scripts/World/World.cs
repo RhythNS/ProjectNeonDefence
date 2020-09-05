@@ -1,4 +1,5 @@
-﻿using MonoNet.Util.Datatypes;
+﻿using System;
+using MonoNet.Util.Datatypes;
 using UnityEngine;
 
 public class World : MonoBehaviour
@@ -16,6 +17,11 @@ public class World : MonoBehaviour
     {
         Tiles = generated;
         this.tileSize = tileSize;
+    }
+
+    private void Awake()
+    {
+        Instance = this;
     }
 
     private void OnDrawGizmosSelected()

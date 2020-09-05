@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a46452892fc6d47970e013c810d96e, type: 3}
   m_Name: WorldGenSettings
   m_EditorClassIdentifier: 
-  sizeX: 10
-  sizeY: 10
+  sizeX: 20
+  sizeY: 20
   unblockablePercentange: 0.05
   homePosition: {x: 4, y: 4}
   spawnPoints:
