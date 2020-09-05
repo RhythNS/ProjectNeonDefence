@@ -18,10 +18,10 @@ public class MoneyTowerDebugBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F11))
         {
-            int randX = Random.Range(1, World.Instance.Tiles.XSize);
-            int randY = Random.Range(1, World.Instance.Tiles.YSize);
+            int randX = Random.Range(2, World.Instance.Tiles.XSize-2);
+            int randY = Random.Range(2, World.Instance.Tiles.YSize-2);
             Tile t = World.Instance.Tiles.Get(randX, randY);
-            if (t.Tower) return;
+            if (!t || t.Tower) return;
             MoneyTower newTower = Instantiate(moneyTowerPrefab);
             newTower.transform.position = t.transform.position;
             t.Tower = newTower;
