@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface Behaviour
 {
-    void OnNewTileEntered(Tile tile);
+    void OnNewTileEntered();
 
 }

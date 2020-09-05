@@ -11,7 +11,9 @@ public class EnemySpawnPoint : MonoBehaviour
         GameObject enemyObject = Instantiate(data.model, transform.position, Quaternion.identity);
         enemyObject.AddComponent<EnemyDieable>();
         enemyObject.AddComponent<Health>();
-        enemyObject.AddComponent<Enemy>().Set(data, startPath);
+        Enemy e = enemyObject.AddComponent<Enemy>();
+        e.Set(data, startPath);
+        GameManager.Instance.AliveEnemies.Add(e);
         for (int i = 0; i < data.behaviours.Length; i++)
         {
             if (data.behaviours[i] is MeleeAttackBehaviourData meleeAttack)

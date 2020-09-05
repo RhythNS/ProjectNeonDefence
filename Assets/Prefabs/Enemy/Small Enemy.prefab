@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 3855504559195378737, guid: 204a8a7d4b9b36d4892fc9dda8a7abb9,
         type: 3}
       propertyPath: m_Name
-      value: P_SmallEnemy Variant
+      value: Small Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6240135673461783171, guid: 204a8a7d4b9b36d4892fc9dda8a7abb9,
         type: 3}
