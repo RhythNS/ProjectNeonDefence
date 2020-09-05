@@ -24,17 +24,19 @@ public class GameManager : MonoBehaviour
 
     public void OnWaveEnded()
     {
-
+        ++AtWave;
+        WaveEndTimer.Instance.StartCountdown(GameConstants.Instance.TimeBetweenRounds);
     }
 
-    public void OnSkipWait()
+    public void OnBeginNextWave()
     {
 
     }
 
     public void LoadLevel(Level level)
     {
-
+        CurrentLevel = level;
+        OnWaveEnded();
     }
 
     private void Update()

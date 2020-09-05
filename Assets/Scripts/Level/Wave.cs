@@ -8,6 +8,7 @@ public class Wave : ScriptableObject
     [System.Serializable]
     public class Enemies
     {
+        public float timePerSpawn;
         public int amount;
         public EnemyData enemyData;
     }
