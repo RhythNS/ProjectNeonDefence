@@ -18,12 +18,6 @@ public class Health : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             GetComponent<IDieable>().Die();
-            isDead = true;
-        }
-        else
-        {
-            isDead = false;
         }
     }
-
 }

@@ -24,7 +24,7 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
     {
         attackThreshold = data.attackThreshold;
         range = data.range;
-        bulletPrefab = data.bulletPrefab;
+        meeleBulletPrefab = data.bulletPrefab;
     }
 
     private IEnumerator UpdateAttack()

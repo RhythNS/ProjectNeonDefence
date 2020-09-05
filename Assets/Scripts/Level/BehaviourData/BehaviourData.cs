@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class BehaviourData : ScriptableObject
 {
-    public Bullet bulletPrefab;
+    public MeeleBullet bulletPrefab;
 }
