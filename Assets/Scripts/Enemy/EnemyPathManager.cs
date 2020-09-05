@@ -8,10 +8,10 @@ public class EnemyPathManager : MonoBehaviour
     public static EnemyPathManager Instance { get; private set; }
 
     public Vector2Int[] SpawnPoints;
-    
+
     public List<Tile>[] CurrentPaths;
 
-    private Tile homePoint; 
+    private Tile homePoint;
 
     private void Awake()
     {
@@ -26,6 +26,8 @@ public class EnemyPathManager : MonoBehaviour
         //TODO Spawnpointupdate bei neuem Level: Registrieren Beim NextLevel Event
     }
 
+    public List<Tile> GetStartPath(int atSpawnPoint) => CurrentPaths[atSpawnPoint];
+
     /*
      * Eventmethod for the start of a new level
      */
@@ -38,7 +40,7 @@ public class EnemyPathManager : MonoBehaviour
 
         CalculatePaths();
     }
-    
+
     /*
      * Eventmethod for a worldChange
      */
@@ -52,7 +54,7 @@ public class EnemyPathManager : MonoBehaviour
         for (int i = 0; i < SpawnPoints.Length; i++)
         {
             Vector2Int spawnP = SpawnPoints[i];
-            CurrentPaths[i] = SimpleAStar.GeneratePath(World.Instance.Tiles.Get(spawnP.x, spawnP.y), homePoint);   
+            CurrentPaths[i] = SimpleAStar.GeneratePath(World.Instance.Tiles.Get(spawnP.x, spawnP.y), homePoint);
         }
     }
 }

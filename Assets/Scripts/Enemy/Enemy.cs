@@ -66,7 +66,6 @@ public class Enemy : MonoBehaviour
     }
 
     
-
     public void OnWorldChange()
     {
         //Create new path

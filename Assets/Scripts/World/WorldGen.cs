@@ -42,7 +42,10 @@ public class WorldGen : MonoBehaviour
                 else if (x == 0 || x == settings.sizeX - 1 || y == 0 || y == settings.sizeY - 1)
                     gameObject = Instantiate(ArrayUtil<GameObject>.RandomElement(borderTiles), world.transform);
                 else if (settings.homePosition.x == x && settings.homePosition.y == y)
+                {
                     gameObject = Instantiate(homeTile, world.transform);
+                    gameObject.AddComponent<Home>();
+                }
                 else if (isBuildable = Random.value < settings.unblockablePercentange)
                     gameObject = Instantiate(ArrayUtil<GameObject>.RandomElement(unbuildableTiles), world.transform);
                 else
@@ -64,12 +67,20 @@ public class WorldGen : MonoBehaviour
             }
         }
 
+        EnemySpawnPoint[] spawnPoints = new EnemySpawnPoint[settings.spawnPoints.Length];
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            spawnPoints[i] = tiles.Get(settings.spawnPoints[i].x, settings.spawnPoints[i].y)
+                .gameObject.AddComponent<EnemySpawnPoint>();
+            spawnPoints[i].Number = i;
+        }
+        GameManager.Instance.SpawnPoints = spawnPoints;
+
         world.Set(tiles, tileSize);
     }
 
     // TODO: PLEASE REMOVE THIS :
     private World world;
-    private float value1;
 
     private void Update()
     {

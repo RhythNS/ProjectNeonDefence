@@ -13,7 +13,21 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public Level CurrentLevel { get; private set; }
+    public Wave CurrentWave
+    {
+        get
+        {
+            if (CurrentLevel == null)
+                return null;
+            return CurrentLevel.waves.Length <= AtWave ? CurrentLevel.waves[AtWave] : null;
+        }
+    }
+
+    public EnemySpawnPoint[] SpawnPoints { get; set; }
+
     private int AtWave = -1;
+
+    public List<Enemy> AliveEnemies { get; private set; } = new List<Enemy>();
 
     [SerializeField] private Level debugLevel;
 
@@ -30,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void OnBeginNextWave()
     {
-
+        WaveSpawner.Instance.StartSpawning();
     }
 
     public void LoadLevel(Level level)

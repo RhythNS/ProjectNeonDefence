@@ -11,5 +11,6 @@ public class Wave : ScriptableObject
         public float timePerSpawn;
         public int amount;
         public EnemyData enemyData;
+        public int spawnPoint;
     }
 }

@@ -15,6 +15,15 @@ public class World : MonoBehaviour
     //TODO: Change when known if the artists models are centered or not
     public Vector3 GridToWorldMid(Vector2Int worldPos) => new Vector3(worldPos.x * tileSize.x, transform.position.y, worldPos.y * tileSize.y);
 
+    public bool TryGetTile(int x, int y, out Tile tile)
+    {
+        tile = null;
+        if (Tiles.InBounds(x, y) == false)
+            return false;
+        tile = Tiles.Get(x, y);
+        return true;
+    }
+
     public void Set(Fast2DArray<Tile> generated, Vector2 tileSize)
     {
         Tiles = generated;
