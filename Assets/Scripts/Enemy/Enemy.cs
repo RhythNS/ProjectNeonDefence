@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     private List<Tile> path;
     private Tile targetWalkingTile;
     private int positionOnPath = 0;
+    private int homeDamage;
     private Vector3 lastTilePassed;
 
     private Vector3 currentDestinationPoint;
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
     {
         this.path = path;
         speedForPassingTile = data.speed;
+        homeDamage = data.homeDamage;
         Health.Set(data.health);
         targetWalkingTile = path[0];
         SetNewDestination(true);
@@ -54,7 +56,8 @@ public class Enemy : MonoBehaviour
             {
                 if (++positionOnPath >= path.Count)
                 {
-
+                    OnHomeReached();
+                    yield break;
                 }
 
                 SetNewDestination(false);
@@ -63,6 +66,12 @@ public class Enemy : MonoBehaviour
             this.transform.position = Vector3.Lerp(lastTilePassed, currentDestinationPoint, percentage);
             yield return null;
         }
+    }
+
+    private void OnHomeReached()
+    {
+        GameManager.Instance.RemainingHealth -= homeDamage;
+        Destroy(this);
     }
 
 

@@ -7,4 +7,5 @@ public class EnemyData : ScriptableObject
     public BehaviourData[] behaviours;
     public GameObject model;
     public float speed;
+    public int homeDamage;
 }

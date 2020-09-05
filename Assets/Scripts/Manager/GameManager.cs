@@ -32,8 +32,20 @@ public class GameManager : MonoBehaviour
     // List of all towers currently alive.
     public List<Tower> AliveTowers { get; private set; } = new List<Tower>();
 
-  
-    
+    public int RemainingHealth
+    {
+        get => remainingHealth;
+        set
+        {
+            remainingHealth = value;
+            if (remainingHealth <= 0)
+            {
+                OnGameLoose();
+            }
+        }
+    }
+    private int remainingHealth = 100;
+
     [SerializeField] private Level debugLevel;
 
     private void Awake()
@@ -57,6 +69,11 @@ public class GameManager : MonoBehaviour
         WaveSpawner.Instance.StartSpawning();
     }
 
+    public void OnGameLoose()
+    {
+        Debug.Log("You lost the game");
+    }
+
     public void LoadLevel(Level level)
     {
         CurrentLevel = level;
@@ -69,8 +86,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F5))
             LoadLevel(debugLevel);
-        
+
     }
 
-    
+
 }

@@ -1,4 +1,5 @@
 ﻿using MonoNet.Util.Datatypes;
+using System.Diagnostics;
 using UnityEngine;
 
 public class WorldGen : MonoBehaviour
@@ -77,6 +78,7 @@ public class WorldGen : MonoBehaviour
         GameManager.Instance.SpawnPoints = spawnPoints;
 
         world.Set(tiles, tileSize);
+        CameraController.Instance.LevelRect = new Rect(offset, new Vector2(tileSize.x * settings.sizeX, tileSize.y * settings.sizeY));
     }
 
     // TODO: PLEASE REMOVE THIS :
