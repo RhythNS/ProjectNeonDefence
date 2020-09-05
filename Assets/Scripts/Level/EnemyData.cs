@@ -6,4 +6,6 @@ public class EnemyData : ScriptableObject
     public int health;
     public BehaviourData[] behaviours;
     public GameObject model;
+    public float speed;
+    public float timeUpdatePath;
 }

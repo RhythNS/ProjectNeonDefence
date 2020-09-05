@@ -29,7 +29,7 @@ public class MeeleAttackBehaviour : MonoBehaviour, Behaviour
     {
         while (true)
         {
-            if (AttackingTower == null || AttackingTower)
+            if (AttackingTower == null || !AttackingTower)
                 yield return null;
             ShootMissileAt(AttackingTower);
             yield return new WaitForSeconds(attackThreshold);
