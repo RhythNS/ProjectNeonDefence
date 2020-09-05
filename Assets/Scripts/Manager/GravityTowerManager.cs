@@ -48,30 +48,14 @@ public class GravityTowerManager : MonoBehaviour
     /// Adds the gravity effect to an enemy (Slows them down)
     /// </summary>
     /// <param name="e"></param>
-    public void AddGravity(Enemy e)
+    public void AddGravity(Enemy e, SlowdownStatusEffect effect)
     {
-        e.SpeedForPassingTile = 2;
-        StartCoroutine(GravityRoutine(e));
+       
        
     }
 
 
-    public IEnumerator GravityRoutine(Enemy e)
-    {
-        if (!gravitiedEnemies.Contains(e))
-        {
-            e.GetComponent<Renderer>().material = slowedDownMaterial;
-            gravitiedEnemies.Add(e);
-            float originalSpeed = e.SpeedForPassingTile;
-            e.SpeedForPassingTile *= slowDownCoefficient;
-            yield return new WaitForSeconds(maxGravitatedTimeSeconds);
-            e.SpeedForPassingTile = originalSpeed;
-            gravitiedEnemies.Remove(e);
-            if(e)
-            e.GetComponent<Renderer>().material = normalSpeedMaterial;
-        }
-        
-    }
+    
 
     /// <summary>
     /// Removes the gravity effect from an enemy (speeds them up again)

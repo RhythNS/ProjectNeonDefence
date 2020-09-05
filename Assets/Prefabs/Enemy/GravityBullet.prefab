@@ -110,10 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7327ce84c30539409f44b6a66702d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 25
   damage: 0
   aoeDamage: 0
-  aoeRadius: 3
+  aoeRadius: 5
 --- !u!54 &5625922566034451671
 Rigidbody:
   m_ObjectHideFlags: 0

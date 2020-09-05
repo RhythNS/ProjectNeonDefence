@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class TowerManager : MonoBehaviour
     
 
     // Singleton instance
-    public static TowerManager instance;
+    public static TowerManager Instance;
     
     // Debug Material for enemies that are in range of the tower
     public Material debugEnemyInRangeMaterial;
@@ -19,7 +20,7 @@ public class TowerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -62,10 +63,19 @@ public class TowerManager : MonoBehaviour
                 
             }
             // Check if the tower can lock onto a new target.
-            if (currentTower.TryUpdateEnemy(out Enemy newEnemy))
-            {
-                Debug.Log($"Locked onto {newEnemy}");
-            }
+            currentTower.TryUpdateEnemy(out Enemy newEnemy);
         }
+    }
+
+    public List<Vector2Int> getLocationsOfTowers()
+    {
+        var list = new List<Vector2Int>();
+        for (int i = 0; i < GameManager.Instance.AliveTowers.Count; i++)
+        {
+            var tower = GameManager.Instance.AliveTowers[i];
+            list.Add(new Vector2Int((int) tower.transform.position.x,(int) tower.transform.position.y));
+        }
+
+        return list;
     }
 }

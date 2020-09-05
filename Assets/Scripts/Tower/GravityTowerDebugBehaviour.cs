@@ -15,12 +15,13 @@ public class GravityTowerDebugBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F4))
         {
-            Tile tile = World.Instance.Tiles.Get(4, 3);
+            Tile tile = World.Instance.Tiles.Get(1, 4);
             GravityTower newTower = Instantiate(GravityTowerManager.Instance.gravityTowerPref);
             var pos = tile.transform.position;
-            pos.y += 3;
+            pos.y += 1;
             newTower.transform.position = pos;
-
+            tile.Tower = newTower;
+            Debug.Log(tile.Tower);
         }
     }
 }

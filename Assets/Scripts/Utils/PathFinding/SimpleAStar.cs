@@ -12,9 +12,13 @@ using UnityEngine.PlayerLoop;
 public class SimpleAStar
 {
     private static readonly int maxTries = 4000;
-    private SimpleAStar()
+
+    private List<Vector2Int> listOfTowerLocations;
+
+    public SimpleAStar(List<Vector2Int> listOfTowerLocations)
     {
-        // No need to create an object of this.
+        this.listOfTowerLocations = listOfTowerLocations;
+        Debug.Log(this.listOfTowerLocations.Count);
     }
 
     /// <summary>
@@ -25,10 +29,9 @@ public class SimpleAStar
     /// <param name="startTile"></param>
     /// <param name="targetTile"></param>
     /// <returns></returns>
-    public static List<Tile> GeneratePath(Tile startTile, Tile targetTile)
+    public List<Tile> GeneratePath(Tile startTile, Tile targetTile)
     {
         int currentTries = 0;
-   
         // List of Open (Not yet traversted) tiles. Populate first with start tile only.
         var openSet = new List<Tile>();
         openSet.Add(startTile);
@@ -49,16 +52,18 @@ public class SimpleAStar
                 Debug.Log("Too many tries!");
                 return null;
             }
-                // Finding the tile with the currently lowest G-Score
-            Tile currentTile = openSet.Where((x) => gScore[x] == openSet.Min(y => gScore[y])).ToList()[0];
-                
+
+            // Finding the tile with the currently lowest G-Score
+            Tile currentTile =
+                openSet.Where((x) => Math.Abs(gScore[x] - openSet.Min(y => gScore[y])) < 0.1f).ToList()[0];
+
             //If we cannot build on this tile, then forget it
             if (currentTile.Tower != null)
             {
                 openSet.Remove(currentTile);
                 continue;
-                
             }
+
             //If the current tile is the target tile, then we have finished the path
             if (currentTile == targetTile)
             {
@@ -66,7 +71,7 @@ public class SimpleAStar
             }
 
             //Set "default" value to infinity
-           // if (!gScore.ContainsKey(currentTile)) gScore[currentTile] = 9999999;
+            // if (!gScore.ContainsKey(currentTile)) gScore[currentTile] = 9999999;
             // "Mark" tile as visited
             openSet.Remove(currentTile);
 
@@ -74,8 +79,9 @@ public class SimpleAStar
             var currentNeighbours = GetNeighbours(currentTile);
 
             // Iterate over all of them
-            foreach (var neighbourTile in currentNeighbours)
+            for (var index = 0; index < currentNeighbours.Count; index++)
             {
+                var neighbourTile = currentNeighbours[index];
                 //Set "default" value to infinity
                 if (!gScore.ContainsKey(neighbourTile)) gScore[neighbourTile] = 9999999;
                 // Calculate a tentative G Score (temporary G score) for the current neighbour.
@@ -106,7 +112,7 @@ public class SimpleAStar
     /// <param name="cameFrom"></param>
     /// <param name="current"></param>
     /// <returns></returns>
-    private static List<Tile> ReconstructPath(Dictionary<Tile, Tile> cameFrom, Tile current)
+    private List<Tile> ReconstructPath(Dictionary<Tile, Tile> cameFrom, Tile current)
     {
         var totalPath = new List<Tile>();
         totalPath.Add(current);
@@ -125,7 +131,7 @@ public class SimpleAStar
     /// </summary>
     /// <param name="originTile"></param>
     /// <returns></returns>
-    private static List<Tile> GetNeighbours(Tile originTile)
+    private List<Tile> GetNeighbours(Tile originTile)
     {
         var sx = originTile.X;
         var sy = originTile.Y;
@@ -147,17 +153,18 @@ public class SimpleAStar
                 var px = sx + ox;
                 var py = sy + oy;
 
-                
-                
+
                 // Check if these new coords are in tile bound
                 if (wTiles.InBounds(px, py))
                 {
                     Tile t = wTiles.Get(px, py);
-                    if (t == null) continue;
-                    // If we cant build on the tile, forget it 
-                    if (t.Tower != null) continue;
-                    // All checks done, add tile to neighbour list
-                    neighbours.Add(t);
+                    if (!t || t.Tower) continue;
+                    Vector2Int test = new Vector2Int(t.X, t.Y);
+                    if (!listOfTowerLocations.Contains(test))
+                    {
+                        neighbours.Add(t);
+                    }
+                        
                 }
             }
         }

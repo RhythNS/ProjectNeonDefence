@@ -55,7 +55,7 @@ public class EnemyPathManager : MonoBehaviour
         for (int i = 0; i < SpawnPoints.Length; i++)
         {
             Vector2Int spawnP = SpawnPoints[i];
-            CurrentPaths[i] = SimpleAStar.GeneratePath(World.Instance.Tiles.Get(spawnP.x, spawnP.y), homePoint);
+            CurrentPaths[i] = new SimpleAStar(TowerManager.Instance.getLocationsOfTowers()).GeneratePath(World.Instance.Tiles.Get(spawnP.x, spawnP.y), homePoint);
         }
     }
 }

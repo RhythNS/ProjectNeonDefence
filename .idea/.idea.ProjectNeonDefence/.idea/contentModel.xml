@@ -24,6 +24,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Dicts" t="Include">
+            <e p="MaterialDict.cs" t="Include" />
             <e p="TowerDict.cs" t="Include" />
           </e>
           <e p="Enemy" t="Include">
@@ -75,6 +76,9 @@
             <e p="WaveSpawner.cs" t="Include" />
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
+          <e p="StatusEffect" t="Include">
+            <e p="SlowdownStatusEffect.cs" t="Include" />
+          </e>
           <e p="Tower" t="Include">
             <e p="GravityTower.cs" t="Include" />
             <e p="GravityTowerDebugBehaviour.cs" t="Include" />

@@ -23,10 +23,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="925adb85-368c-4738-80cf-3617525e5d86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Dicts/MaterialDict.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StatusEffect.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StatusEffect/SlowdownStatusEffect.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/StatusEffect/SlowdownStatusEffect.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/MoneyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/MoneyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/1/Test Enemy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Levels/1/Test Enemy.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/GravityBullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/GravityBullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GravityTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GravityTower.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WessonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WessonScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dicts/TowerDict.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dicts/TowerDict.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyPathManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyPathManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/GravityTowerBullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/GravityTowerBullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/GravityTowerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/GravityTowerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/TowerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/TowerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/MoneyTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/MoneyTower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTowerDebugBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTowerDebugBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/TowerDebugBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/TowerDebugBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/PathTestBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/PathTestBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +56,25 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E8645A79-B079-4E0E-9A2B-5BBFF081B88A/58/0e27a80d/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Entities/ITargetable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E8645A79-B079-4E0E-9A2B-5BBFF081B88A/91/f45cc919/WaitForSeconds.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F6747DE9-0205-433F-84EB-50C1DA278135/f8/91733dda/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StatusEffect/SlowdownStatusEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/AOEBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FC4FDE92-EB6F-48C0-97C9-E23AC1E2176C/9a/f0f6f6f7/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F8918D0C-C5FC-41A1-BABA-01B207A4C016/b3/47c68d3f/Physics.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/GameConstants.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dicts/MaterialDict.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F6747DE9-0205-433F-84EB-50C1DA278135/76/3abef51e/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/17/e04d3a6f/Int64.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tower/MoneyTower.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/GravityTowerBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.visualstudio@2.0.2/Editor/VisualStudioEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/a9/0f2cbdb2/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F6747DE9-0205-433F-84EB-50C1DA278135/75/d75fae4c/Type.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tower/TowerDiable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E8645A79-B079-4E0E-9A2B-5BBFF081B88A/06/8c31f960/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E8645A79-B079-4E0E-9A2B-5BBFF081B88A/28/7725e716/Vector2Int.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/16/31fef33d/NullReferenceException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/TowerManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -60,8 +84,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/World/Tile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/Math/MathUtil.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/World.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/PathTestBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Entities/ITargetable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleBullet.cs" />
@@ -70,20 +92,26 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/TowerDebugBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/SingleBulletTower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/LaserBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/GravityAOEBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTowerDebugBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Manager/TowerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GameConstants.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/AOEBullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/GravityTowerBullet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager/MoneyManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GravityTowerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/MoneyTower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Manager/GravityTowerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Dicts/TowerDict.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Dicts/MaterialDict.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StatusEffect/SlowdownStatusEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/AbstractBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/GravityTowerBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Manager/TowerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/PathTestBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyPathManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTowerDebugBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -130,7 +158,7 @@
       <updated>1599259220442</updated>
       <workItem from="1599259230340" duration="4922000" />
       <workItem from="1599264236354" duration="4974000" />
-      <workItem from="1599297416906" duration="24320000" />
+      <workItem from="1599297416906" duration="31108000" />
     </task>
     <servers />
   </component>
@@ -219,10 +247,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599269249746" />
-    <state x="794" y="221" key="RiderGenerateDialog" timestamp="1599319549943">
+    <state x="794" y="221" key="RiderGenerateDialog" timestamp="1599323487954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="221" key="RiderGenerateDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599319549943" />
+    <state x="794" y="221" key="RiderGenerateDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599323487954" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1599264188822">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -239,41 +267,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599310712289" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599322323896">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599332713746">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599322323896" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs</url>
-          <line>32</line>
-          <properties documentPath="D:\Unity\Projects\ProjectNeonDefence\Assets\Scripts\Utils\PathFinding\SimpleAStar.cs" initialLine="30">
-            <startOffsets>
-              <option value="1067" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1098" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs</url>
-          <line>86</line>
-          <properties documentPath="D:\Unity\Projects\ProjectNeonDefence\Assets\Scripts\Utils\PathFinding\SimpleAStar.cs" initialLine="82">
-            <startOffsets>
-              <option value="3260" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3304" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599332713746" />
   </component>
 </project>

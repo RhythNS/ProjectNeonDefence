@@ -140,3 +140,5 @@ MonoBehaviour:
     type: 3}
   currentCooldown: 0
   cooldownBetweenShots: 0.5
+  slowdownPercentage: 0.8
+  slowdownTime: 2

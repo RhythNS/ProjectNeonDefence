@@ -13,6 +13,7 @@ public class GravityTower : Tower
      public float cooldownBetweenShots;
 
      public float slowdownPercentage;
+     public float slowdownTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,7 @@ public class GravityTower : Tower
             var newBoolet = Instantiate(basedBullet);
             newBoolet.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
             newBoolet.Target = targetEnemy;
+            newBoolet.slowdownStatusEffect = new SlowdownStatusEffect(slowdownPercentage,slowdownTime);
         }
         
     }

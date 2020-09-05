@@ -22,6 +22,22 @@ public class Enemy : MonoBehaviour, ITargetable
     private int positionOnPath = 0;
     private int homeDamage;
     private Vector3 lastTilePassed;
+    private float slowDownPercentage = 1f;
+    private SlowdownStatusEffect slowdownStatusEffect;
+
+    public SlowdownStatusEffect SlowdownStatusEffect
+    {
+        get => slowdownStatusEffect;
+        set
+        {
+            slowdownStatusEffect = value;
+            if (value == null)
+            {
+                slowDownPercentage = 1f;
+            }
+            else slowDownPercentage = slowdownStatusEffect.slowdownPercentage;
+        }
+    }
 
     private Vector3 currentDestinationPoint;
 
@@ -54,8 +70,8 @@ public class Enemy : MonoBehaviour, ITargetable
         while (true)
         {
             // TODO: Replace when slowing effect is applied
-            //timer += Time.deltaTime * slowDownPercentage;
-            timer += Time.deltaTime;
+            timer += Time.deltaTime * slowDownPercentage;
+            //timer += Time.deltaTime;
 
             float percentage = timer / speedForPassingTile;
 
@@ -72,6 +88,7 @@ public class Enemy : MonoBehaviour, ITargetable
                 SetNewDestination(false);
                 timer = 0;
             }
+
             yield return null;
         }
     }
@@ -89,18 +106,19 @@ public class Enemy : MonoBehaviour, ITargetable
         //ggf optimieren und schauen, wo zerstörtes Teil liegt
         Vector2Int currPosition = World.Instance.WorldToGrid(this.transform.position);
         Vector2Int homePosition = GameManager.Instance.CurrentLevel.worldGenSettings.homePosition;
-        path = SimpleAStar.GeneratePath(World.Instance.Tiles.Get(currPosition.x, currPosition.y), World.Instance.Tiles.Get(homePosition.x, homePosition.y));
+        path = new SimpleAStar(TowerManager.Instance.getLocationsOfTowers()).GeneratePath(World.Instance.Tiles.Get(currPosition.x, currPosition.y),
+            World.Instance.Tiles.Get(homePosition.x, homePosition.y));
 
         positionOnPath = 0;
         SetNewDestination(true);
-
     }
 
     private void SetNewDestination(bool firstTime = false)
     {
         lastTilePassed = firstTime ? transform.position : currentDestinationPoint;
         targetWalkingTile = path[positionOnPath];
-        currentDestinationPoint = World.Instance.GridToWorldMid(new Vector2Int(targetWalkingTile.X, targetWalkingTile.Y));
+        currentDestinationPoint =
+            World.Instance.GridToWorldMid(new Vector2Int(targetWalkingTile.X, targetWalkingTile.Y));
 
         transform.LookAt(targetWalkingTile.transform);
     }
@@ -112,8 +130,8 @@ public class Enemy : MonoBehaviour, ITargetable
 
     public GameObject GetGameObject()
     {
-        return gameObject;
+        if (this)
+            return gameObject;
+        return null;
     }
-
 }
-

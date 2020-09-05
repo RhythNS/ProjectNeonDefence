@@ -15,7 +15,7 @@ public class TowerDebugBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F3))
         {
             Tile tile = World.Instance.Tiles.Get(3, 3);
-            Tower newTower = Instantiate(TowerManager.instance.towerPref);
+            Tower newTower = Instantiate(TowerManager.Instance.towerPref);
             var pos = tile.transform.position;
             pos.y += 3;
             newTower.transform.position = pos;
