@@ -7,10 +7,15 @@ public class Health : MonoBehaviour
     public int MaxHealth { get; private set; }
     public int DamageTaken => MaxHealth - CurrentHealth;
 
+    public void Set(int health)
+    {
+        CurrentHealth = MaxHealth = health;
+    }
+
     public void TakeDamage(int amount)
     {
         CurrentHealth -= amount;
-        if(CurrentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             GetComponent<IDieable>().Die();
         }

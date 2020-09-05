@@ -9,7 +9,13 @@ public class EnemySpawnPoint : MonoBehaviour
     {
         List<Tile> startPath = EnemyPathManager.Instance.GetStartPath(Number);
         GameObject enemyObject = Instantiate(data.model, transform.position, Quaternion.identity);
-        // TODO: Instantiate Bennis 
-        // enemyObject.AddComponent<Enemy>().Set(data, startPath);
+        enemyObject.AddComponent<EnemyDieable>();
+        enemyObject.AddComponent<Health>();
+        enemyObject.AddComponent<Enemy>().Set(data, startPath);
+        for (int i = 0; i < data.behaviours.Length; i++)
+        {
+            if (data.behaviours[i] is MeleeAttackBehaviourData meleeAttack)
+                enemyObject.AddComponent<MeeleAttackBehaviour>().Set(meleeAttack);
+        }
     }
 }
