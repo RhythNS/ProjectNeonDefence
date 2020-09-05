@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: 53b868a0740d58d4e8421fad09461c17
+guid: fa0058b6d8e728841ab9e34fdd99e3a2
 ModelImporter:
   serializedVersion: 20101
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Enemy_Small1
-    second: {fileID: 2100000, guid: d5e98f38a99428947a26e47f916dbd3c, type: 2}
+    second: {fileID: 2100000, guid: 186152225b3e8fb44aa5da9e8944be7a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -71,9 +74,9 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
-    normalCalculationMode: 4
+    normalCalculationMode: 2
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
