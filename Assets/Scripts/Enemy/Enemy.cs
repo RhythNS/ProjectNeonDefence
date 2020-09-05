@@ -10,24 +10,28 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Behaviour[] behaviour;
 
-    [SerializeField] private float speed;
+    [SerializeField] private float speedForPassingTile;
 
     [SerializeField] private float distanceThreshold;
 
     [SerializeField] private float timeUpdatePath;
 
+
+
     private List<Tile> path;
-    private Vector3 targetWalkingTile;
-    private Vector3 direction;
+    private Tile targetWalkingTile;
+    private int positionOnPath = 0;
+    private Vector3 lastTilePassed;
 
-    public void Set(EnemyData data)
+    private Vector3 currentDestinationPoint;
+
+
+    public void Set(EnemyData data, List<Tile> path)
     {
+        this.path = path;
+        targetWalkingTile = path[0];
+        SetNewDestination(true);
 
-    }
-
-    private void Start()
-    {
-        StartCoroutine(UpdatePath());
         StartCoroutine(Walk());
     }
 
@@ -36,32 +40,21 @@ public class Enemy : MonoBehaviour
      */
     public IEnumerator Walk()
     {
+        float timer = 0;
         while (true)
         {
-            this.transform.position += direction * Time.deltaTime * speed;
-            yield return null;
-        }
-    }
+            timer += Time.deltaTime;
 
-    /*
-     * If the object is on the current target (distance <= threshold), update next target
-     */
-    public IEnumerator UpdatePath()
-    {
-        while(true){
-            float dis = Vector3.Distance(this.transform.position, targetWalkingTile);
-            if (dis <= distanceThreshold)
+            float percentage = timer / speedForPassingTile;
+
+            if (percentage >= 1)
             {
-                path.RemoveAt(0);
-                if(path.Count <= 0 )
-                {
-                    //TODO Damage einbauen an der Basis (Theoretisch durch collider gelöst)
-                    break;
-                }
-                targetWalkingTile = path[0].transform.position;
-                direction = (targetWalkingTile - this.transform.position).normalized;
+                positionOnPath++;
+                SetNewDestination(false);
+                timer = 0;
             }
-            yield return new WaitForSeconds(timeUpdatePath);
+            this.transform.position = Vector3.Lerp(lastTilePassed, currentDestinationPoint, percentage);
+            yield return null;
         }
     }
 
@@ -74,6 +67,18 @@ public class Enemy : MonoBehaviour
         Vector2Int homePosition = GameManager.Instance.CurrentLevel.worldGenSettings.homePosition;
         path = SimpleAStar.GeneratePath(World.Instance.Tiles.Get(currPosition.x, currPosition.y), World.Instance.Tiles.Get(homePosition.x, homePosition.y));
 
+        positionOnPath = 0;
+        SetNewDestination(true);
+
+    }
+
+    private void SetNewDestination(bool firstTime = false)
+    {
+        lastTilePassed = firstTime ? transform.position : currentDestinationPoint;
+        targetWalkingTile = path[positionOnPath];
+        currentDestinationPoint = World.Instance.GridToWorldMid(new Vector2Int(targetWalkingTile.X, targetWalkingTile.Y));
+
+        transform.LookAt(targetWalkingTile.transform);
     }
 
 }
