@@ -12,7 +12,12 @@ public class TowerManager : MonoBehaviour
     // How many towers at max should be checked / updated per frame
     private static readonly int MAX_TOWERS_CHECKED_PER_STEP = 3;
 
+    // Singleton instance
     public static TowerManager instance;
+    
+    // Debug Material for enemies that are in range of the tower
+    public Material debugEnemyInRangeMaterial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,15 +50,16 @@ public class TowerManager : MonoBehaviour
             if (checkedTowers.Contains(tower)) continue;
             checkedTowers.Add(tower);
 
-            var nearbyColliders = Physics.OverlapSphere(tower.GetCurrentPosition(), tower.EffectiveRange);
+            var nearbyColliders = Physics.OverlapSphere(tower.GetCurrentPosition(), tower.effectiveRange);
             tower.enemiesInRange.Clear();
-            
             for (var j = 0; j < nearbyColliders.Length; j++)
             {
-                if (nearbyColliders[i].TryGetComponent<Enemy>(out Enemy e))
+                if (nearbyColliders[j].TryGetComponent<Enemy>(out Enemy e))
                 {
                     tower.enemiesInRange.Add(e);
+                    e.gameObject.GetComponent<Renderer>().material = debugEnemyInRangeMaterial;
                 }
+                
             }
         }
     }

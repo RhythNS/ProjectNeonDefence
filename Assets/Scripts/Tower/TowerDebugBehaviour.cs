@@ -14,9 +14,12 @@ public class TowerDebugBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            Tile tile = World.Instance.Tiles.Get(7, 3);
-            Tower newTower = Instantiate(TowerManager.instance.towerPref,tile.transform);
-            
+            Tile tile = World.Instance.Tiles.Get(3, 3);
+            Tower newTower = Instantiate(TowerManager.instance.towerPref);
+            var pos = tile.transform.position;
+            pos.y += 3;
+            newTower.transform.position = pos;
+
         }
     }
 }

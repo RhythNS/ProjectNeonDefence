@@ -11,12 +11,11 @@ public class Tower : Entity, ITargetable
 
     // Current list of all enemies in range
     // Is maintained by the GameManager
-    public List<Enemy> enemiesInRange { get; private set; }
+    public List<Enemy> enemiesInRange { get; private set; } = new List<Enemy>();
 
     // The range in which the tower can effectivly operate, aka. target enemies in and shoot.
-    private int effectiveRange;
+    public int effectiveRange = 5;
 
-    public int EffectiveRange => effectiveRange;
 
     /// <summary>
     /// Adds the tower to the list of all awake towers.
