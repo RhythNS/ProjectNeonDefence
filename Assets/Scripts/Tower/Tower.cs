@@ -11,7 +11,12 @@ public class Tower : Entity, ITargetable
 
     // Current list of all enemies in range
     // Is maintained by the GameManager
-    private List<Enemy> enemiesInRange { get; set; }
+    public List<Enemy> enemiesInRange { get; private set; }
+
+    // The range in which the tower can effectivly operate, aka. target enemies in and shoot.
+    private int effectiveRange;
+
+    public int EffectiveRange => effectiveRange;
 
     /// <summary>
     /// Adds the tower to the list of all awake towers.
@@ -62,7 +67,7 @@ public class Tower : Entity, ITargetable
     public virtual bool TryUpdateEnemy(out Enemy newTarget)
     {
         // If target is dead, get new enemy
-        if (targetEnemy.Health.IsHead)
+        if (!targetEnemy)
         {
             // We need to check if there even is a new enemy in range, if not, we dont need to bother.
             Enemy temporaryEnemy = GetNewTarget();

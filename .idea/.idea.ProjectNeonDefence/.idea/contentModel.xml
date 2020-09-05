@@ -117,6 +117,33 @@
             <e p="Readme.cs" t="Include" />
           </e>
         </e>
+        <e p="VolumetricLines" t="Include">
+          <e p="BuiltInRenderPipeline" t="Include">
+            <e p="ExampleScenes" t="Include">
+              <e p="ExampleScripts" t="Include">
+                <e p="CannonBehavior.cs" t="Include" />
+                <e p="CreateSinShapedLineStrip.cs" t="Include" />
+                <e p="ShotBehavior.cs" t="Include" />
+                <e p="VolumetricMultiLineBehavior.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="_LineStripShader.cginc" t="Include" />
+              <e p="_SingleLineShader.cginc" t="Include" />
+              <e p="LineStrip-LightSaber.shader" t="Include" />
+              <e p="LineStrip-TextureAdditive.shader" t="Include" />
+              <e p="LineStrip-TextureAlphaBlended.shader" t="Include" />
+              <e p="SingleLine-LightSaber.shader" t="Include" />
+              <e p="SingleLine-TextureAdditive.shader" t="Include" />
+              <e p="SingleLine-TextureAlphaBlended.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="VolumetricLineBehavior.cs" t="Include" />
+            <e p="VolumetricLineStripBehavior.cs" t="Include" />
+            <e p="VolumetricLineVertexData.cs" t="Include" />
+          </e>
+        </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />

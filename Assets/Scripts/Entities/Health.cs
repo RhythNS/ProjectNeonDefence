@@ -23,5 +23,4 @@ public class Health : MonoBehaviour
         }
     }
 
-    public bool IsHead => isDead;
 }
