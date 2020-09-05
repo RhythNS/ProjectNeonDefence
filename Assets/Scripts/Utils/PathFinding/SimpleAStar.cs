@@ -11,6 +11,7 @@ using UnityEngine.PlayerLoop;
 
 public class SimpleAStar
 {
+    private static readonly int maxTries = 4000;
     private SimpleAStar()
     {
         // No need to create an object of this.
@@ -26,6 +27,7 @@ public class SimpleAStar
     /// <returns></returns>
     public static List<Tile> GeneratePath(Tile startTile, Tile targetTile)
     {
+        int currentTries = 0;
    
         // List of Open (Not yet traversted) tiles. Populate first with start tile only.
         var openSet = new List<Tile>();
@@ -36,12 +38,18 @@ public class SimpleAStar
 
         // G Score = Cost from the start node to current node
         var gScore = new Dictionary<Tile, float>();
-        gScore[startTile] = Int64.MaxValue;
+        gScore[startTile] = 0;
 
-
+        currentTries = 0;
         while (openSet.Count > 0)
         {
-            // Finding the tile with the currently lowest G-Score
+            currentTries++;
+            if (currentTries >= maxTries)
+            {
+                Debug.Log("Too many tries!");
+                return null;
+            }
+                // Finding the tile with the currently lowest G-Score
             Tile currentTile = openSet.Where((x) => gScore[x] == openSet.Min(y => gScore[y])).ToList()[0];
                 
             //If we cannot build on this tile, then forget it
@@ -58,7 +66,7 @@ public class SimpleAStar
             }
 
             //Set "default" value to infinity
-            if (!gScore.ContainsKey(currentTile)) gScore[currentTile] = Int64.MaxValue;
+           // if (!gScore.ContainsKey(currentTile)) gScore[currentTile] = 9999999;
             // "Mark" tile as visited
             openSet.Remove(currentTile);
 
@@ -69,7 +77,7 @@ public class SimpleAStar
             foreach (var neighbourTile in currentNeighbours)
             {
                 //Set "default" value to infinity
-                if (!gScore.ContainsKey(neighbourTile)) gScore[neighbourTile] = Int64.MaxValue;
+                if (!gScore.ContainsKey(neighbourTile)) gScore[neighbourTile] = 9999999;
                 // Calculate a tentative G Score (temporary G score) for the current neighbour.
                 var tentativeGScore = (int) (gScore[currentTile] + MathUtil.ManhattanDistance(currentTile.X,
                     currentTile.Y, neighbourTile.X,
@@ -101,6 +109,7 @@ public class SimpleAStar
     private static List<Tile> ReconstructPath(Dictionary<Tile, Tile> cameFrom, Tile current)
     {
         var totalPath = new List<Tile>();
+        totalPath.Add(current);
         while (cameFrom.ContainsKey(current))
         {
             current = cameFrom[current];
@@ -144,7 +153,7 @@ public class SimpleAStar
                 if (wTiles.InBounds(px, py))
                 {
                     Tile t = wTiles.Get(px, py);
-                    
+                    if (t == null) continue;
                     // If we cant build on the tile, forget it 
                     if (t.Tower != null) continue;
                     // All checks done, add tile to neighbour list

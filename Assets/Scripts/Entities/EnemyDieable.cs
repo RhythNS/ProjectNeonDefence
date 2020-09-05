@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDiable : MonoBehaviour, IDieable
+public class EnemyDieable : MonoBehaviour, IDieable
 {
     public void Die()
     {
