@@ -7,6 +7,21 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="OutlineEffect" t="Include">
+          <e p="Demo" t="Include">
+            <e p="MaterialSwitcher.cs" t="Include" />
+            <e p="OutlineAnimation.cs" t="Include" />
+            <e p="Rotate.cs" t="Include" />
+            <e p="Toggle.cs" t="Include" />
+          </e>
+          <e p="LinkedSet.cs" t="Include" />
+          <e p="Outline.cs" t="Include" />
+          <e p="OutlineEffect.cs" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="OutlineBufferShader.shader" t="Include" />
+            <e p="OutlineShader.shader" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Enemy" t="Include">
             <e p="AbstractBullet.cs" t="Include" />
@@ -29,6 +44,13 @@
             <e p="ITargetable.cs" t="Include" />
             <e p="TowerDieable.cs" t="Include" />
           </e>
+          <e p="Input" t="Include">
+            <e p="CameraController.cs" t="Include" />
+            <e p="Selectable" t="Include">
+              <e p="ISelectable.cs" t="Include" />
+              <e p="SimpleSelectable.cs" t="Include" />
+            </e>
+          </e>
           <e p="Level" t="Include">
             <e p="BehaviourData" t="Include">
               <e p="BehaviourData.cs" t="Include" />
@@ -50,9 +72,12 @@
           </e>
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="Tower" t="Include">
+            <e p="GravityTower.cs" t="Include" />
+            <e p="GravityTowerDebugBehaviour.cs" t="Include" />
             <e p="Tower.cs" t="Include" />
             <e p="TowerDebugBehaviour.cs" t="Include" />
             <e p="TowerDiable.cs" t="Include" />
+            <e p="TowerSelectable.cs" t="Include" />
           </e>
           <e p="Utils" t="Include">
             <e p="DataTypes" t="Include">
@@ -80,6 +105,7 @@
             <e p="EnemySpawnPoint.cs" t="Include" />
             <e p="Home.cs" t="Include" />
             <e p="Tile.cs" t="Include" />
+            <e p="TileSelectable.cs" t="Include" />
             <e p="World.cs" t="Include" />
             <e p="WorldGen.cs" t="Include" />
           </e>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, ITargetable
 {
     public Health Health { get; private set; }
 
@@ -97,5 +97,14 @@ public class Enemy : MonoBehaviour
         transform.LookAt(targetWalkingTile.transform);
     }
 
+    public Vector3 GetCurrentPosition()
+    {
+        return transform.position;
+    }
+
+    public GameObject GetGameObject()
+    {
+        return gameObject;
+    }
 }
 
