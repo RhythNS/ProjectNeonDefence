@@ -12,6 +12,6 @@ public class Enemy : MonoBehaviour
 
     public void Set(EnemyData data)
     {
-        
+
     }
 }

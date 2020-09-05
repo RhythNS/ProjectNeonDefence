@@ -456,12 +456,13 @@ MonoBehaviour:
   - {fileID: 5704202559894581532, guid: e3990bec4ba1c3942a5ccd3d26fcf8f3, type: 3}
   borderTiles:
   - {fileID: 4842079735794330078, guid: bf5b96a3ebee9de499d6b1822352d2b9, type: 3}
-  spawnTiles: {fileID: 0}
+  spawnTiles: {fileID: 7346616180756234253, guid: 7e9fda9d5bbf7904bbe4b114c6c4cfab,
+    type: 3}
   homeTile: {fileID: 5287381008547901935, guid: 7a7513e03123308488a3f2388d50c2a0,
     type: 3}
   tileSize: {x: 2, y: 2}
   offset: {x: 0, y: 0, z: 0}
-  debugSettings: {fileID: 0}
+  debugSettings: {fileID: 11400000, guid: be67f47fe13416d42b28231505a95921, type: 2}
 --- !u!4 &1284558061
 Transform:
   m_ObjectHideFlags: 0

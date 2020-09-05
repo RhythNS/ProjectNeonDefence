@@ -11,7 +11,9 @@ public class World : MonoBehaviour
     [SerializeField] private Vector2 tileSize;
 
     public Vector2Int WorldToGrid(Vector3 worldPos) => new Vector2Int((int)(worldPos.x / tileSize.x), (int)(worldPos.y / tileSize.y));
-    public Vector3 GridToWorld(Vector2Int worldPos) => new Vector3(worldPos.x * tileSize.x, worldPos.y * tileSize.y, transform.position.z);
+    public Vector3 GridToWorld(Vector2Int worldPos) => new Vector3(worldPos.x * tileSize.x, transform.position.y, worldPos.y * tileSize.y);
+    //TODO: Change when known if the artists models are centered or not
+    public Vector3 GridToWorldMid(Vector2Int worldPos) => new Vector3(worldPos.x * tileSize.x, transform.position.y, worldPos.y * tileSize.y);
 
     public void Set(Fast2DArray<Tile> generated, Vector2 tileSize)
     {

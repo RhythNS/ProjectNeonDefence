@@ -13,4 +13,10 @@ public class Tile : MonoBehaviour
         X = x;
         Y = y;
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F6))
+            new GameObject("Test").transform.position = World.Instance.GridToWorld(new Vector2Int(X, Y));
+    }
 }
