@@ -21,16 +21,15 @@ public abstract class AbstractBullet : MonoBehaviour
     protected Vector3 destination;
     private ITargetable target;
 
-
     public abstract IEnumerator Move();
 
-    public virtual void OnCollisionEnter(Collision collision)
-    {
-        GameObject targetObject = Target.GetGameObject();
-        if (collision.gameObject == targetObject)
-        {
-            targetObject.GetComponent<Health>().TakeDamage(damage);
-            Destroy(this.gameObject);
-        }
-    }
+    //public virtual void OnCollisionEnter(Collision collision)
+    //{
+    //    GameObject targetObject = Target.GetGameObject();
+    //    if (collision.gameObject == targetObject)
+    //    {
+    //        targetObject.GetComponent<Health>().TakeDamage(damage);
+    //        Destroy(this.gameObject);
+    //    }
+    //}
 }

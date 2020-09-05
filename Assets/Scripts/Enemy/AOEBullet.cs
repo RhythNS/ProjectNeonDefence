@@ -32,7 +32,7 @@ public class AOEBullet : AbstractBullet
         }
     }
 
-    public override void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         // If collided with the target tower...
         if (collision.gameObject.GetComponent<Tower>() == Target)
