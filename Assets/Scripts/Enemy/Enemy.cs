@@ -7,6 +7,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, ITargetable
 {
     public Health Health { get; private set; }
+    public int MoneyDrop { get; private set; }
 
     [SerializeField] private float speedForPassingTile;
 
@@ -32,9 +33,12 @@ public class Enemy : MonoBehaviour, ITargetable
     public void Set(EnemyData data, List<Tile> path)
     {
         this.path = path;
+
         speedForPassingTile = data.speed;
         homeDamage = data.homeDamage;
+        MoneyDrop = data.moneyDrop;
         Health.Set(data.health);
+
         targetWalkingTile = path[0];
         SetNewDestination(true);
 

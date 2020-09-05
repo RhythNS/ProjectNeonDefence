@@ -73,8 +73,11 @@ public class CameraController : MonoBehaviour
                 {
                     World.Instance.PlaceTurret(SelectedTower, tile);
                 }
+                else
+                {
+                    SelectedTower = null;
+                }
 
-                SelectedTower = null;
             }
 
             if (Input.GetMouseButtonUp(1) == true) // right mouse button up this frame

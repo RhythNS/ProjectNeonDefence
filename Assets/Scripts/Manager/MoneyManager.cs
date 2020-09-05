@@ -15,7 +15,7 @@ public class MoneyManager : MonoBehaviour
 
     public void EnemyKilled(Enemy enemy)
     {
-        //TODO: the thing
+        currentMoney += enemy.MoneyDrop;
     }
 
     public bool CanPlaceTower(Tower tower)

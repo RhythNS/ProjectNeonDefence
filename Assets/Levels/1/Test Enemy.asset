@@ -15,5 +15,6 @@ MonoBehaviour:
   health: 100
   behaviours:
   - {fileID: 11400000, guid: 3d81a11584b80bb48a53731b2d295473, type: 2}
-  model: {fileID: 1169095187566974911, guid: 9c19651bb7c42884599296ce86723c26, type: 3}
+  model: {fileID: 3590868118818221245, guid: b27c39206c1ada14d829a8c483e47bf4, type: 3}
   speed: 3
+  homeDamage: 0
