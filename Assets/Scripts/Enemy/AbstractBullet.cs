@@ -35,6 +35,20 @@ public abstract class AbstractBullet : MonoBehaviour
 
     public abstract IEnumerator Move();
 
+    private void OnDestroy()
+    {
+        GameObject soundPlayer = new GameObject("Sound Player");
+
+        AudioSource outS = soundPlayer.AddComponent<AudioSource>();
+        AudioSource inS = soundPlayer.GetComponent<AudioSource>();
+
+        outS.outputAudioMixerGroup = inS.outputAudioMixerGroup;
+        outS.clip = hitClip;
+        outS.Play();
+        Destroy(soundPlayer, hitClip.length);
+    }
+
+
     //public virtual void OnCollisionEnter(Collision collision)
     //{
     //    GameObject targetObject = Target.GetGameObject();

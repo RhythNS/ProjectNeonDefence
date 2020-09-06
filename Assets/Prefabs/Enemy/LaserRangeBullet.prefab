@@ -118,6 +118,7 @@ MonoBehaviour:
   speed: 10
   damage: 1
   audioClip: {fileID: 8300000, guid: 911450738478bbb4ea42bae501b69acc, type: 3}
+  hitClip: {fileID: 8300000, guid: d9ea607e16ec557409cb32c6a5c6746e, type: 3}
   shooter: {fileID: 0}
   shootingDuration: 0.5
   laserLength: 2

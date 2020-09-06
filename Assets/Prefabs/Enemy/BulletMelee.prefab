@@ -114,6 +114,7 @@ MonoBehaviour:
   speed: 25
   damage: 5
   audioClip: {fileID: 8300000, guid: b954d62036755cc41a9f8e9d87ea531a, type: 3}
+  hitClip: {fileID: 8300000, guid: 2c0b01772e3412042a0d05d0660ec976, type: 3}
   shooter: {fileID: 0}
 --- !u!54 &-4387099641749629779
 Rigidbody:

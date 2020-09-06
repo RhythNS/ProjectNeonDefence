@@ -83,12 +83,7 @@ public class CameraController : MonoBehaviour
 
             if (Input.GetMouseButtonUp(1) == true) // right mouse button up this frame
             {
-                // If someone was selected and they can be commanded and raycast found something then command the commandable
-                //if (previousSelected != null && previousSelected.TryGetComponent(out ICommandable commandable)
-                //    && GetHitAtMousePos(out RaycastHit hit, int.MaxValue))
-                //{
-                //    commandable.Interact(hit);
-                //}
+                SelectedTower = null;
             }
 
             // Handle zoom

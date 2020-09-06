@@ -44,15 +44,6 @@ public class Drone : ITargetable
             targetWalkingTile.blockingTargets.Remove(this);
     }
 
-    public Vector3 GetCurrentPosition() => transform.position;
-
-    public GameObject GetGameObject()
-    {
-        if (!gameObject)
-            return null;
-        return gameObject;
-    }
-
     public void Set(DroneTower parent, Enemy target, float speed, int health, int damage, float damagePerSeconds, float aliveTime)
     {
         this.parentTower = parent;
@@ -134,10 +125,13 @@ public class Drone : ITargetable
             return null;
 
         Enemy nearestEnemy = enemiesInRange[0];
-        float minDistance = Vector3.SqrMagnitude(enemiesInRange[0].transform.position - transform.position);
+        float minDistance = float.MaxValue;
         float currDistance;
-        for (int i = 1; i < enemiesInRange.Count; i++)
+        for (int i = 0; i < enemiesInRange.Count; i++)
         {
+            if (!enemiesInRange[i])
+                continue;
+
             currDistance = Vector3.SqrMagnitude(enemiesInRange[i].transform.position - transform.position);
             if (minDistance > currDistance)
             {

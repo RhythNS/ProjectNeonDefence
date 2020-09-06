@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class GravityTower : Tower
@@ -29,6 +27,12 @@ public class GravityTower : Tower
 
     public SlowdownStatusEffect slowdownStatusEffect { get; set; }
 
+    private AudioSource source;
+
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -49,18 +53,15 @@ public class GravityTower : Tower
 
     void ShootGravityBoolet()
     {
-        /*if (targetEnemy != null)
-        {
-            var newBoolet = Instantiate(basedBullet);
-            newBoolet.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
-            newBoolet.Target = targetEnemy;
-            newBoolet.slowdownStatusEffect = new SlowdownStatusEffect(slowdownPercentage,slowdownTime);
-        }*/
         Collider[] aoeColliders = Physics.OverlapSphere(transform.position, Range);
+
+        if (source.isPlaying == false)
+            source.Play();
+
         for (var i = 0; i < aoeColliders.Length; i++)
         {
-            var collider = aoeColliders[i];
-            if (collider.TryGetComponent<Enemy>(out Enemy enemy))
+            Collider collider = aoeColliders[i];
+            if (collider.TryGetComponent(out Enemy enemy))
             {
                 StartCoroutine(GravityRoutine(enemy));
             }
