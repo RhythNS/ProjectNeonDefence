@@ -23,20 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="925adb85-368c-4738-80cf-3617525e5d86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GravityTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GravityTower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WessonScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WessonScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyPathManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyPathManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleAttackBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleAttackBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/TurretClickController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/TurretClickController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/Drone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/Drone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/MoneyTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/MoneyTower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/SingleShotTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/SingleShotTower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/PathTestBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/PathTestBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +97,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/RangedAttackTankBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyPathManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/SimpleAStar.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Drone.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/PathFinding/PathTestBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleAttackBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" />
@@ -119,6 +105,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/MoneyTower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/SingleShotTower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Drone.cs" />
       </list>
     </option>
   </component>
@@ -166,6 +153,7 @@
       <workItem from="1599259230340" duration="4922000" />
       <workItem from="1599264236354" duration="4974000" />
       <workItem from="1599297416906" duration="48861000" />
+      <workItem from="1599380676904" duration="19000" />
     </task>
     <servers />
   </component>

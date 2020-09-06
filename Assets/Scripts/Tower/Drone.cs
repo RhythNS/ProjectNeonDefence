@@ -147,7 +147,7 @@ public class Drone : MonoBehaviour, ITargetable
         currentTile = World.Instance.Tiles.Get(currPosition.x, currPosition.y);
         targetWalkingTile = World.Instance.Tiles.Get(targetPosition.x, targetPosition.y);
 
-        return new SimpleAStar(TowerManager.Instance.GetLocationsOfTowers()).GeneratePath(
+        return new SimpleAStar().GeneratePath(
             currentTile,
             targetWalkingTile, true);
     }

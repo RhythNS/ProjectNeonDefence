@@ -867,6 +867,7 @@
           </e>
           <e p="Entities" t="Include">
             <e p="BaseDieable.cs" t="Include" />
+            <e p="DestroyOnDie.cs" t="Include" />
             <e p="EnemyDieable.cs" t="Include" />
             <e p="Health.cs" t="Include" />
             <e p="IDieable.cs" t="Include" />
