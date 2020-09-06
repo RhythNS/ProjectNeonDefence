@@ -28,7 +28,7 @@ public class SimpleAStar
     /// <param name="startTile"></param>
     /// <param name="targetTile"></param>
     /// <returns></returns>
-    public List<Tile> GeneratePath(Tile startTile, Tile targetTile)
+    public List<Tile> GeneratePath(Tile startTile, Tile targetTile, bool forceEntry = false)
     {
         int currentTries = 0;
         // List of Open (Not yet traversted) tiles. Populate first with start tile only.
@@ -59,8 +59,11 @@ public class SimpleAStar
             //If we cannot build on this tile, then forget it
             if (currentTile.Tower != null)
             {
-                openSet.Remove(currentTile);
-                continue;
+                if (forceEntry == false || startTile != currentTile)
+                {
+                    openSet.Remove(currentTile);
+                    continue;
+                }
             }
 
             //If the current tile is the target tile, then we have finished the path
@@ -84,7 +87,7 @@ public class SimpleAStar
                 //Set "default" value to infinity
                 if (!gScore.ContainsKey(neighbourTile)) gScore[neighbourTile] = 9999999;
                 // Calculate a tentative G Score (temporary G score) for the current neighbour.
-                var tentativeGScore = (int) (gScore[currentTile] + MathUtil.ManhattanDistance(currentTile.X,
+                var tentativeGScore = (int)(gScore[currentTile] + MathUtil.ManhattanDistance(currentTile.X,
                     currentTile.Y, neighbourTile.X,
                     neighbourTile.Y));
 
@@ -163,7 +166,7 @@ public class SimpleAStar
                     {
                         neighbours.Add(t);
                     }
-                        
+
                 }
             }
         }

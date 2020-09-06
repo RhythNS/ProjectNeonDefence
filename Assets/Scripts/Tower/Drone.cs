@@ -59,8 +59,8 @@ public class Drone : MonoBehaviour, ITargetable
         this.damage = damage;
         this.damagePerSeconds = damagePerSeconds;
 
-        OnWorldChange();
-
+        path = GetPath();
+    
         speedForPassingTile = speed;
         Health.Set(health);
 
@@ -129,32 +129,27 @@ public class Drone : MonoBehaviour, ITargetable
                 return;
         }
 
+
+        if (currentTile.blockingTargets.Contains(this) == false)
+            currentTile.blockingTargets.Add(this);
+
+        alternativePath = GetPath();
+
+        //New Path available and next tile is not affected  
+        newPathAvailable = true;
+        alternativePath.RemoveAt(0);
+    }
+
+    private List<Tile> GetPath()
+    {
         Vector2Int currPosition = World.Instance.WorldToGrid(transform.position);
         Vector2Int targetPosition = World.Instance.WorldToGrid(targetEnemy.transform.position);
         currentTile = World.Instance.Tiles.Get(currPosition.x, currPosition.y);
         targetWalkingTile = World.Instance.Tiles.Get(targetPosition.x, targetPosition.y);
 
-        if (currentTile.blockingTargets.Contains(this) == false)
-            currentTile.blockingTargets.Add(this);
-
-        alternativePath = new SimpleAStar(TowerManager.Instance.GetLocationsOfTowers()).GeneratePath(
+        return new SimpleAStar(TowerManager.Instance.GetLocationsOfTowers()).GeneratePath(
             currentTile,
-            targetWalkingTile);
-
-        if (path[positionOnPath].Tower == null && alternativePath[1] == path[positionOnPath])
-        {
-            //New Path available and next tile is not affected  
-            newPathAvailable = true;
-            alternativePath.RemoveAt(0);
-        }
-        else
-        {
-            //Turn around and move one Tile backwards
-            path = alternativePath;
-            positionOnPath = 0;
-            SetNewDestination(true);
-        }
-
+            targetWalkingTile, true);
     }
 
     protected Enemy GetNewTarget(List<Enemy> enemiesInRange)
