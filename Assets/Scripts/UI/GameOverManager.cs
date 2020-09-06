@@ -7,7 +7,7 @@ public class GameOverManager : MonoBehaviour
 {
     public void RestartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("WessonScene2");
     }
 
 
