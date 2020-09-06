@@ -1,5 +1,4 @@
-﻿using cakeslice;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,54 +6,53 @@ using UnityEngine;
 /// </summary>
 public abstract class SimpleSelectable : MonoBehaviour, ISelectable
 {
+    public class Outline
+    {
+        public Renderer renderer;
+        public Material prevMaterial;
+
+        public Outline(Renderer renderer, Material prevMaterial)
+        {
+            this.renderer = renderer;
+            this.prevMaterial = prevMaterial;
+        }
+
+        public void Select() => renderer.material = MaterialDict.Instance.HighlightMaterial;
+
+        public void DeSelect() => renderer.material = prevMaterial;
+    }
+
     protected Outline[] outlines;
     protected virtual bool EnabledAtStart => false;
 
     private void Awake()
     {
-        ScanForOutlines();
+        ScanForRenders();
         InnerAwake();
-    }
-
-    private void Start()
-    {
-        for (int i = 0; i < outlines.Length; i++)
-        {
-            outlines[i].enabled = EnabledAtStart;
-        }
     }
 
     /// <summary>
     /// Scans for Renderes and places outlines on them
     /// </summary>
-    protected virtual void ScanForOutlines()
+    protected virtual void ScanForRenders()
     {
-        List<Outline> outlines = new List<Outline>();
         List<Renderer> renderers = new List<Renderer>();
 
-        transform.GetComponentsInChildren(false, renderers);
-        //renderers.AddRange(transform.GetComponents<Renderer>());
+        outlines = new Outline[renderers.Count];
 
+        transform.GetComponentsInChildren(false, renderers);
         for (int i = 0; i < renderers.Count; i++)
         {
-            Outline outline = renderers[i].gameObject.AddComponent<Outline>();
-            outlines.Add(outline);
+            outlines[i] = new Outline(renderers[i], renderers[i].material);
         }
-
-        this.outlines = outlines.ToArray();
     }
 
     protected virtual void InnerAwake() { }
 
-    /// <summary>
-    /// Called when an outline is first created
-    /// </summary>
-    protected virtual void ModifyStartingOutline(Outline outline) { }
-
     public virtual void Select()
     {
         for (int i = 0; i < outlines.Length; i++)
-            outlines[i].enabled = true;
+            outlines[i].Select();
         InnerSelect();
     }
 
@@ -63,18 +61,10 @@ public abstract class SimpleSelectable : MonoBehaviour, ISelectable
     public virtual void DeSelect()
     {
         for (int i = 0; i < outlines.Length; i++)
-            outlines[i].enabled = false;
+            outlines[i].DeSelect();
         InnerDeSelect();
     }
 
     protected virtual void InnerDeSelect() { }
 
-    /// <summary>
-    /// Set the color of all outllines
-    /// </summary>
-    protected void SetOutlineColor(int color)
-    {
-        for (int i = 0; i < outlines.Length; i++)
-            outlines[i].color = color;
-    }
 }

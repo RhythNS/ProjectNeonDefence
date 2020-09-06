@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MaterialDict : MonoBehaviour
 {
@@ -14,4 +12,8 @@ public class MaterialDict : MonoBehaviour
     [SerializeField] private Material[] materialPrefabs;
 
     public Material[] MaterialPrefabs => materialPrefabs;
+
+    [SerializeField] private Material highlightMaterial;
+    public Material HighlightMaterial => highlightMaterial;
+
 }
