@@ -8,6 +8,9 @@ public abstract class AbstractBullet : MonoBehaviour
     [SerializeField] public float speed;
     [SerializeField] protected int damage;
 
+    [SerializeField] private AudioClip audioClip;
+    [SerializeField] private AudioClip hitClip;
+
     public ITargetable Target
     {
         get => target;
@@ -22,7 +25,7 @@ public abstract class AbstractBullet : MonoBehaviour
     private void Start()
     {
         // Auto destroy after 5 seconds
-        Destroy(gameObject,5f);
+        Destroy(gameObject, 5f);
     }
 
     protected Vector3 destination;

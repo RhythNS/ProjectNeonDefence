@@ -23,7 +23,8 @@ public abstract class SimpleSelectable : MonoBehaviour, ISelectable
     }
 
     protected Outline[] outlines;
-    protected virtual bool EnabledAtStart => false;
+
+    protected virtual bool DisplayHighlight { get; } = true;
 
     private void Awake()
     {
@@ -38,9 +39,9 @@ public abstract class SimpleSelectable : MonoBehaviour, ISelectable
     {
         List<Renderer> renderers = new List<Renderer>();
 
+        transform.GetComponentsInChildren(false, renderers);
         outlines = new Outline[renderers.Count];
 
-        transform.GetComponentsInChildren(false, renderers);
         for (int i = 0; i < renderers.Count; i++)
         {
             outlines[i] = new Outline(renderers[i], renderers[i].material);
@@ -51,8 +52,9 @@ public abstract class SimpleSelectable : MonoBehaviour, ISelectable
 
     public virtual void Select()
     {
-        for (int i = 0; i < outlines.Length; i++)
-            outlines[i].Select();
+        if (DisplayHighlight == true)
+            for (int i = 0; i < outlines.Length; i++)
+                outlines[i].Select();
         InnerSelect();
     }
 
@@ -60,8 +62,9 @@ public abstract class SimpleSelectable : MonoBehaviour, ISelectable
 
     public virtual void DeSelect()
     {
-        for (int i = 0; i < outlines.Length; i++)
-            outlines[i].DeSelect();
+        if (DisplayHighlight == true)
+            for (int i = 0; i < outlines.Length; i++)
+                outlines[i].DeSelect();
         InnerDeSelect();
     }
 

@@ -124,7 +124,6 @@ public class Enemy : Entity
         Destroy(this.gameObject);
     }
 
-
     public void OnWorldChange()
     {
         if (!this) return;
@@ -159,17 +158,5 @@ public class Enemy : Entity
             World.Instance.GridToWorldMid(new Vector2Int(targetWalkingTile.X, targetWalkingTile.Y));
 
         transform.LookAt(targetWalkingTile.transform);
-    }
-
-    public Vector3 GetCurrentPosition()
-    {
-        return transform ? transform.position : Vector3.zero;
-    }
-
-    public GameObject GetGameObject()
-    {
-        if (this)
-            return gameObject;
-        return null;
     }
 }
