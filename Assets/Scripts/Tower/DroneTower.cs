@@ -12,6 +12,7 @@ public class DroneTower : Tower
     public int droneHealth;
     public int droneDamage;
     public float droneDamagePerSeconds;
+    public float droneAliveTime;
 
     public List<Drone> ActiveDrones { get; private set; } = new List<Drone>();
 
@@ -49,7 +50,7 @@ public class DroneTower : Tower
         {
             currentCooldown = 0;
             Drone drone = Instantiate(dronePrefab, transform.position, Quaternion.identity).AddComponent<Drone>();
-            drone.Set(this, targetEnemy, droneSpeed, droneHealth, droneDamage, droneDamagePerSeconds);
+            drone.Set(this, targetEnemy, droneSpeed, droneHealth, droneDamage, droneDamagePerSeconds, droneAliveTime);
             drone.targetEnemy = targetEnemy;
         }
     }

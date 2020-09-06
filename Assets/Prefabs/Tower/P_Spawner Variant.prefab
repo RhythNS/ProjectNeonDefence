@@ -63,10 +63,11 @@ MonoBehaviour:
   currentCooldown: 0
   dronePrefab: {fileID: 3577818079662342678, guid: a2ab68cd42800854eb4ce41934d4e40e,
     type: 3}
-  droneSpeed: 5
+  droneSpeed: 0.5
   droneHealth: 30
   droneDamage: 2
   droneDamagePerSeconds: 1
+  droneAliveTime: 10
 --- !u!114 &6066666939235728934
 MonoBehaviour:
   m_ObjectHideFlags: 0

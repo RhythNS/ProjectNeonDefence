@@ -21,7 +21,8 @@ public class Enemy : MonoBehaviour, ITargetable
     }
 
     private List<Tile> path;
-    private Tile targetWalkingTile;
+    private Tile targetWalkingTile, currentTile;
+
     private int positionOnPath = 0;
     private int homeDamage;
     private Vector3 lastTilePassed;
@@ -61,6 +62,8 @@ public class Enemy : MonoBehaviour, ITargetable
         Health.Set(data.health);
 
         targetWalkingTile = path[0];
+        Vector2Int curPos = World.Instance.WorldToGrid(transform.position);
+        currentTile = World.Instance.Tiles.Get(curPos.x, curPos.y);
         SetNewDestination(true);
 
         StartCoroutine(Walk());
@@ -77,7 +80,10 @@ public class Enemy : MonoBehaviour, ITargetable
         float timer = 0;
         while (true)
         {
-            timer += Time.deltaTime * slowDownPercentage;
+            if (currentTile.blockingTargets.Count == 0)
+                timer += Time.deltaTime * slowDownPercentage;
+            else
+                behaviour.SetCurrentTarget(currentTile.blockingTargets[0]);
 
             float percentage = timer / speedForPassingTile;
 
@@ -87,10 +93,10 @@ public class Enemy : MonoBehaviour, ITargetable
             {
                 behaviour.OnNewTileEntered();
                 enteredNewTile = true;
+                currentTile = path[positionOnPath];
             }
             if (percentage >= 1)
             {
-                
                 if (++positionOnPath >= path.Count)
                 {
                     OnHomeReached();

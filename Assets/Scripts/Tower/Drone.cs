@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 public class Drone : MonoBehaviour, ITargetable
@@ -15,20 +17,11 @@ public class Drone : MonoBehaviour, ITargetable
 
     [SerializeField] private float speedForPassingTile;
 
-    public float SpeedForPassingTile
-    {
-        get => speedForPassingTile;
-        set => speedForPassingTile = value;
-    }
-
-    private List<Tile> path;
+    [SerializeField] private List<Tile> path;
     private Tile currentTile, targetWalkingTile;
-    private int positionOnPath = 0;
     private Vector3 lastTilePassed;
 
     private Vector3 currentDestinationPoint;
-    private bool newPathAvailable;
-    private List<Tile> alternativePath;
 
     private void Awake()
     {
@@ -51,7 +44,7 @@ public class Drone : MonoBehaviour, ITargetable
 
     public GameObject GetGameObject() => gameObject;
 
-    public void Set(DroneTower parent, Enemy target, float speed, int health, int damage, float damagePerSeconds)
+    public void Set(DroneTower parent, Enemy target, float speed, int health, int damage, float damagePerSeconds, float aliveTime)
     {
         this.parentTower = parent;
         this.targetEnemy = target;
@@ -59,13 +52,13 @@ public class Drone : MonoBehaviour, ITargetable
         this.damage = damage;
         this.damagePerSeconds = damagePerSeconds;
 
+        Destroy(this, aliveTime);
+
         path = GetPath();
-    
+        currentTile.blockingTargets.Add(this);
+
         speedForPassingTile = speed;
         Health.Set(health);
-
-        targetWalkingTile = path[0];
-        SetNewDestination(true);
 
         StartCoroutine(Walk());
     }
@@ -94,50 +87,20 @@ public class Drone : MonoBehaviour, ITargetable
             }
             if (percentage >= 1)
             {
-                if (++positionOnPath >= path.Count)
-                {
+                targetEnemy = GetNewTarget(GameManager.Instance.AliveEnemies);
+
+                if (targetEnemy == null || !targetEnemy)
                     yield return new WaitForSeconds(1);
-                }
-
-                if (newPathAvailable)
-                {
-                    path = alternativePath;
-                    newPathAvailable = false;
-                    positionOnPath = 0;
-                }
                 else
-                    OnWorldChange();
-
-                //SetNewDestination(false);
-                timer = 0;
-                enteredNewTile = false;
+                {
+                    path = GetPath();
+                    timer = 0;
+                    enteredNewTile = false;
+                }
             }
 
             yield return null;
         }
-    }
-
-    public void OnWorldChange()
-    {
-        // Create new path
-        // ggf optimieren und schauen, wo zerstörtes Teil liegt
-
-        if (targetEnemy == null || !targetEnemy)
-        {
-            targetEnemy = GetNewTarget(GameManager.Instance.AliveEnemies);
-            if (targetEnemy == null)
-                return;
-        }
-
-
-        if (currentTile.blockingTargets.Contains(this) == false)
-            currentTile.blockingTargets.Add(this);
-
-        alternativePath = GetPath();
-
-        //New Path available and next tile is not affected  
-        newPathAvailable = true;
-        alternativePath.RemoveAt(0);
     }
 
     private List<Tile> GetPath()
@@ -150,6 +113,8 @@ public class Drone : MonoBehaviour, ITargetable
         return new SimpleAStar().GeneratePath(
             currentTile,
             targetWalkingTile, true);
+        SetNewDestination();
+        return path;
     }
 
     protected Enemy GetNewTarget(List<Enemy> enemiesInRange)
@@ -173,13 +138,27 @@ public class Drone : MonoBehaviour, ITargetable
         return nearestEnemy;
     }
 
-    private void SetNewDestination(bool firstTime = false)
+    private void SetNewDestination()
     {
-        lastTilePassed = firstTime ? transform.position : currentDestinationPoint;
-        targetWalkingTile = path[positionOnPath];
+        lastTilePassed = transform.position;
+        if (path == null || path.Count <= 1)
+        {
+            currentDestinationPoint = transform.position;
+            return;
+        }
+        targetWalkingTile = path[1];
         currentDestinationPoint =
             World.Instance.GridToWorldMid(new Vector2Int(targetWalkingTile.X, targetWalkingTile.Y));
 
         transform.LookAt(targetWalkingTile.transform);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        if (path == null)
+            return;
+        Vector3 pos = path[path.Count - 1].transform.position;
+        Gizmos.DrawLine(pos + new Vector3(0, -10, 0), pos + new Vector3(0, 10, 0));
     }
 }
