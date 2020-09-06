@@ -73,11 +73,15 @@ public class CameraController : MonoBehaviour
                     && tile.Tower == null)
                 {
                     World.Instance.PlaceTurret(SelectedTower, tile);
-                    MoneyManager.Instance.ModifyMoney(-SelectedTower.cost);
                 }
                 else
                 {
                     SelectedTower = null;
+                    if (newSelected != null &&
+                        newSelected.TryGetComponent(out Tower tower))
+                    {
+                        UpgradeManager.Instance.SelectedTower = tower;
+                    }
                 }
 
             }

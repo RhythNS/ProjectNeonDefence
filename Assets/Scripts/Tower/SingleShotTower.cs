@@ -50,7 +50,10 @@ public class SingleShotTower : Tower
         }
         if (rank > upgradePaths.Length) return false;
         
-        MoneyManager.Instance.ModifyMoney(-nextUpgradePath.cost);
+        MoneyManager.Instance.CurrentMoney -= nextUpgradePath.cost;
+        CurrentValue += nextUpgradePath.cost;
+
+
         this.timeBetweenShots = nextUpgradePath.TimeBetweenShots;
         if (rank < upgradePaths.Length)
             nextUpgradePath = upgradePaths[rank];

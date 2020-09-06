@@ -15,7 +15,7 @@ public class MoneyManager : MonoBehaviour
     public int CurrentMoney
     {
         get => currentMoney;
-        private set
+        set
         {
             currentMoney = value;
             moneyDisplay.text = value.ToString();
@@ -25,19 +25,17 @@ public class MoneyManager : MonoBehaviour
 
     public void EnemyKilled(Enemy enemy)
     {
-        //currentMoney += enemy.MoneyDrop;
-        ModifyMoney(enemy.MoneyDrop);
+        CurrentMoney += enemy.MoneyDrop;
     }
 
     public bool CanPlaceTower(Tower tower)
     {
-        Debug.Log("Tower="+tower.cost+" Current="+currentMoney);
-        return currentMoney >= tower.cost;
+        Debug.Log("Tower=" + tower.cost + " Current=" + currentMoney);
+        if (currentMoney >= tower.cost)
+        {
+            currentMoney -= tower.cost;
+            return true;
+        }
+        return false;
     }
-
-    public void ModifyMoney(int amount)
-    {
-        this.CurrentMoney += amount;
-    }
-
 }

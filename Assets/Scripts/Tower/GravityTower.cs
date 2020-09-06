@@ -75,8 +75,10 @@ public class GravityTower : Tower
             return false;
         }
         if (rank > upgradePaths.Length) return false;
-        
-        MoneyManager.Instance.ModifyMoney(-nextUpgradePath.cost);
+
+        MoneyManager.Instance.CurrentMoney -= nextUpgradePath.cost;
+        CurrentValue += nextUpgradePath.cost;
+
         this.slowdownPercentage = nextUpgradePath.SlowPercentage;
         this.slowdownTime = nextUpgradePath.SlowDuration;
         this.Range = nextUpgradePath.Range;

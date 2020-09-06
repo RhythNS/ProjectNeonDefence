@@ -15,5 +15,5 @@ MonoBehaviour:
   enemies:
   - timePerSpawn: 2
     amount: 30
-    enemyData: {fileID: 11400000, guid: 66cbaaf256af2e6478c0cd0f1b815f97, type: 2}
+    enemyData: {fileID: 11400000, guid: 9f74ac149ecf0244bb198c67f98fa262, type: 2}
     spawnPoint: 0

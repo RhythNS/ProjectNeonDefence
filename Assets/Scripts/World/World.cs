@@ -8,6 +8,8 @@ public class World : MonoBehaviour
     public Fast2DArray<Tile> Tiles { get; private set; }
 
     [SerializeField] private Vector2 tileSize;
+
+
     public Vector2 TileSize => tileSize;
 
     public Vector2Int WorldToGrid(Vector3 worldPos) => new Vector2Int((int)(worldPos.x / tileSize.x), (int)(worldPos.z / tileSize.y));
@@ -59,5 +61,16 @@ public class World : MonoBehaviour
     {
         Vector3 worldPos = GridToWorldMid(new Vector2Int(tile.X, tile.Y));
         tile.Tower = Instantiate(selectedTower, worldPos, Quaternion.identity);
+    }
+
+    public void SellTurret(Tower selectedTower)
+    {
+        Vector2Int pos = WorldToGrid(selectedTower.transform.position);
+        Tile tile = Tiles.Get(pos.x, pos.y);
+
+        tile.Tower = null;
+        GameManager.Instance.AliveTowers.Remove(selectedTower);
+
+        MoneyManager.Instance.CurrentMoney += Mathf.FloorToInt(selectedTower.CurrentValue * GameConstants.Instance.SellMoneyRegainPercentage);
     }
 }

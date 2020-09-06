@@ -8,8 +8,8 @@ public class MoneyTower : Tower
     public float moneyGrandCooldown;
     public int moneyYield;
     private float currentCooldown;
-    
-    
+
+
     // -- UPGRADES --\\
     public int Rank => rank;
     private int rank = 1;
@@ -22,7 +22,7 @@ public class MoneyTower : Tower
     }
 
     private UpgradePath nextUpgradePath;
-    
+
     public override bool Upgrade()
     {
         if (nextUpgradePath == null) nextUpgradePath = upgradePaths[0];
@@ -33,19 +33,21 @@ public class MoneyTower : Tower
         }
 
         if (rank > upgradePaths.Length) return false;
-        
-        MoneyManager.Instance.ModifyMoney(-nextUpgradePath.cost);
-        
+
+        MoneyManager.Instance.CurrentMoney -= nextUpgradePath.cost;
+        CurrentValue += nextUpgradePath.cost;
+
         this.moneyYield = nextUpgradePath.MoneyYield;
         this.moneyGrandCooldown = nextUpgradePath.MoneyGrandCooldown;
-        
+
+
         if (rank < upgradePaths.Length)
             nextUpgradePath = upgradePaths[rank];
         rank++;
         return true;
     }
     [System.Serializable]
-    public class UpgradePath 
+    public class UpgradePath
     {
         public int cost;
         public int moneyYield;
@@ -60,7 +62,7 @@ public class MoneyTower : Tower
 
         public float MoneyGrandCooldown => moneyGrandCooldown;
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -73,8 +75,8 @@ public class MoneyTower : Tower
     void GrandMoney()
     {
         currentCooldown = 0f;
-        MoneyManager.Instance.ModifyMoney(moneyYield);
+        MoneyManager.Instance.CurrentMoney += moneyYield;
     }
-    
-    
+
+
 }

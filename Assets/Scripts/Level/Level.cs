@@ -6,4 +6,6 @@ public class Level : ScriptableObject
     public WorldGenSettings worldGenSettings;
 
     public Wave[] waves;
+
+    public int startingMoney;
 }
