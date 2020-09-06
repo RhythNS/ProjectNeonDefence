@@ -52,7 +52,7 @@ public class Tower : Entity, ITargetable
 
     public GameObject GetGameObject()
     {
-        return gameObject;
+        return this?gameObject:null;
     }
 
     /// <summary>
@@ -87,6 +87,11 @@ public class Tower : Entity, ITargetable
     {
         if (enemiesInRange.Count == 0) return null;
         return enemiesInRange[0];
+    }
+
+    public virtual bool Upgrade()
+    {
+        return false;
     }
 
 }

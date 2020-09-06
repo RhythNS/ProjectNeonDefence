@@ -644,6 +644,9 @@ MonoBehaviour:
   cooldownBetweenShots: 2
   slowdownPercentage: 0.8
   slowdownTime: 2
+  upgradePaths:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3378909790545845901
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.CodeDom;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -49,9 +50,11 @@ public class MeeleAttackBehaviour : MonoBehaviour, IBehaviour
     public void OnNewTileEntered()
     {
         Vector2Int currentGridPosition = World.Instance.WorldToGrid(transform.position);
-        if (AttackingTarget != null && !AttackingTarget.GetGameObject())
+       
+        if (AttackingTarget != null && AttackingTarget.GetGameObject())
         {
-            if (CheckIfTargetStillInReach(currentGridPosition, World.Instance.WorldToGrid(AttackingTarget.GetGameObject().transform.position)) == true)
+            GameObject attackingObject = AttackingTarget.GetGameObject();
+            if (CheckIfTargetStillInReach(currentGridPosition, World.Instance.WorldToGrid(attackingObject.transform.position)) == true)
             {
                 return;
             }

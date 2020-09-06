@@ -41,8 +41,10 @@ public class SingleShotTower : Tower
 
     private UpgradePath nextUpgradePath;
 
-    public bool Upgrade()
+    public override bool Upgrade()
     {
+        if (!nextUpgradePath) nextUpgradePath = upgradePaths[0];
+        
         if (MoneyManager.Instance.CurrentMoney < nextUpgradePath.Cost)
         {
             return false;
@@ -55,10 +57,10 @@ public class SingleShotTower : Tower
         return true;
     }
 
-    public class UpgradePath
+    public class UpgradePath: Component
     {
-        int cost;
-        float timeBetweenShots;
+        public int cost;
+        public float timeBetweenShots;
 
         public int Cost
         {

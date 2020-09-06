@@ -21,7 +21,7 @@ public class PathTestBehaviour : MonoBehaviour
         {
             World.Instance.Tiles.Get(start.x, start.y).GetComponent<Renderer>().material = pathColor;
             World.Instance.Tiles.Get(target.x, target.y).GetComponent<Renderer>().material = pathColor;
-            var tiles = new SimpleAStar(TowerManager.Instance.GetLocationsOfTowers()).GeneratePath(World.Instance.Tiles.Get(start.x, start.y),
+            var tiles = new SimpleAStar().GeneratePath(World.Instance.Tiles.Get(start.x, start.y),
                 World.Instance.Tiles.Get(target.x, target.y));
 
             if (tiles == null)

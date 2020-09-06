@@ -23,8 +23,9 @@ public class MoneyTower : Tower
 
     private UpgradePath nextUpgradePath;
     
-    public bool Upgrade()
+    public override bool Upgrade()
     {
+        if (!nextUpgradePath) nextUpgradePath = upgradePaths[0];
         if (MoneyManager.Instance.CurrentMoney < nextUpgradePath.Cost)
         {
             return false;
@@ -38,7 +39,7 @@ public class MoneyTower : Tower
         return true;
     }
 
-    public class UpgradePath
+    public class UpgradePath : Component
     {
         int cost;
         private int moneyYield;

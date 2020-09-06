@@ -13,11 +13,9 @@ public class SimpleAStar
 {
     private static readonly int maxTries = 4000;
 
-    private List<Vector2Int> listOfTowerLocations;
 
-    public SimpleAStar(List<Vector2Int> listOfTowerLocations)
+    public SimpleAStar()
     {
-        this.listOfTowerLocations = listOfTowerLocations;
     }
 
     /// <summary>
@@ -162,11 +160,8 @@ public class SimpleAStar
                     Tile t = wTiles.Get(px, py);
                     if (!t || t.Tower) continue;
                     Vector2Int test = new Vector2Int(t.X, t.Y);
-                    if (!listOfTowerLocations.Contains(test))
-                    {
-                        neighbours.Add(t);
-                    }
-
+                    neighbours.Add(t);
+                        
                 }
             }
         }

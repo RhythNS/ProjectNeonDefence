@@ -18,7 +18,7 @@ public class GravityTower : Tower
     public int Rank => rank;
     private int rank = 1;
 
-    [SerializeField] private UpgradePath[] upgradePaths;
+    [SerializeField] public UpgradePath[] upgradePaths;
 
     public UpgradePath NextUpgradePath
     {
@@ -68,8 +68,9 @@ public class GravityTower : Tower
         }
     }
 
-    public bool Upgrade()
+    public override bool Upgrade()
     {
+        if (!nextUpgradePath) nextUpgradePath = upgradePaths[0];
         if (MoneyManager.Instance.CurrentMoney < nextUpgradePath.Cost)
         {
             return false;
@@ -83,7 +84,7 @@ public class GravityTower : Tower
         return true;
     }
 
-    public class UpgradePath
+    public class UpgradePath : Component
     {
         int cost;
         float slowPercentage;

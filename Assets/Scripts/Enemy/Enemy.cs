@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
@@ -121,11 +122,12 @@ public class Enemy : MonoBehaviour, ITargetable
 
     public void OnWorldChange()
     {
+        if (!this) return;
         //Create new path
         //ggf optimieren und schauen, wo zerstörtes Teil liegt
         Vector2Int currPosition = World.Instance.WorldToGrid(this.transform.position);
         Vector2Int homePosition = GameManager.Instance.CurrentLevel.worldGenSettings.homePosition;
-        alternativePath = new SimpleAStar(TowerManager.Instance.GetLocationsOfTowers()).GeneratePath(World.Instance.Tiles.Get(currPosition.x, currPosition.y),
+        alternativePath = new SimpleAStar().GeneratePath(World.Instance.Tiles.Get(currPosition.x, currPosition.y),
             World.Instance.Tiles.Get(homePosition.x, homePosition.y));
 
         if (path[positionOnPath].Tower == null && alternativePath[1] == path[positionOnPath])
