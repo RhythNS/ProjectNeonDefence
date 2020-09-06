@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
         InWave
     }
 
+    private bool alreadyLost = false;
+
     public static GameManager Instance { get; private set; }
 
     public Level CurrentLevel { get; private set; }
@@ -29,9 +31,11 @@ public class GameManager : MonoBehaviour
 
     private int AtWave = -1;
 
-    public List<Enemy> AliveEnemies {
+    public List<Enemy> AliveEnemies
+    {
         get;
-        private set; } = new List<Enemy>();
+        private set;
+    } = new List<Enemy>();
     // List of all towers currently alive.
     public List<Tower> AliveTowers { get; private set; } = new List<Tower>();
 
@@ -43,8 +47,9 @@ public class GameManager : MonoBehaviour
         set
         {
             remainingHealth = value;
-            if (remainingHealth <= 0)
+            if (remainingHealth <= 0 && alreadyLost == false)
             {
+                alreadyLost = true;
                 OnGameLoose();
             }
         }
@@ -76,7 +81,7 @@ public class GameManager : MonoBehaviour
 
     public void OnGameLoose()
     {
-        SceneManager.LoadScene("GameOverScreen");
+        GameOverManager.Instance.Show();
     }
 
     public void LoadLevel(Level level)
