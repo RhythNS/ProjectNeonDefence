@@ -9,11 +9,10 @@ public class GravityTowerBullet : AOEBullet
 
     public void OnTriggerEnter(Collider other)
     {
-        GameObject targetObject = Target.GetGameObject();
-        if (gameObject && other.gameObject == targetObject)
+        if (gameObject && other.gameObject == Target.gameObject)
         {
             // ... get all other towers and damange them as well.
-            Collider[] aoeColliders = Physics.OverlapSphere(targetObject.transform.position, aoeRadius);
+            Collider[] aoeColliders = Physics.OverlapSphere(Target.transform.position, aoeRadius);
             for (var i = 0; i < aoeColliders.Length; i++)
             {
                 var collider = aoeColliders[i];

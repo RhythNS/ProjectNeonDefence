@@ -4,7 +4,7 @@
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Health))]
 
-public abstract class Entity : MonoBehaviour
+public abstract class Entity : ITargetable
 {
     public Transform Aimpoint;
 

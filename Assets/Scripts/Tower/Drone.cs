@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
-public class Drone : MonoBehaviour, ITargetable
+public class Drone : ITargetable
 {
     public DroneTower parentTower;
 

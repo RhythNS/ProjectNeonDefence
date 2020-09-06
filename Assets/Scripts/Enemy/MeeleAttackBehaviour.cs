@@ -30,7 +30,7 @@ public class MeeleAttackBehaviour : MonoBehaviour, IBehaviour
     {
         while (true)
         {
-            if (AttackingTarget == null || !AttackingTarget.GetGameObject())
+            if (AttackingTarget == null || !AttackingTarget)
                 yield return null;
             else
             {
@@ -44,17 +44,16 @@ public class MeeleAttackBehaviour : MonoBehaviour, IBehaviour
     {
         MeeleBullet spawnedMeeleBullet = Instantiate(meeleBulletPrefab, transform.position, Quaternion.identity);
         spawnedMeeleBullet.Target = attackingTower;
-        spawnedMeeleBullet.transform.LookAt(attackingTower.GetCurrentPosition());
+        spawnedMeeleBullet.transform.LookAt(attackingTower.transform.position);
     }
 
     public void OnNewTileEntered()
     {
         Vector2Int currentGridPosition = World.Instance.WorldToGrid(transform.position);
        
-        if (AttackingTarget != null && AttackingTarget.GetGameObject())
+        if (AttackingTarget != null && AttackingTarget)
         {
-            GameObject attackingObject = AttackingTarget.GetGameObject();
-            if (CheckIfTargetStillInReach(currentGridPosition, World.Instance.WorldToGrid(attackingObject.transform.position)) == true)
+            if (CheckIfTargetStillInReach(currentGridPosition, World.Instance.WorldToGrid(AttackingTarget.transform.position)) == true)
             {
                 return;
             }

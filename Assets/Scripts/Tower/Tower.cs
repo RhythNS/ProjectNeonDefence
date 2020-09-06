@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class Tower : Entity, ITargetable
+public class Tower : Entity
 {
     // Current Target 
     public Enemy targetEnemy;
@@ -42,17 +42,6 @@ public class Tower : Entity, ITargetable
     public void OnDestroy()
     {
         GameManager.Instance.AliveTowers.Remove(this);
-    }
-
-    public Vector3 GetCurrentPosition()
-    {
-        return this ? transform.position : Vector3.zero;
-    }
-
-
-    public GameObject GetGameObject()
-    {
-        return this?gameObject:null;
     }
 
     /// <summary>

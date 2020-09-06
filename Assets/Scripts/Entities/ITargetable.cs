@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ITargetable
+public abstract class ITargetable : MonoBehaviour
 {
-    Vector3 GetCurrentPosition();
-
-    GameObject GetGameObject();
+    
 }

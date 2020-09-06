@@ -28,7 +28,7 @@ public class LaserBulletBehaviour : AbstractBullet
         {
             timer += Time.deltaTime;
 
-            Vector3 dir = Target.GetCurrentPosition() - transform.position;
+            Vector3 dir = Target.transform.position - transform.position;
             dir = dir.normalized;
 
             if (timer < shootingDuration)
@@ -40,12 +40,12 @@ public class LaserBulletBehaviour : AbstractBullet
                 transform.position += dir * Time.deltaTime * speed;
                 
             }
-            if (Vector2.Angle(transform.position, Target.GetCurrentPosition()) >= 180)
+            if (Vector2.Angle(transform.position, Target.transform.position) >= 180)
             {
                 //Collision
                 StartCoroutine(FadeAwayLaser());
                
-                Target.GetGameObject().GetComponent<Health>().TakeDamage(damage);
+                Target.GetComponent<Health>().TakeDamage(damage);
                 yield break;
             }
             yield return null;
@@ -58,13 +58,13 @@ public class LaserBulletBehaviour : AbstractBullet
     public IEnumerator FadeAwayLaser()
     {
         float timer = 0;
-        lineBehaviour.StartPos = Target.GetCurrentPosition();
+        lineBehaviour.StartPos = Target.transform.position;
 
         while (timer <= shootingDuration)
         {
             timer += Time.deltaTime;
 
-            Vector3 dir = Target.GetCurrentPosition() - lineBehaviour.EndPos;
+            Vector3 dir = Target.transform.position - lineBehaviour.EndPos;
             dir = dir.normalized;
 
             lineBehaviour.EndPos += dir* speed * Time.deltaTime;

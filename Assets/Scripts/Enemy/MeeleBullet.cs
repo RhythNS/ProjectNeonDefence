@@ -12,16 +12,15 @@ public class MeeleBullet : AbstractBullet
 
     public override IEnumerator Move()
     {
-        var targetObj = Target.GetGameObject();
         while (true)
         {
-            if (!targetObj)
+            if (!Target)
             {
                 Destroy(gameObject);
                 break;
             }
 
-            var tPos = targetObj?.transform.position ?? Vector3.zero ;
+            var tPos = Target?.transform.position ?? Vector3.zero ;
             if (tPos == Vector3.zero) break;
             Vector3 dir = tPos - transform.position;
             dir = dir.normalized;
@@ -41,7 +40,7 @@ public class MeeleBullet : AbstractBullet
     {
         if (other.gameObject.GetComponent<ITargetable>() == Target)
         {
-            Target?.GetGameObject().GetComponent<Health>().TakeDamage(damage);
+            Target?.GetComponent<Health>().TakeDamage(damage);
             Destroy(this.gameObject);
         }
     }

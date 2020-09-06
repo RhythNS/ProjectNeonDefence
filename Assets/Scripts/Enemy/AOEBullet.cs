@@ -19,7 +19,7 @@ public class AOEBullet : AbstractBullet
 
     public override IEnumerator Move()
     {
-        Vector3 dir = Target.GetCurrentPosition() - transform.position;
+        Vector3 dir = Target.transform.position - transform.position;
         dir = dir.normalized;
         while (true)
         {
@@ -41,16 +41,16 @@ public class AOEBullet : AbstractBullet
         if (other.gameObject.GetComponent<ITargetable>() == Target)
         {
             // ... give the target tower damage,...   
-            Target.GetGameObject().GetComponent<Health>().TakeDamage(damage);
+            Target.GetComponent<Health>().TakeDamage(damage);
 
             // ... get all other towers and damange them as well.
-            Collider[] aoeColliders = Physics.OverlapSphere(Target.GetCurrentPosition(), aoeRadius);
+            Collider[] aoeColliders = Physics.OverlapSphere(Target.transform.position, aoeRadius);
             for (var i = 0; i < aoeColliders.Length; i++)
             {
                 var collider = aoeColliders[i];
                 if (collider.TryGetComponent<ITargetable>(out ITargetable tower))
                 {
-                    tower.GetGameObject().GetComponent<Health>().TakeDamage(aoeDamage);
+                    tower.GetComponent<Health>().TakeDamage(aoeDamage);
                 }
             }
 

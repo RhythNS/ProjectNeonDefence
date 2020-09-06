@@ -14,7 +14,7 @@ public abstract class AbstractBullet : MonoBehaviour
         set
         {
             target = value;
-            destination = Target.GetCurrentPosition();
+            destination = Target.transform.position;
             StartCoroutine(Move());
         }
     }

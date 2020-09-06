@@ -5,7 +5,7 @@ using System.Xml;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class Enemy : MonoBehaviour, ITargetable
+public class Enemy : ITargetable
 {
     public Health Health { get; private set; }
 
