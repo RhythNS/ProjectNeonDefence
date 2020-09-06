@@ -13,11 +13,14 @@ public class Drone : ITargetable
     public int damage;
     public float damagePerSeconds;
 
+    public bool CanWalk { get; set; }
+
     public Health Health { get; private set; }
 
     [SerializeField] private float speedForPassingTile;
 
-    [SerializeField] private List<Tile> path;
+    public List<Tile> Path { get; private set; }
+    
     private Tile currentTile, targetWalkingTile;
     private Vector3 lastTilePassed;
 
@@ -59,7 +62,7 @@ public class Drone : ITargetable
 
         Destroy(this, aliveTime);
 
-        path = GetPath();
+        Path = GetPath();
         currentTile.blockingTargets.Add(this);
 
         speedForPassingTile = speed;
@@ -75,7 +78,8 @@ public class Drone : ITargetable
         float timer = 0;
         while (true)
         {
-            timer += Time.deltaTime;
+            if (CanWalk == true)
+                timer += Time.deltaTime;
 
             float percentage = timer / speedForPassingTile;
 
@@ -98,7 +102,7 @@ public class Drone : ITargetable
                     yield return new WaitForSeconds(1);
                 else
                 {
-                    path = GetPath();
+                    Path = GetPath();
                     timer = 0;
                     enteredNewTile = false;
                 }
@@ -115,11 +119,11 @@ public class Drone : ITargetable
         currentTile = World.Instance.Tiles.Get(currPosition.x, currPosition.y);
         targetWalkingTile = World.Instance.Tiles.Get(targetPosition.x, targetPosition.y);
 
-        path = new SimpleAStar().GeneratePath(
+        Path = new SimpleAStar().GeneratePath(
             currentTile,
             targetWalkingTile, true);
         SetNewDestination();
-        return path;
+        return Path;
     }
 
     protected Enemy GetNewTarget(List<Enemy> enemiesInRange)
@@ -146,12 +150,12 @@ public class Drone : ITargetable
     private void SetNewDestination()
     {
         lastTilePassed = transform.position;
-        if (path == null || path.Count <= 1)
+        if (Path == null || Path.Count <= 1)
         {
             currentDestinationPoint = transform.position;
             return;
         }
-        targetWalkingTile = path[1];
+        targetWalkingTile = Path[1];
         currentDestinationPoint =
             World.Instance.GridToWorldMid(new Vector2Int(targetWalkingTile.X, targetWalkingTile.Y));
 
@@ -161,9 +165,9 @@ public class Drone : ITargetable
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        if (path == null)
+        if (Path == null)
             return;
-        Vector3 pos = path[path.Count - 1].transform.position;
+        Vector3 pos = Path[Path.Count - 1].transform.position;
         Gizmos.DrawLine(pos + new Vector3(0, -10, 0), pos + new Vector3(0, 10, 0));
     }
 }

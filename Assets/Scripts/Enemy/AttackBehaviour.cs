@@ -39,8 +39,6 @@ public abstract class AttackBehaviour : MonoBehaviour, IBehaviour
         spawnedMeeleBullet.transform.LookAt(attackingTower.transform.position);
     }
 
-    protected abstract AbstractBullet GetBullet();
-
     public void OnNewTileEntered()
     {
         Vector2Int currentGridPosition = World.Instance.WorldToGrid(transform.position);
