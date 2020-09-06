@@ -55,9 +55,16 @@ public class LaserBulletBehaviour : AbstractBullet
         transform.rotation = Quaternion.identity;
         lineBehaviour.EndPos = new Vector3(0, 0, 0);
         Vector3 previousDir = Target.transform.position - transform.position;
+        Vector3 lastSeenPosition = Target.transform.position;
         while (true)
         {
-            Vector3 dir = Target.transform.position - transform.position;
+            if (Target)
+            {
+                lastSeenPosition = Target.transform.position;
+            }
+            
+
+            Vector3 dir = lastSeenPosition - transform.position;
             dir = dir.normalized;
 
             Vector3 origin = shooter.transform.position;
@@ -69,8 +76,8 @@ public class LaserBulletBehaviour : AbstractBullet
             {
                 //Collision
                 StartCoroutine(FadeAwayLaser());
-
-                Target.GetComponent<Health>().TakeDamage(damage);
+                if(Target)
+                    Target.GetComponent<Health>().TakeDamage(damage);
                 yield break;
             }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 34b3663fc7ac9d949b223593bd112583
+guid: be92f54590fc0174e936ac126dc8ea1c
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Energy Bullet
-    second: {fileID: 2100000, guid: 4dfd8372346a9a14c849d4e16a1b32af, type: 2}
+    second: {fileID: 2100000, guid: 336778d4c7fa119489472a44debb06d9, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
