@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397fb49cac694ff47b5a2988814684df, type: 3}
   m_Name: MeleeBehaviour
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8212137288850585430, guid: 4bc0686f2096c4c4e8e3bacdcf09896d,
+  bulletPrefab: {fileID: 2548864293670598683, guid: 658d8b1ea0b3716409217d7ed7ec77a6,
     type: 3}
   range: 2
   attackThreshold: 1
