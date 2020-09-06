@@ -5,10 +5,8 @@ using System.Xml;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public class Enemy : ITargetable
+public class Enemy : Entity
 {
-    public Health Health { get; private set; }
-
     private IBehaviour behaviour;
     public int MoneyDrop { get; private set; }
 

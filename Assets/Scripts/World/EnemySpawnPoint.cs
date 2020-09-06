@@ -9,9 +9,7 @@ public class EnemySpawnPoint : MonoBehaviour
     {
         List<Tile> startPath = EnemyPathManager.Instance.GetStartPath(Number);
         GameObject enemyObject = Instantiate(data.model, transform.position, Quaternion.identity);
-        enemyObject.AddComponent<EnemyDieable>();
-        enemyObject.AddComponent<Health>();
-        Enemy e = enemyObject.AddComponent<Enemy>();
+        Enemy e = enemyObject.GetComponent<Enemy>();
         e.Set(data, startPath);
         GameManager.Instance.AliveEnemies.Add(e);
         for (int i = 0; i < data.behaviours.Length; i++)

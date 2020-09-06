@@ -34,9 +34,11 @@ public abstract class AttackBehaviour : MonoBehaviour, IBehaviour
 
     private void ShootMissileAt(ITargetable attackingTower)
     {
-        AbstractBullet spawnedMeeleBullet = Instantiate(meeleBulletPrefab, transform.position, Quaternion.identity);
-        spawnedMeeleBullet.Target = attackingTower;
+        Transform shootFrom = ArrayUtil<Transform>.RandomElement(GetComponent<Enemy>().Aimpoint);
+        AbstractBullet spawnedMeeleBullet = Instantiate(meeleBulletPrefab, shootFrom.position, Quaternion.identity);
         spawnedMeeleBullet.transform.LookAt(attackingTower.transform.position);
+        spawnedMeeleBullet.shooter = shootFrom;
+        spawnedMeeleBullet.Target = attackingTower;
     }
 
     public void OnNewTileEntered()

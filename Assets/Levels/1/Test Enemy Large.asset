@@ -15,7 +15,7 @@ MonoBehaviour:
   health: 20
   moneyDrop: 0
   behaviours:
-  - {fileID: 11400000, guid: c649794657d08d842ad724e5755c0765, type: 2}
+  - {fileID: 11400000, guid: 84148cc4edd787c4994a8d9f91afd0d2, type: 2}
   model: {fileID: 1226926617849254662, guid: a764f6508193cb848ad6f162e80fcfa9, type: 3}
-  speed: 1
+  speed: 4
   homeDamage: 1

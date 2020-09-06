@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd61b883cf645ed43a63b9804edd0b70, type: 3}
   m_Name: New Ranged Attack Behaviour Data
   m_EditorClassIdentifier: 
-  Range: 3
-  AttackThreshold: 2
-  laserPrefab: {fileID: 5591297002177742502, guid: ee252d3206b29c740b24831f04d06a70,
+  Range: 5
+  shootingDuration: 0.1
+  AttackThreshold: 10
+  BulletPrefab: {fileID: 7093805993047209079, guid: ee252d3206b29c740b24831f04d06a70,
     type: 3}

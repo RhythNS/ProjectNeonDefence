@@ -37,6 +37,8 @@ public class Tower : Entity
     void Start()
     {
         Health = GetComponent<Health>();
+        if (Health == null)
+            Debug.LogError("TOWER " + name + " HAS NO HEALTH ATTACHED TO IT! PLEASE ADD ONE AND A DIABLE BEFORE CONTINUING!");
     }
 
     // Update is called once per frame
