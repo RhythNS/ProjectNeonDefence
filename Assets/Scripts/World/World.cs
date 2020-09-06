@@ -69,8 +69,9 @@ public class World : MonoBehaviour
         Tile tile = Tiles.Get(pos.x, pos.y);
 
         tile.Tower = null;
-        GameManager.Instance.AliveTowers.Remove(selectedTower);
 
         MoneyManager.Instance.CurrentMoney += Mathf.FloorToInt(selectedTower.CurrentValue * GameConstants.Instance.SellMoneyRegainPercentage);
+
+        Destroy(selectedTower.gameObject);
     }
 }

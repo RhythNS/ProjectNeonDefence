@@ -77,11 +77,6 @@ public class CameraController : MonoBehaviour
                 else
                 {
                     SelectedTower = null;
-                    if (newSelected != null &&
-                        newSelected.TryGetComponent(out Tower tower))
-                    {
-                        UpgradeManager.Instance.SelectedTower = tower;
-                    }
                 }
 
             }

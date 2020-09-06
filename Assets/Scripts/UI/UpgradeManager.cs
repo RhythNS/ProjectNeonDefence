@@ -46,6 +46,9 @@ public class UpgradeManager : MonoBehaviour
     public void Sell()
     {
         if (SelectedTower != null)
+        {
             World.Instance.SellTurret(selectedTower);
+            SelectedTower = null;
+        }
     }
 }

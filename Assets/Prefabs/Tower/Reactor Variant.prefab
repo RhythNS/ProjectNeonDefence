@@ -52,6 +52,7 @@ MonoBehaviour:
   Aimpoint: {fileID: 5483543028619486084}
   targetEnemy: {fileID: 0}
   cost: 5
+  CurrentValue: 0
   Range: 1
   moneyGrandCooldown: 2
   moneyYield: 3
@@ -62,6 +63,18 @@ MonoBehaviour:
   - cost: 30
     moneyYield: 5
     moneyGrandCooldown: 1
+--- !u!114 &-2660276115759350311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951819556638415126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369db84c0df959c408a302f3522068d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4580076493931798076
 GameObject:
   m_ObjectHideFlags: 0
