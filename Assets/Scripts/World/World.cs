@@ -61,6 +61,7 @@ public class World : MonoBehaviour
     {
         Vector3 worldPos = GridToWorldMid(new Vector2Int(tile.X, tile.Y));
         tile.Tower = Instantiate(selectedTower, worldPos, Quaternion.identity);
+
     }
 
     public void SellTurret(Tower selectedTower)

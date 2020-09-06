@@ -15,5 +15,5 @@ MonoBehaviour:
   worldGenSettings: {fileID: 11400000, guid: be67f47fe13416d42b28231505a95921, type: 2}
   waves:
   - {fileID: 11400000, guid: 491f32f5fe8ddc54da7f3e93cbd6e241, type: 2}
-  startingMoney: 0
+  startingMoney: 100
   startingHealth: 1

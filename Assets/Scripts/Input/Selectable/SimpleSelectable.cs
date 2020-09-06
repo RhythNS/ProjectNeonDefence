@@ -44,7 +44,7 @@ public abstract class SimpleSelectable : MonoBehaviour, ISelectable
 
         for (int i = 0; i < renderers.Count; i++)
         {
-            outlines[i] = new Outline(renderers[i], renderers[i].material);
+           outlines[i] = new Outline(renderers[i], renderers[i].material);
         }
     }
 
