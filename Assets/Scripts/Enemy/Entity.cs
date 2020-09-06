@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 [RequireComponent(typeof(Collider))]
@@ -11,6 +9,4 @@ public abstract class Entity : MonoBehaviour
     public Transform Aimpoint;
 
     public Health Health { get; protected set; }
-
-
 }
