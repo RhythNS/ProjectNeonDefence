@@ -14,11 +14,10 @@ public class GravityTower : Tower
     public float slowdownPercentage;
     public float slowdownTime;
 
-
     public int Rank => rank;
     private int rank = 1;
 
-    [SerializeField] public UpgradePath[] upgradePaths;
+    public UpgradePath[] upgradePaths;
 
     public UpgradePath NextUpgradePath
     {
@@ -70,25 +69,31 @@ public class GravityTower : Tower
 
     public override bool Upgrade()
     {
-        if (!nextUpgradePath) nextUpgradePath = upgradePaths[0];
+        if (nextUpgradePath == null) nextUpgradePath = upgradePaths[0];
         if (MoneyManager.Instance.CurrentMoney < nextUpgradePath.Cost)
         {
             return false;
         }
+        if (rank > upgradePaths.Length) return false;
+
+        MoneyManager.Instance.CurrentMoney -= nextUpgradePath.cost;
+        CurrentValue += nextUpgradePath.cost;
 
         this.slowdownPercentage = nextUpgradePath.SlowPercentage;
         this.slowdownTime = nextUpgradePath.SlowDuration;
+        this.Range = nextUpgradePath.Range;
         if (rank < upgradePaths.Length)
-            nextUpgradePath = upgradePaths[rank - 1];
+            nextUpgradePath = upgradePaths[rank];
         rank++;
         return true;
     }
-
-    public class UpgradePath : Component
+    [System.Serializable]
+    public class UpgradePath
     {
-        int cost;
-        float slowPercentage;
-        float slowDuration;
+        public int cost;
+        public float slowPercentage;
+        public float slowDuration;
+        public int range;
 
         public int Cost
         {
@@ -98,6 +103,7 @@ public class GravityTower : Tower
         public float SlowPercentage => slowPercentage;
 
         public float SlowDuration => slowDuration;
+        public int Range => range;
     }
 
     public IEnumerator GravityRoutine(Enemy e)

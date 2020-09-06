@@ -130,6 +130,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1901824437, guid: 356c2960f5e38804ca0e6d39bccfce7f, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901824437, guid: 356c2960f5e38804ca0e6d39bccfce7f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901824437, guid: 356c2960f5e38804ca0e6d39bccfce7f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901824437, guid: 356c2960f5e38804ca0e6d39bccfce7f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901824437, guid: 356c2960f5e38804ca0e6d39bccfce7f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 614599247645879713, guid: 356c2960f5e38804ca0e6d39bccfce7f,
         type: 3}
       propertyPath: m_Name
@@ -155,6 +175,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2549624105388784716, guid: 356c2960f5e38804ca0e6d39bccfce7f,
+        type: 3}
+      propertyPath: currentMoney
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746743900198337792, guid: 356c2960f5e38804ca0e6d39bccfce7f,
+        type: 3}
+      propertyPath: toChange
+      value: 
+      objectReference: {fileID: 6093678101128201853, guid: 655951ce60745034c843b775ca43223c,
+        type: 3}
     - target: {fileID: 7107000771279002916, guid: 356c2960f5e38804ca0e6d39bccfce7f,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -337,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 356c2960f5e38804ca0e6d39bccfce7f, type: 3}
---- !u!84 &649098290
+--- !u!84 &968575056
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,8 +381,8 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   serializedVersion: 3
-  m_Width: 429
-  m_Height: 241
+  m_Width: 530
+  m_Height: 298
   m_AntiAliasing: 1
   m_MipCount: -1
   m_DepthFormat: 1
@@ -372,7 +403,7 @@ RenderTexture:
     m_WrapW: 1
   m_Dimension: 2
   m_VolumeDepth: 1
---- !u!84 &918874583
+--- !u!84 &1191899153
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -385,8 +416,8 @@ RenderTexture:
   m_ForcedFallbackFormat: 4
   m_DownscaleFallback: 0
   serializedVersion: 3
-  m_Width: 429
-  m_Height: 241
+  m_Width: 530
+  m_Height: 298
   m_AntiAliasing: 1
   m_MipCount: -1
   m_DepthFormat: 1
@@ -458,7 +489,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 649098290}
+  m_TargetTexture: {fileID: 1191899153}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -562,8 +593,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 1428120980}
   outlineCamera: {fileID: 1318082149}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 649098290}
-  extraRenderTexture: {fileID: 918874583}
+  renderTexture: {fileID: 1191899153}
+  extraRenderTexture: {fileID: 968575056}
 --- !u!114 &1428120977
 MonoBehaviour:
   m_ObjectHideFlags: 0

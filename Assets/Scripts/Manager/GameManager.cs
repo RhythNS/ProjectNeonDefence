@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(Level level)
     {
         CurrentLevel = level;
+        MoneyManager.Instance.CurrentMoney = CurrentLevel.startingMoney;
         GetComponent<WorldGen>().Generate(level.worldGenSettings);
         EnemyPathManager.Instance.OnNextLevel();
         OnWaveEnded();

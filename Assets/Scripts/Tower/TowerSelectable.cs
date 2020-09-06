@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TowerSelectable : SimpleSelectable
+﻿public class TowerSelectable : SimpleSelectable
 {
     protected override void InnerSelect()
     {
-        // TODO: implement
+        UpgradeManager.Instance.SelectedTower = GetComponent<Tower>();
+    }
+
+    protected override void InnerDeSelect()
+    {
+        UpgradeManager.Instance.SelectedTower = null;
     }
 }

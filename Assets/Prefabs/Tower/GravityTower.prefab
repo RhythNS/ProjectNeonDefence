@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6513940050283319793}
   - component: {fileID: 289828815552938408}
   - component: {fileID: 5185371955436828935}
+  - component: {fileID: 7542539910056538798}
   m_Layer: 9
   m_Name: GravityTower
   m_TagString: Untagged
@@ -86,6 +87,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Aimpoint: {fileID: 0}
   targetEnemy: {fileID: 0}
+  cost: 5
+  CurrentValue: 0
   Range: 15
   basedBullet: {fileID: -8537914994819119627, guid: 4af8b6159d25fc6448b9cbdba2ae1dcd,
     type: 3}
@@ -93,6 +96,27 @@ MonoBehaviour:
   cooldownBetweenShots: 2
   slowdownPercentage: 0.8
   slowdownTime: 2
+  upgradePaths:
+  - cost: 20
+    slowPercentage: 0.8
+    slowDuration: 2
+    range: 5
+  - cost: 30
+    slowPercentage: 0.5
+    slowDuration: 6
+    range: 10
+--- !u!114 &7542539910056538798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8100693454122097306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369db84c0df959c408a302f3522068d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5045777003720652985
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
+using TMPro;
 using UnityEngine;
 
 public class Drone : ITargetable
@@ -20,7 +21,7 @@ public class Drone : ITargetable
     [SerializeField] private float speedForPassingTile;
 
     public List<Tile> Path { get; private set; }
-    
+
     private Tile currentTile, targetWalkingTile;
     private Vector3 lastTilePassed;
 
@@ -60,8 +61,9 @@ public class Drone : ITargetable
         this.damage = damage;
         this.damagePerSeconds = damagePerSeconds;
 
-        Destroy(this, aliveTime);
+        Destroy(gameObject, aliveTime);
 
+        CanWalk = false;
         Path = GetPath();
         currentTile.blockingTargets.Add(this);
 
@@ -128,7 +130,7 @@ public class Drone : ITargetable
 
     protected Enemy GetNewTarget(List<Enemy> enemiesInRange)
     {
-        if (enemiesInRange == null || enemiesInRange.Count == 0)
+        if (!this || enemiesInRange == null || enemiesInRange.Count == 0)
             return null;
 
         Enemy nearestEnemy = enemiesInRange[0];

@@ -23,10 +23,12 @@ public class GameConstants : MonoBehaviour
     [SerializeField] private float towerBulletCooldownSeconds = 1;
     // How many towers are updated each frame, helps with performance.
     [SerializeField] private float towerManagerMaxTowersCheckedPerFrame = 10;
-    
+
+    [SerializeField] private float sellMoneyRegainPercentage = 0.5f;
+
     public float TowerHardFValue => towerHardFValue;
     public float TowerEffectiveRange => towerEffectiveRange;
     public float TowerBulletCooldownSeconds => towerBulletCooldownSeconds;
     public float TowerManagerMaxTowersCheckedPerFrame => towerManagerMaxTowersCheckedPerFrame;
-
+    public float SellMoneyRegainPercentage { get => sellMoneyRegainPercentage;}
 }

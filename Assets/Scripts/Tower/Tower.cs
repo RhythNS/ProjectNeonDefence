@@ -12,7 +12,13 @@ public class Tower : Entity
     // Current list of all enemies in range
     // Is maintained by the GameManager
     public List<Enemy> enemiesInRange { get; private set; } = new List<Enemy>();
+    public int cost;
 
+    public int CurrentValue;
+
+    
+
+    public Animator Animator { get; private set; }
 
     public int Range;
 
@@ -23,6 +29,8 @@ public class Tower : Entity
     {
         GameManager.Instance.AliveTowers.Add(this);
         EnemyPathManager.Instance.OnWorldChange();
+        Animator = GetComponentInChildren<Animator>();
+        CurrentValue = cost;
     }
 
     // Start is called before the first frame update

@@ -138,6 +138,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Aimpoint: {fileID: 0}
   targetEnemy: {fileID: 0}
+  cost: 0
+  CurrentValue: 0
+  Range: 0
 --- !u!114 &3362066821320717441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +155,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Aimpoint: {fileID: 0}
   targetEnemy: {fileID: 0}
+  cost: 0
+  CurrentValue: 0
+  Range: 0
 --- !u!1 &6542849805918382355
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +169,6 @@ GameObject:
   - component: {fileID: 2722919590099806071}
   - component: {fileID: 8921857020349306088}
   - component: {fileID: 5303918813588355604}
-  - component: {fileID: 4373279768636590125}
   m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
@@ -234,16 +239,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4373279768636590125
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6542849805918382355}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.9999999, z: 1}
-  m_Center: {x: 0, y: -0.000003814697, z: 0}

@@ -32,6 +32,8 @@ public class CameraController : MonoBehaviour
     private Vector3 selectMousePos;
     private Vector3 currentMousePos;
 
+    public Camera AttachedCamera => attachedCamera;
+
     private void Awake()
     {
         Instance = this;

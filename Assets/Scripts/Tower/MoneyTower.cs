@@ -8,8 +8,8 @@ public class MoneyTower : Tower
     public float moneyGrandCooldown;
     public int moneyYield;
     private float currentCooldown;
-    
-    
+
+
     // -- UPGRADES --\\
     public int Rank => rank;
     private int rank = 1;
@@ -22,28 +22,36 @@ public class MoneyTower : Tower
     }
 
     private UpgradePath nextUpgradePath;
-    
+
     public override bool Upgrade()
     {
-        if (!nextUpgradePath) nextUpgradePath = upgradePaths[0];
-        if (MoneyManager.Instance.CurrentMoney < nextUpgradePath.Cost)
+        if (nextUpgradePath == null) nextUpgradePath = upgradePaths[0];
+        int currentMoney = MoneyManager.Instance.CurrentMoney;
+        if (currentMoney < nextUpgradePath.Cost)
         {
             return false;
         }
 
+        if (rank > upgradePaths.Length) return false;
+
+        MoneyManager.Instance.CurrentMoney -= nextUpgradePath.cost;
+        CurrentValue += nextUpgradePath.cost;
+
         this.moneyYield = nextUpgradePath.MoneyYield;
         this.moneyGrandCooldown = nextUpgradePath.MoneyGrandCooldown;
+
+
         if (rank < upgradePaths.Length)
-            nextUpgradePath = upgradePaths[rank - 1];
+            nextUpgradePath = upgradePaths[rank];
         rank++;
         return true;
     }
-
-    public class UpgradePath : Component
+    [System.Serializable]
+    public class UpgradePath
     {
-        int cost;
-        private int moneyYield;
-        float moneyGrandCooldown;
+        public int cost;
+        public int moneyYield;
+        public float moneyGrandCooldown;
 
         public int Cost
         {
@@ -54,7 +62,7 @@ public class MoneyTower : Tower
 
         public float MoneyGrandCooldown => moneyGrandCooldown;
     }
-    
+
 
     // Update is called once per frame
     void Update()
@@ -67,8 +75,8 @@ public class MoneyTower : Tower
     void GrandMoney()
     {
         currentCooldown = 0f;
-        MoneyManager.Instance.ModifyMoney(moneyYield);
+        MoneyManager.Instance.CurrentMoney += moneyYield;
     }
-    
-    
+
+
 }
