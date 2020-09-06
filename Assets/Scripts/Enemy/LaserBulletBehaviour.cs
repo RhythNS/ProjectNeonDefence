@@ -6,71 +6,105 @@ using VolumetricLines;
 
 public class LaserBulletBehaviour : AbstractBullet
 {
-
     [SerializeField] private float shootingDuration;
 
-    [SerializeField]
     private VolumetricLineBehavior lineBehaviour;
 
+    [SerializeField] private float laserLength;
 
     private void Awake()
     {
         lineBehaviour = GetComponent<VolumetricLineBehavior>();
     }
 
+    //public override IEnumerator Move()
+    //{
+    //    float timer = 0;
+    //    lineBehaviour.EndPos = new Vector3(0, 0, 0);
+    //    while (true)
+    //    {
+    //        timer += Time.deltaTime;
+
+    //        Vector3 dir = Target.transform.position - transform.position;
+    //        dir = dir.normalized;
+
+    //        if (timer < shootingDuration)
+    //        {
+    //            lineBehaviour.StartPos = dir * (timer * speed);
+    //        }
+    //        else
+    //        {
+    //            transform.position += dir * Time.deltaTime * speed;
+    //        }
+    //        float angle = Vector2.Angle(transform.position + lineBehaviour.StartPos, Target.transform.position);
+    //        Debug.Log("Angle " + angle);
+    //        if (angle >= 180)
+    //        {
+    //            //Collision
+    //            StartCoroutine(FadeAwayLaser());
+
+    //            Target.GetComponent<Health>().TakeDamage(damage);
+    //            yield break;
+    //        }
+    //        yield return null;
+    //    }
+    //}
 
     public override IEnumerator Move()
     {
-
-        float timer = 0;
-        lineBehaviour.EndPos = new Vector3(0,0,0);
+        transform.rotation = Quaternion.identity;
+        lineBehaviour.EndPos = new Vector3(0, 0, 0);
+        Vector3 previousDir = Target.transform.position - transform.position;
         while (true)
         {
-            timer += Time.deltaTime;
-
             Vector3 dir = Target.transform.position - transform.position;
             dir = dir.normalized;
 
-            if (timer < shootingDuration)
-            {
-                lineBehaviour.StartPos =  dir * ( timer * speed);
-            }
-            else
-            {
-                transform.position += dir * Time.deltaTime * speed;
-                
-            }
-            if (Vector2.Angle(transform.position, Target.transform.position) >= 180)
+            Vector3 origin = shooter.transform.position;
+
+            transform.position += dir * (speed * Time.deltaTime);
+
+            float angle = Vector2.Angle(dir, previousDir);
+            if (angle >= 50)
             {
                 //Collision
                 StartCoroutine(FadeAwayLaser());
-               
+
                 Target.GetComponent<Health>().TakeDamage(damage);
                 yield break;
             }
+
+            if (Vector3.Distance(origin, transform.position) < laserLength)
+                lineBehaviour.StartPos = transform.InverseTransformPoint(origin);
+            else
+                lineBehaviour.StartPos = -dir * laserLength;
+
+            previousDir = dir;
+
             yield return null;
         }
-
-
     }
 
 
     public IEnumerator FadeAwayLaser()
     {
-        float timer = 0;
-        lineBehaviour.StartPos = Target.transform.position;
+        Vector3 dir = lineBehaviour.EndPos - lineBehaviour.StartPos;
 
-        while (timer <= shootingDuration)
+        while (true)
         {
-            timer += Time.deltaTime;
+            lineBehaviour.StartPos += dir * speed * Time.deltaTime;
 
-            Vector3 dir = Target.transform.position - lineBehaviour.EndPos;
-            dir = dir.normalized;
+            Vector3 newDir = lineBehaviour.EndPos - lineBehaviour.StartPos;
 
-            lineBehaviour.EndPos += dir* speed * Time.deltaTime;
+            float angle = Vector2.Angle(dir, newDir);
+            if (angle >= 50)
+            {
+                Destroy(gameObject);
+                break;
+            }
+
             yield return null;
         }
-        Destroy(this.gameObject);
-    }
 
+    }
 }

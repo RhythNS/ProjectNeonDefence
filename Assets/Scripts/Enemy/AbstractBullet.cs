@@ -28,6 +28,8 @@ public abstract class AbstractBullet : MonoBehaviour
     protected Vector3 destination;
     private ITargetable target;
 
+    public Transform shooter;
+
     public abstract IEnumerator Move();
 
     //public virtual void OnCollisionEnter(Collision collision)

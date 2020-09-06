@@ -9,8 +9,7 @@ public class RangedAttackTankBehaviour : AttackBehaviour
     {
         attackThreshold = data.AttackThreshold;
         range = data.Range;
-        laserPrefab = data.LaserPrefab;
-        meeleBulletPrefab = data.MeeleBullet;
+        meeleBulletPrefab = data.BulletPrefab;
     }
 
     protected override void SetIdealTargetable(Collider[] towerInSphere)

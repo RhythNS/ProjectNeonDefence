@@ -6,7 +6,7 @@
 
 public abstract class Entity : ITargetable
 {
-    public Transform Aimpoint;
+    public Transform[] Aimpoint;
 
     public Health Health { get; protected set; }
 }
