@@ -16,8 +16,6 @@ public class Tower : Entity
 
     public int CurrentValue;
 
-    
-
     public Animator Animator { get; private set; }
 
     public int Range;

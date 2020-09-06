@@ -15,6 +15,12 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         CurrentHealth -= amount;
+        /*if(TryGetComponent<FloatingTextBehaviour>(out FloatingTextBehaviour behaviour))
+        {
+            behaviour.ShowText(amount.ToString(),1);
+        }*/
+        
+        
         if (CurrentHealth <= 0)
         {
             GetComponent<IDieable>().Die();

@@ -6619,6 +6619,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2746743900198337792, guid: 356c2960f5e38804ca0e6d39bccfce7f,
+        type: 3}
+      propertyPath: toChange
+      value: 
+      objectReference: {fileID: 282300864767968181, guid: 479b41c80f7325247bcd4c92862d56e8,
+        type: 3}
     - target: {fileID: 7107000771279002916, guid: 356c2960f5e38804ca0e6d39bccfce7f,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -6639,6 +6645,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7107000771362124565, guid: 356c2960f5e38804ca0e6d39bccfce7f,
+        type: 3}
+      propertyPath: spawnTiles
+      value: 
+      objectReference: {fileID: 7346616180756234253, guid: 7e9fda9d5bbf7904bbe4b114c6c4cfab,
+        type: 3}
     - target: {fileID: 7107000772923380932, guid: 356c2960f5e38804ca0e6d39bccfce7f,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -6674,6 +6686,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8354018877210636326, guid: 356c2960f5e38804ca0e6d39bccfce7f,
+        type: 3}
+      propertyPath: toChange
+      value: 
+      objectReference: {fileID: 4728892382492795770, guid: 9e13c57c5f5629b4885a7e5e60479454,
+        type: 3}
     - target: {fileID: 9023497247484801966, guid: 356c2960f5e38804ca0e6d39bccfce7f,
         type: 3}
       propertyPath: m_LocalPosition.x

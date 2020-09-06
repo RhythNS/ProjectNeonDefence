@@ -182,6 +182,7 @@ MonoBehaviour:
   towerEffectiveRange: 5
   towerBulletCooldownSeconds: 4
   towerManagerMaxTowersCheckedPerFrame: 3
+  sellMoneyRegainPercentage: 0.5
 --- !u!114 &4738690682815809489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
   - {fileID: 4842079735794330078, guid: bf5b96a3ebee9de499d6b1822352d2b9, type: 3}
   spawnTiles: {fileID: 7346616180756234253, guid: 7e9fda9d5bbf7904bbe4b114c6c4cfab,
     type: 3}
-  homeTile: {fileID: 5287381008547901935, guid: 7a7513e03123308488a3f2388d50c2a0,
+  homeTile: {fileID: 7936525935336692752, guid: 3b438882dd45d0846b380fd9b799dfb3,
     type: 3}
   tileSize: {x: 4, y: 4}
   offset: {x: 0, y: 0, z: 0}
@@ -283,4 +284,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94ac430e7983fc4e8d3341b5b5ec9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyDisplay: {fileID: 0}
   currentMoney: 0

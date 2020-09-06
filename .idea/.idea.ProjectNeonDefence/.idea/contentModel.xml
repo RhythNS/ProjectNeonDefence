@@ -909,6 +909,7 @@
           </e>
           <e p="UI" t="Include">
             <e p="ChangeTurrent.cs" t="Include" />
+            <e p="FloatingTextBehaviour.cs" t="Include" />
             <e p="GameOverManager.cs" t="Include" />
             <e p="PooledAudioPlayer.cs" t="Include" />
             <e p="UIManager.cs" t="Include" />
@@ -920,6 +921,7 @@
               <e p="Fast2DArray.cs" t="Include" />
               <e p="StringUtil.cs" t="Include" />
             </e>
+            <e p="LoadScene.cs" t="Include" />
             <e p="Math" t="Include">
               <e p="MathUtil.cs" t="Include" />
               <e p="VectorUtil.cs" t="Include" />
@@ -928,6 +930,7 @@
               <e p="PathTestBehaviour.cs" t="Include" />
               <e p="SimpleAStar.cs" t="Include" />
             </e>
+            <e p="QuitGame.cs" t="Include" />
             <e p="Unity" t="Include">
               <e p="Comparators.cs" t="Include" />
               <e p="EnumeratorUtil.cs" t="Include" />

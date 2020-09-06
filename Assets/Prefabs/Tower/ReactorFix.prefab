@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3497090773728784592}
   - component: {fileID: 282300864767968181}
   - component: {fileID: 7426291189055928480}
+  - component: {fileID: -721457327178302721}
   m_Layer: 9
   m_Name: ReactorFix
   m_TagString: Untagged
@@ -229,6 +230,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-721457327178302721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5483465395599115200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7ef39611595b74abd6007608e7931a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingText: {fileID: 10174455360851883, guid: acde2971cce2f024b87b0a97a3e98182,
+    type: 3}
 --- !u!1001 &6387935730197102488
 PrefabInstance:
   m_ObjectHideFlags: 0

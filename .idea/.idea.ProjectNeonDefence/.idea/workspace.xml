@@ -23,8 +23,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="925adb85-368c-4738-80cf-3617525e5d86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/1/Wave 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Levels/1/Wave 1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Font/cyberdynecondital.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Font/cyberdynecondital.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/FloatingText.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/FloatingText.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/FloatingTextBehaviour.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/FloatingTextBehaviour.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Globals.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Globals.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tower/AllyMid Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tower/AllyMid Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tower/GravityTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tower/GravityTower.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tower/MoneyTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tower/MoneyTower.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tower/P_AllyDrone Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tower/P_AllyDrone Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tower/P_Spawner Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tower/P_Spawner Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tower/ReactorFix.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tower/ReactorFix.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/WessonScene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WessonScene2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/LaserBulletBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/LaserBulletBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entities/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entities/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +62,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/AOEBullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tower/SingleShotTowerDebugBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dicts/MaterialDict.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FloatingTextBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FB001E01-371B-4ADC-A200-13E0AC763896/17/e04d3a6f/Int64.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tower/SingleShotTower.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/GravityTowerBullet.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,7 +92,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/Math/MathUtil.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Entities/ITargetable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Entities/Health.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/TowerDebugBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/SingleBulletTower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/LaserBullet.cs" />
@@ -99,10 +119,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MeeleAttackBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/TurretClickController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/CameraController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Drone.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager/MoneyManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/SingleShotTower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tower/MoneyTower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Level/Level.cs" />
@@ -112,6 +130,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/PooledAudioPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Input/Selectable/SimpleSelectable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/World/World.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FloatingTextBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/Tower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Entities/Health.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tower/GravityTower.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/LaserBulletBehaviour.cs" />
       </list>
     </option>
   </component>
@@ -272,14 +295,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599400114881" />
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1599402950434">
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog" timestamp="1599409860699">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599402950434" />
+    <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599409860699" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599335319874">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599335319874" />
+    <state x="621" y="253" width="678" height="534" key="find.popup" timestamp="1599408345970">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="621" y="253" width="678" height="534" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599408345970" />
     <state x="733" y="394" width="621" height="457" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1599401068264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -288,24 +315,24 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599353275856" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599403510420">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599410430589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1599383782947" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599403510420" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1599410430589" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Tower/GravityTower.cs</url>
-          <line>71</line>
+          <line>72</line>
           <properties documentPath="D:\Unity\Projects\ProjectNeonDefence\Assets\Scripts\Tower\GravityTower.cs" initialLine="72">
             <startOffsets>
-              <option value="1867" />
+              <option value="1653" />
             </startOffsets>
             <endOffsets>
-              <option value="1895" />
+              <option value="1681" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />

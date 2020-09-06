@@ -66,7 +66,11 @@ public class LaserBulletBehaviour : AbstractBullet
 
             Vector3 dir = lastSeenPosition - transform.position;
             dir = dir.normalized;
-
+            if (!shooter)
+            {
+                Destroy(gameObject);
+                break;
+            }
             Vector3 origin = shooter.transform.position;
 
             transform.position += dir * (speed * Time.deltaTime);
