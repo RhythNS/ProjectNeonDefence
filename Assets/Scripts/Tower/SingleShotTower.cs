@@ -8,7 +8,6 @@ public class SingleShotTower : Tower
     public float currentCooldown;
     public MeeleBullet baseBullet;
 
-
     void Update()
     {
         currentCooldown += Time.deltaTime;
@@ -43,21 +42,23 @@ public class SingleShotTower : Tower
 
     public override bool Upgrade()
     {
-        if (!nextUpgradePath) nextUpgradePath = upgradePaths[0];
+        if (nextUpgradePath == null) nextUpgradePath = upgradePaths[0];
         
         if (MoneyManager.Instance.CurrentMoney < nextUpgradePath.Cost)
         {
             return false;
         }
-
+        if (rank > upgradePaths.Length) return false;
+        
+        MoneyManager.Instance.ModifyMoney(-nextUpgradePath.cost);
         this.timeBetweenShots = nextUpgradePath.TimeBetweenShots;
         if (rank < upgradePaths.Length)
-            nextUpgradePath = upgradePaths[rank - 1];
+            nextUpgradePath = upgradePaths[rank];
         rank++;
         return true;
     }
-
-    public class UpgradePath: Component
+    [System.Serializable]
+    public class UpgradePath
     {
         public int cost;
         public float timeBetweenShots;

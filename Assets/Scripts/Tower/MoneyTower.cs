@@ -25,25 +25,31 @@ public class MoneyTower : Tower
     
     public override bool Upgrade()
     {
-        if (!nextUpgradePath) nextUpgradePath = upgradePaths[0];
-        if (MoneyManager.Instance.CurrentMoney < nextUpgradePath.Cost)
+        if (nextUpgradePath == null) nextUpgradePath = upgradePaths[0];
+        int currentMoney = MoneyManager.Instance.CurrentMoney;
+        if (currentMoney < nextUpgradePath.Cost)
         {
             return false;
         }
 
+        if (rank > upgradePaths.Length) return false;
+        
+        MoneyManager.Instance.ModifyMoney(-nextUpgradePath.cost);
+        
         this.moneyYield = nextUpgradePath.MoneyYield;
         this.moneyGrandCooldown = nextUpgradePath.MoneyGrandCooldown;
+        
         if (rank < upgradePaths.Length)
-            nextUpgradePath = upgradePaths[rank - 1];
+            nextUpgradePath = upgradePaths[rank];
         rank++;
         return true;
     }
-
-    public class UpgradePath : Component
+    [System.Serializable]
+    public class UpgradePath 
     {
-        int cost;
-        private int moneyYield;
-        float moneyGrandCooldown;
+        public int cost;
+        public int moneyYield;
+        public float moneyGrandCooldown;
 
         public int Cost
         {

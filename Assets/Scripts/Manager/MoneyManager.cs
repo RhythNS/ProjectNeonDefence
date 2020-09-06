@@ -31,8 +31,8 @@ public class MoneyManager : MonoBehaviour
 
     public bool CanPlaceTower(Tower tower)
     {
-        // TODO: the thing
-        return true;
+        Debug.Log("Tower="+tower.cost+" Current="+currentMoney);
+        return currentMoney >= tower.cost;
     }
 
     public void ModifyMoney(int amount)

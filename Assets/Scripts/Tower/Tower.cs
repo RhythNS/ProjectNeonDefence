@@ -12,7 +12,8 @@ public class Tower : Entity
     // Current list of all enemies in range
     // Is maintained by the GameManager
     public List<Enemy> enemiesInRange { get; private set; } = new List<Enemy>();
-
+    public int cost;
+    
 
     public int Range;
 

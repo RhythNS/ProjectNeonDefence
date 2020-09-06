@@ -87,11 +87,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Aimpoint: {fileID: 0}
   targetEnemy: {fileID: 0}
+  cost: 5
   Range: 20
   timeBetweenShots: 0.1
   currentCooldown: 0
   baseBullet: {fileID: 8212137288850585430, guid: 4bc0686f2096c4c4e8e3bacdcf09896d,
     type: 3}
+  upgradePaths: []
 --- !u!1 &2847134907261684132
 GameObject:
   m_ObjectHideFlags: 0

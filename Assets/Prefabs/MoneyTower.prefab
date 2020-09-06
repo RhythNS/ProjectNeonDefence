@@ -111,6 +111,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Aimpoint: {fileID: 0}
   targetEnemy: {fileID: 0}
+  cost: 5
   Range: 0
   moneyGrandCooldown: 2
   moneyYield: 1
+  upgradePaths:
+  - cost: 5
+    moneyYield: 3
+    moneyGrandCooldown: 2
+  - cost: 10
+    moneyYield: 3
+    moneyGrandCooldown: 1

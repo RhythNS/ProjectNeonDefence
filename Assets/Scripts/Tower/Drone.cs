@@ -128,7 +128,7 @@ public class Drone : ITargetable
 
     protected Enemy GetNewTarget(List<Enemy> enemiesInRange)
     {
-        if (enemiesInRange == null || enemiesInRange.Count == 0)
+        if (!this || enemiesInRange == null || enemiesInRange.Count == 0)
             return null;
 
         Enemy nearestEnemy = enemiesInRange[0];

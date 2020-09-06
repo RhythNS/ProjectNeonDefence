@@ -32,6 +32,8 @@ public class CameraController : MonoBehaviour
     private Vector3 selectMousePos;
     private Vector3 currentMousePos;
 
+    public Camera AttachedCamera => attachedCamera;
+
     private void Awake()
     {
         Instance = this;
@@ -71,6 +73,7 @@ public class CameraController : MonoBehaviour
                     && tile.Tower == null)
                 {
                     World.Instance.PlaceTurret(SelectedTower, tile);
+                    MoneyManager.Instance.ModifyMoney(-SelectedTower.cost);
                 }
                 else
                 {
