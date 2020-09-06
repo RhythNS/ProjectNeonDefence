@@ -16,6 +16,6 @@ MonoBehaviour:
   moneyDrop: 0
   behaviours:
   - {fileID: 11400000, guid: 84148cc4edd787c4994a8d9f91afd0d2, type: 2}
-  model: {fileID: 1226926617849254662, guid: a764f6508193cb848ad6f162e80fcfa9, type: 3}
-  speed: 4
+  model: {fileID: 2714077707128454695, guid: 3644165ca1eb81740a1ad4d7ba9a58e5, type: 3}
+  speed: 2
   homeDamage: 1

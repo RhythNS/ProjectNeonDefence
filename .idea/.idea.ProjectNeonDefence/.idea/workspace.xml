@@ -23,13 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="925adb85-368c-4738-80cf-3617525e5d86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectNeonDefence/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/1/Level 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Levels/1/Level 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tower/GravityTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tower/GravityTower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tower/Reactor Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tower/Reactor Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameOverScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameOverScreen.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/Selectable/SimpleSelectable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/Selectable/SimpleSelectable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/World/World.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/World/World.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/1/Wave 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Levels/1/Wave 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WessonScene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WessonScene2.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
