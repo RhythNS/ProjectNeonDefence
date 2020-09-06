@@ -7,6 +7,7 @@ public class SingleShotTower : Tower
     public float timeBetweenShots;
     public float currentCooldown;
     public MeeleBullet baseBullet;
+    private int currenAimPoint = 0;
 
     void Update()
     {
@@ -19,11 +20,15 @@ public class SingleShotTower : Tower
     {
         if (targetEnemy)
         {
+            this.transform.LookAt(targetEnemy.transform.position);
             currentCooldown = 0;
             MeeleBullet newBullet = Instantiate(baseBullet);
-            newBullet.transform.position = transform.position;
+            newBullet.transform.position = Aimpoint[currenAimPoint].position;
             newBullet.Target = targetEnemy;
+            ++currenAimPoint;
+            currenAimPoint %= Aimpoint.Length;
         }
+       
     }
 
 

@@ -27,7 +27,6 @@ public class Tower : Entity
     /// </summary>
     public void Awake()
     {
-        GameManager.Instance.AliveTowers.Add(this);
         EnemyPathManager.Instance.OnWorldChange();
         Animator = GetComponentInChildren<Animator>();
         CurrentValue = cost;
@@ -36,6 +35,7 @@ public class Tower : Entity
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.AliveTowers.Add(this);
         Health = GetComponent<Health>();
         if (Health == null)
             Debug.LogError("TOWER " + name + " HAS NO HEALTH ATTACHED TO IT! PLEASE ADD ONE AND A DIABLE BEFORE CONTINUING!");
