@@ -854,6 +854,7 @@
           <e p="Enemy" t="Include">
             <e p="AbstractBullet.cs" t="Include" />
             <e p="AOEBullet.cs" t="Include" />
+            <e p="AttackBehaviour.cs" t="Include" />
             <e p="Enemy.cs" t="Include" />
             <e p="EnemyPathManager.cs" t="Include" />
             <e p="Entity.cs" t="Include" />
@@ -925,6 +926,7 @@
             <e p="ChangeTurrent.cs" t="Include" />
             <e p="GameOverManager.cs" t="Include" />
             <e p="UIManager.cs" t="Include" />
+            <e p="UpgradeManager.cs" t="Include" />
           </e>
           <e p="Utils" t="Include">
             <e p="DataTypes" t="Include">

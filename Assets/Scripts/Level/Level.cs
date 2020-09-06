@@ -8,4 +8,7 @@ public class Level : ScriptableObject
     public Wave[] waves;
 
     public int startingMoney;
+
+    public int startingHealth;
+
 }

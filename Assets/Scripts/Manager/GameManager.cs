@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void OnGameLoose()
     {
-        Debug.Log("You lost the game");
+        SceneManager.LoadScene("GameOverScreen");
     }
 
     public void LoadLevel(Level level)
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour
         MoneyManager.Instance.CurrentMoney = CurrentLevel.startingMoney;
         GetComponent<WorldGen>().Generate(level.worldGenSettings);
         EnemyPathManager.Instance.OnNextLevel();
+        GameManager.Instance.remainingHealth = level.startingHealth;
         OnWaveEnded();
     }
 

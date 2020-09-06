@@ -117,8 +117,9 @@ public class Enemy : Entity
 
     private void OnHomeReached()
     {
+        Debug.Log(GameManager.Instance.RemainingHealth - homeDamage);
         GameManager.Instance.RemainingHealth -= homeDamage;
-
+        
         GameManager.Instance.AliveEnemies.Remove(this);
         Destroy(this.gameObject);
     }
