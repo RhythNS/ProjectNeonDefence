@@ -1,9 +1,19 @@
 ﻿using UnityEngine;
 using VolumetricLines;
 
-public class RangedAttackBehaviour : MeeleAttackBehaviour
+public class RangedAttackTankBehaviour : MeeleAttackBehaviour
 {
     [SerializeField] private VolumetricLineBehavior laserPrefab;
+
+    public void Set(RangedAttackBehaviourData data)
+    {
+        attackThreshold = data.AttackThreshold;
+        range = data.Range;
+        laserPrefab = data.LaserPrefab;
+        meeleBulletPrefab = data.MeeleBullet;
+    }
+
+
 
     protected override void SetIdealTargetable(Collider[] towerInSphere)
     {

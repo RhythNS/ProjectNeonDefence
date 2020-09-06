@@ -9,7 +9,7 @@ public class LaserBulletBehaviour : AbstractBullet
 
     [SerializeField] private float shootingDuration;
 
-
+    [SerializeField]
     private VolumetricLineBehavior lineBehaviour;
 
 

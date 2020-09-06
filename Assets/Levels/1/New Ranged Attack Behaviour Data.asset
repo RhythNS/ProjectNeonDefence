@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0aedfcc5ffae254586a106a4b8afcf7, type: 3}
-  m_Name: Wave 1
+  m_Script: {fileID: 11500000, guid: cd61b883cf645ed43a63b9804edd0b70, type: 3}
+  m_Name: New Ranged Attack Behaviour Data
   m_EditorClassIdentifier: 
-  enemies:
-  - timePerSpawn: 2
-    amount: 30
-    enemyData: {fileID: 11400000, guid: 66cbaaf256af2e6478c0cd0f1b815f97, type: 2}
-    spawnPoint: 0
+  Range: 3
+  AttackThreshold: 2
+  laserPrefab: {fileID: 5591297002177742502, guid: ee252d3206b29c740b24831f04d06a70,
+    type: 3}

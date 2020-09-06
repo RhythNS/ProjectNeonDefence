@@ -26,7 +26,7 @@ namespace VolumetricLines
 	[RequireComponent(typeof(MeshFilter))]
 	[RequireComponent(typeof(MeshRenderer))]
 	[ExecuteInEditMode]
-	public class VolumetricLineBehavior : MonoBehaviour 
+	public class VolumetricLineBehavior : MonoBehaviour
 	{
 		// Used to compute the average value of all the Vector3's components:
 		static readonly Vector3 Average = new Vector3(1f/3f, 1f/3f, 1f/3f);

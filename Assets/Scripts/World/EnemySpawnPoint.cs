@@ -18,6 +18,8 @@ public class EnemySpawnPoint : MonoBehaviour
         {
             if (data.behaviours[i] is MeleeAttackBehaviourData meleeAttack)
                 enemyObject.AddComponent<MeeleAttackBehaviour>().Set(meleeAttack);
+            else if (data.behaviours[i] is RangedAttackBehaviourData rangedAttack)
+                enemyObject.AddComponent<RangedAttackTankBehaviour>().Set(rangedAttack);
         }
     }
 }
