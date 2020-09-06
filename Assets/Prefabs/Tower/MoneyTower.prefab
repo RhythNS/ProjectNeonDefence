@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8421779784428221983}
   - component: {fileID: -2594096160079040085}
   - component: {fileID: -1353723930011780074}
+  - component: {fileID: 4422748331098538919}
+  - component: {fileID: -4664671511766247731}
   m_Layer: 9
   m_Name: MoneyTower
   m_TagString: Untagged
@@ -110,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03eebc4a354a844409a6d5ba04a3b2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Aimpoint: {fileID: 0}
+  Aimpoint:
+  - {fileID: 0}
   targetEnemy: {fileID: 0}
   cost: 5
   CurrentValue: 0
@@ -134,5 +137,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 369db84c0df959c408a302f3522068d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4422748331098538919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813068669579764205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca53b857cc2097747aba6c437f464afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4664671511766247731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813068669579764205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095266284b36fb84790dca99657bc876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

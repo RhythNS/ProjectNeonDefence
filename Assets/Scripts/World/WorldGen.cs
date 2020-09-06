@@ -41,16 +41,28 @@ public class WorldGen : MonoBehaviour
                 if (isSpawnPoint == true)
                     gameObject = Instantiate(spawnTiles, world.transform);
                 else if (x == 0 || x == settings.sizeX - 1 || y == 0 || y == settings.sizeY - 1)
+                {
                     gameObject = Instantiate(ArrayUtil<GameObject>.RandomElement(borderTiles), world.transform);
+                    //TODO remove when the models are finished
+                    gameObject.transform.localScale = new Vector3(tileSize.x, 1, tileSize.y);
+                }
                 else if (settings.homePosition.x == x && settings.homePosition.y == y)
                 {
                     gameObject = Instantiate(homeTile, world.transform);
                     gameObject.AddComponent<Home>();
                 }
                 else if (isBuildable = Random.value < settings.unblockablePercentange)
+                {
                     gameObject = Instantiate(ArrayUtil<GameObject>.RandomElement(unbuildableTiles), world.transform);
+                    //TODO remove when the models are finished
+                    gameObject.transform.localScale = new Vector3(tileSize.x, 1, tileSize.y);
+                }
                 else
+                {
                     gameObject = Instantiate(ArrayUtil<GameObject>.RandomElement(buildableTiles), world.transform);
+                    //TODO remove when the models are finished
+                    gameObject.transform.localScale = new Vector3(tileSize.x, 1, tileSize.y);
+                }
 
                 Tile tile = gameObject.AddComponent<Tile>();
                 tile.Set(isBuildable, x, y);
@@ -63,8 +75,6 @@ public class WorldGen : MonoBehaviour
 
                 gameObject.transform.position = pos;
 
-                // TODO: PLEASE REMOVE THIS AFTER REPLACING THE MODELS
-                gameObject.transform.localScale = new Vector3(tileSize.x, 1, tileSize.y);
             }
         }
 
