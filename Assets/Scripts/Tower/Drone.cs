@@ -42,7 +42,12 @@ public class Drone : MonoBehaviour, ITargetable
 
     public Vector3 GetCurrentPosition() => transform.position;
 
-    public GameObject GetGameObject() => gameObject;
+    public GameObject GetGameObject()
+    {
+        if (!gameObject)
+            return null;
+        return gameObject;
+    }
 
     public void Set(DroneTower parent, Enemy target, float speed, int health, int damage, float damagePerSeconds, float aliveTime)
     {
@@ -110,7 +115,7 @@ public class Drone : MonoBehaviour, ITargetable
         currentTile = World.Instance.Tiles.Get(currPosition.x, currPosition.y);
         targetWalkingTile = World.Instance.Tiles.Get(targetPosition.x, targetPosition.y);
 
-        return new SimpleAStar().GeneratePath(
+        path = new SimpleAStar().GeneratePath(
             currentTile,
             targetWalkingTile, true);
         SetNewDestination();
