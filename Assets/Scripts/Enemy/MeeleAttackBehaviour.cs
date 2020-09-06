@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 public class MeeleAttackBehaviour : MonoBehaviour, IBehaviour
 {
     [SerializeField] protected int range;
-    [FormerlySerializedAs("bulletPrefab")] [SerializeField] protected AbstractBullet meeleBulletPrefab;
+    [FormerlySerializedAs("bulletPrefab")] [SerializeField] protected MeeleBullet meeleBulletPrefab;
 
     [SerializeField] protected float attackThreshold;
     public ITargetable AttackingTarget { get; protected set; }
