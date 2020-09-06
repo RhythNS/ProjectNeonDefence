@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: 438bc4c98ff827141b293f4e819fc8fa
   - enabled: 1
-    path: Assets/Scenes/GameOverScreen.unity
-    guid: 41a75e630238d0641b4db1d034acea82
-  - enabled: 1
-    path: Assets/Scenes/WessonScene2.unity
-    guid: 952203511df02f14eaa552963da4781e
+    path: Assets/Scenes/MainGameScene.unity
+    guid: 8fab40f1a14cf7d458a9401a688ae51d
   m_configObjects: {}
